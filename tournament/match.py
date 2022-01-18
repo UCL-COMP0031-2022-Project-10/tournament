@@ -48,4 +48,4 @@ class Match:
         *_, (moves, scores) = self.play_moves(
             continuation_probability=continuation_probability, limit=limit, noise=noise
         )
-        return moves, scores
+        return scores
