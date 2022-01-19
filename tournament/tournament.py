@@ -1,25 +1,27 @@
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from typing import List
+
+from tqdm import tqdm
 
 from tournament.agent import Agent
 from tournament.match import Match
 
 
-def _play_match(x):
+def _play_match(a, b, repetitions, continuation_probability, limit, noise):
     scores_a = []
     scores_b = []
 
-    for _ in range(x[2]):
-        score_a, score_b = Match(x[0](), x[1]()).play(
-            continuation_probability=x[3],
-            limit=x[4],
-            noise=x[5],
+    for _ in range(repetitions):
+        score_a, score_b = Match(a(), b()).play(
+            continuation_probability=continuation_probability,
+            limit=limit,
+            noise=noise,
         )
 
         scores_a.append(score_a)
         scores_b.append(score_b)
 
-    return x[0], x[1], scores_a, scores_b
+    return a, b, scores_a, scores_b
 
 
 class RoundRobinTournament:
@@ -36,14 +38,26 @@ class RoundRobinTournament:
     ):
         scores = {agent: [] for agent in self.agents}
         with ProcessPoolExecutor(max_workers=jobs) as executor:
-            for a, b, scores_a, scores_b in executor.map(
-                _play_match,
-                [
-                    (a, b, repetitions, continuation_probability, limit, noise)
-                    for a in self.agents
-                    for b in self.agents
-                ],
+            futures = [
+                executor.submit(
+                    _play_match,
+                    a,
+                    b,
+                    repetitions,
+                    continuation_probability,
+                    limit,
+                    noise,
+                )
+                for a in self.agents
+                for b in self.agents
+            ]
+
+            for future in tqdm(
+                as_completed(futures),
+                total=(len(self.agents) ** 2),
+                unit="matches",
             ):
+                a, b, scores_a, scores_b = future.result()
                 scores[a].extend(scores_a)
                 scores[b].extend(scores_b)
 
