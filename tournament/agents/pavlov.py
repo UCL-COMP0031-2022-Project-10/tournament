@@ -12,9 +12,9 @@ class Pavlov(Agent):
             return Action.COOPERATE
         else:
             # previously same choice, then COOPERATE
-            if (rtsp_list(history, opp_history)[-1] == 0 or 3):
+            previous = rtsp_list(history, opp_history)[-1]
+            if previous == 0 or previous == 3:
                 return Action.COOPERATE
-
             # previously different choice, then DEFECT
-            else: # if rtsp_list[-1] == 1 or 2
+            else:  # if rtsp_list[-1] == 1 or 2
                 return Action.DEFECT
