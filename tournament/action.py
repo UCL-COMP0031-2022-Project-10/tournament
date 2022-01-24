@@ -1,7 +1,7 @@
-from enum import IntEnum
+from enum import Enum
 
 
-class Action(IntEnum):
+class Action(Enum):
     COOPERATE = 1
     DEFECT = 2
 
