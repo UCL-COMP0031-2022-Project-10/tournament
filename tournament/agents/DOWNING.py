@@ -1,5 +1,4 @@
 from typing import List, Tuple
-import random
 
 from tournament.action import Action
 from tournament.agent import Agent 
@@ -11,7 +10,7 @@ class Downing(Agent):
         self._num_coop_following_coop = 0 # num of times opp has cooperated after Downing has cooperated. 
         self._num_coop_following_defect = 0 # num of times opp has cooperated after Downing has defected. 
 
-    def _calc_conditional_probs(self, history: List[Agent], opp_history: List[Agent]) -> Tuple[float, float]:
+    def _calc_conditional_probs(self, history: List[Agent]) -> Tuple[float, float]:
 
         alpha = self._num_coop_following_coop / (history.count(Action.COOPERATE) + 1) # add 1 to remove divide by zero error. We assume in the nonexistent round 0, Downing cooperated.
         beta = self._num_coop_following_defect / (history.count(Action.DEFECT)) 
@@ -41,7 +40,7 @@ class Downing(Agent):
         if opp_history[-1] == Action.COOPERATE and history[-2] == Action.DEFECT:
             self._num_coop_following_defect += 1
 
-        alpha, beta = self._calc_conditional_probs()
+        alpha, beta = self._calc_conditional_probs(history)
         ev_c = alpha * 3 + (1 - alpha) * 0
         ev_d = beta * 5 + (1 - beta) * 1
         if ev_c > ev_d:

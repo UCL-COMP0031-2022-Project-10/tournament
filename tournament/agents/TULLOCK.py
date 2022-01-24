@@ -1,5 +1,5 @@
 from typing import List
-import random
+from random import random
 
 from tournament.action import Action
 from tournament.agent import Agent 
@@ -15,7 +15,7 @@ class Tullock(Agent):
         # 1) Calculate % of cooperate moves by opponent over the last 10 moves
         # 2) Tullock cooperates with probability (% of coop - 10). If % of coop < 0.1, defect.
         # % of cooperation moves by opp over the last 10 moves.
-        percent_coop = len(opp_history[-10:].count(Action.COOPERATE)) / 10
+        percent_coop = opp_history[-10:].count(Action.COOPERATE) / 10
         if percent_coop <= 0.1:
             return Action.DEFECT
         

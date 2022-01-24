@@ -1,4 +1,4 @@
-import random
+from random import random
 from typing import List
 
 from tournament.agent import Action
@@ -7,6 +7,9 @@ from tournament.agent import Agent
 class Joss(Agent):
 
     def play_move(self, history: List[Agent], opp_history: List[Agent]) -> Action:
+
+        if not history:
+            return Action.DEFECT
 
         if opp_history[-1] == Action.DEFECT:
             # always defect if opp defects

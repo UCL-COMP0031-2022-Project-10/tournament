@@ -1,5 +1,5 @@
 from typing import List
-import random
+from random import random
 
 from tournament.action import Action
 from tournament.agent import Agent 
@@ -12,6 +12,9 @@ class Feld(Agent):
         self._prob_coop = 1 # probability of cooperating after a cooperation by opp.
 
     def play_move(self, history: List[Agent], opp_history: List[Agent]) -> Action:
+
+        if not history:
+            return Action.COOPERATE
 
         if opp_history[-1] == Action.DEFECT:
             # always defect if opp defected.
