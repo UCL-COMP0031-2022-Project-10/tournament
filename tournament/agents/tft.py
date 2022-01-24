@@ -4,6 +4,7 @@ from tournament.action import Action
 from tournament.agent import Agent
 from tournament.match import PAYOFF_MATRIX
 
+
 class TitForTat(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         # Cooperate initially
@@ -24,7 +25,7 @@ class OmegaTFT(Agent):
     """
 
     def __init__(
-        self, deadlock_threshold: int = 3, randomness_threshold: int = 8
+            self, deadlock_threshold: int = 3, randomness_threshold: int = 8
     ):
         """
         deadlock_threshold: the threshold for deadlock detection.
@@ -81,24 +82,28 @@ class OmegaTFT(Agent):
                     self.deadlock_counter = 0
         return move
 
-# defect on oppnent's two consecutive defection
+
+# defect on opponent's two consecutive defection
 class TFTT(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         if len(opp_history) >= 2 and (opp_history[-1] == Action.DEFECT and opp_history[-2] == Action.DEFECT):
             return Action.DEFECT
-        else: 
+        else:
             return Action.COOPERATE
 
-# defect twice on oppnent's a single defection
+
+# defect twice on opponent's a single defection
 class TTFT(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        if (not opp_history) or (len(opp_history) == 1 and opp_history[-1] == Action.COOPERATE) or (len(opp_history) >= 2 and opp_history[-1] == Action.COOPERATE and opp_history[-2] == Action.COOPERATE):
+        if (not opp_history) or (len(opp_history) == 1 and opp_history[-1] == Action.COOPERATE) or (
+                len(opp_history) >= 2 and opp_history[-1] == Action.COOPERATE and opp_history[-2] == Action.COOPERATE):
             return Action.COOPERATE
         else:
             return Action.DEFECT
 
-# TFT with two differences: 
-# (1) an addtional defection for each time the opponent defects
+
+# TFT with two differences:
+# (1) an additional defection for each time the opponent defects
 # (2) having retaliated, cooperate twice
 class GradualTFT(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
@@ -116,16 +121,16 @@ class GradualTFT(Agent):
             opp_defect_count += 1 if i == Action.DEFECT else 0
         for i in history:
             self_defect_count += 1 if i == Action.DEFECT else 0
-        
+
         should_defect_total = 0
         for i in range(opp_defect_count):
             should_defect_total += i + 1
-        
-        # countting where we are in the retaliation series
+
+        # counting where we are in the retaliation series
         cur_retaliation_series_count = 0
         retaliation_to_complete_cur_series = 0
         copy_self_defect_count = self_defect_count
-        while(copy_self_defect_count > 0):
+        while copy_self_defect_count > 0:
             cur_retaliation_series_count += 1
             copy_self_defect_count -= cur_retaliation_series_count
             retaliation_to_complete_cur_series += cur_retaliation_series_count
@@ -145,6 +150,7 @@ class GradualTFT(Agent):
         else:
             return Action.COOPERATE
 
+
 # Following a defection, cooperate with a probability
 class GenerousTFT(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
@@ -159,5 +165,3 @@ class GenerousTFT(Agent):
             return Action.COOPERATE
         else:
             return Action.COOPERATE if (generosity * 0 == 0) else Action.DEFECT
-
-
