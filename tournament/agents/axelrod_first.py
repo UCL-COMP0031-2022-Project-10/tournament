@@ -1,13 +1,11 @@
+from collections import Counter
 from typing import List, Optional
 
 import numpy.random
-
+from numpy.random import RandomState
+from scipy.stats import chisquare
 from tournament.action import Action
 from tournament.agent import Agent
-
-from scipy.stats import chisquare
-from collections import Counter
-from numpy.random import RandomState
 
 C, D = Action.COOPERATE, Action.DEFECT
 
@@ -125,9 +123,7 @@ class Graaskamp(Agent):
 
         # Check if opponent is random
         p_value = chisquare([num_c, num_d]).pvalue
-        self.opponent_is_random = (
-                                          p_value >= self.alpha
-                                  ) or self.opponent_is_random
+        self.opponent_is_random = (p_value >= self.alpha) or self.opponent_is_random
 
         # If so, defect for the rest of the game
         if self.opponent_is_random:
@@ -136,11 +132,8 @@ class Graaskamp(Agent):
 
         # Check if opponent is Tit For Tat or a clone of itself
         if (
-                all(
-                    opp_history[i] == history[i - 1]
-                    for i in range(1, len(history))
-                )
-                or opp_history == history
+            all(opp_history[i] == history[i - 1] for i in range(1, len(history)))
+            or opp_history == history
         ):
             # If so, play TFT
             # print("Graaskamp: playing " + str(opp_history[-1]))
@@ -148,10 +141,14 @@ class Graaskamp(Agent):
 
         # Otherwise, randomly defect every 5 to 15 moves
         if self.next_random_defection_turn is None:
-            self.next_random_defection_turn = RandomState().randint(5, 15) + len(history)
+            self.next_random_defection_turn = RandomState().randint(5, 15) + len(
+                history
+            )
 
         if len(history) == self.next_random_defection_turn:
-            self.next_random_defection_turn = RandomState().randint(5, 15) + len(history)
+            self.next_random_defection_turn = RandomState().randint(5, 15) + len(
+                history
+            )
             # print("Graaskamp: playing D")
             return Action.DEFECT
 
@@ -161,33 +158,33 @@ class Graaskamp(Agent):
 
 class Shubik(Agent):
     """
-   Submitted to Axelrod's first tournament by Martin Shubik.
-   The description written in [Axelrod1980]_ is:
-   > This rule cooperates until the other defects, and then defects once. If
-   > the other defects again after the rule's cooperation is resumed, the rule
-   > defects twice. In general, the length of retaliation is increased by one for
-   > each departure from mutual cooperation. This rule is described with its
-   > strategic implications in Shubik (1970). Further treatment of its is given
-   > in Taylor (1976).
-   There is some room for interpretation as to how the strategy reacts to a
-   defection on the turn where it starts to cooperate once more. In Shubik
-   (1970) the strategy is described as:
-   > "I will play my move 1 to begin with and will continue to do so, so long
-   > as my information shows that the other player has chosen his move 1. If my
-   > information tells me he has used move 2, then I will use move 2 for the
-   > immediate k subsequent periods, after which I will resume using move 1. If
-   > he uses his move 2 again after I have resumed using move 1, then I will
-   > switch to move 2 for the k + 1 immediately subsequent periods . . . and so
-   > on, increasing my retaliation by an extra period for each departure from the
-   > (1, 1) steady state."
-   This is interpreted as:
-   The player cooperates, if when it is cooperating, the opponent defects it
-   defects for k rounds. After k rounds it starts cooperating again and
-   increments the value of k if the opponent defects again.
-   This strategy came 5th in Axelrod's original tournament.
-   Names:
-   - Shubik: [Axelrod1980]_
-   """
+    Submitted to Axelrod's first tournament by Martin Shubik.
+    The description written in [Axelrod1980]_ is:
+    > This rule cooperates until the other defects, and then defects once. If
+    > the other defects again after the rule's cooperation is resumed, the rule
+    > defects twice. In general, the length of retaliation is increased by one for
+    > each departure from mutual cooperation. This rule is described with its
+    > strategic implications in Shubik (1970). Further treatment of its is given
+    > in Taylor (1976).
+    There is some room for interpretation as to how the strategy reacts to a
+    defection on the turn where it starts to cooperate once more. In Shubik
+    (1970) the strategy is described as:
+    > "I will play my move 1 to begin with and will continue to do so, so long
+    > as my information shows that the other player has chosen his move 1. If my
+    > information tells me he has used move 2, then I will use move 2 for the
+    > immediate k subsequent periods, after which I will resume using move 1. If
+    > he uses his move 2 again after I have resumed using move 1, then I will
+    > switch to move 2 for the k + 1 immediately subsequent periods . . . and so
+    > on, increasing my retaliation by an extra period for each departure from the
+    > (1, 1) steady state."
+    This is interpreted as:
+    The player cooperates, if when it is cooperating, the opponent defects it
+    defects for k rounds. After k rounds it starts cooperating again and
+    increments the value of k if the opponent defects again.
+    This strategy came 5th in Axelrod's original tournament.
+    Names:
+    - Shubik: [Axelrod1980]_
+    """
 
     def __init__(self):
         super().__init__()
@@ -365,7 +362,27 @@ class Nydegger(Agent):
 
     def __init__(self):
         super().__init__()
-        self.A_to_defect = [1, 6, 7, 17, 22, 23, 26, 29, 30, 31, 33, 38, 39, 45, 49, 54, 55, 58, 61]
+        self.A_to_defect = [
+            1,
+            6,
+            7,
+            17,
+            22,
+            23,
+            26,
+            29,
+            30,
+            31,
+            33,
+            38,
+            39,
+            45,
+            49,
+            54,
+            55,
+            58,
+            61,
+        ]
         self.score_map = {C: 0, D: 1}
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
@@ -377,9 +394,14 @@ class Nydegger(Agent):
             if opp_history[0] == D and opp_history[1] == C:
                 return D
             return opp_history[1]
-        A = 16 * self.score_map[history[-3]] + 32 * self.score_map[opp_history[-3]] + \
-            4 * self.score_map[history[-2]] + 8 * self.score_map[opp_history[-2]] + \
-            1 * self.score_map[history[-1]] + 2 * self.score_map[opp_history[-1]]
+        A = (
+            16 * self.score_map[history[-3]]
+            + 32 * self.score_map[opp_history[-3]]
+            + 4 * self.score_map[history[-2]]
+            + 8 * self.score_map[opp_history[-2]]
+            + 1 * self.score_map[history[-1]]
+            + 2 * self.score_map[opp_history[-1]]
+        )
         if A in self.A_to_defect:
             return D
         return C
@@ -399,6 +421,9 @@ class Grofman(Agent):
         super().__init__()
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        if not history:
+            return C
+
         if history[-1] != opp_history[-1] and numpy.random.random() >= 2 / 7:
             return D
         return C
