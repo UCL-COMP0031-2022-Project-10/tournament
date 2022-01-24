@@ -401,5 +401,4 @@ class Grofman(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         if history[-1] != opp_history[-1] and numpy.random.random() >= 2 / 7:
             return D
-        else:
-            return C
+        return C
