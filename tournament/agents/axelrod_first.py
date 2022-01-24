@@ -1,4 +1,6 @@
-from typing import Dict, List, Optional, Tuple
+from typing import List, Optional
+
+import numpy.random
 
 from tournament.action import Action
 from tournament.agent import Agent
@@ -6,6 +8,8 @@ from tournament.agent import Agent
 from scipy.stats import chisquare
 from collections import Counter
 from numpy.random import RandomState
+
+C, D = Action.COOPERATE, Action.DEFECT
 
 
 class Davis(Agent):
@@ -36,12 +40,12 @@ class Davis(Agent):
         Begins by playing C, then plays D for the remaining rounds if the opponent ever plays D.
         """
         if len(history) < self._rounds_to_cooperate:
-            #print("Davis: playing C")
+            # print("Davis: playing C")
             return Action.COOPERATE
         if opp_history and Action.DEFECT in opp_history:
-            #print("Davis: playing D")
+            # print("Davis: playing D")
             return Action.DEFECT
-        #print("Davis: playing C")
+        # print("Davis: playing C")
         return Action.COOPERATE
 
 
@@ -51,12 +55,12 @@ class Graaskamp(Agent):
 
     The description written in [Axelrod1980]_ is:
 
-    > "This rule plays tit for tat for 50 moves, defects on move 51, and then
-    > plays 5 more moves of tit for tat. A check is then made to see if the player
+    > This rule plays tit-for-tat for 50 moves, defects on move 51, and then
+    > plays 5 more moves of tit-for-tat. A check is then made to see if the player
     > seems to be RANDOM, in which case it defects from then on. A check is also
     > made to see if the other is TIT FOR TAT, ANALOGY (a program from the
-    > preliminary tournament), and its own twin, in which case it plays tit for
-    > tat. Otherwise it randomly defects every 5 to 15 moves, hoping that enough
+    > preliminary tournament), and its own twin, in which case it plays tit-for-tat
+    > Otherwise, it randomly defects every 5 to 15 moves, hoping that enough
     > trust has been built up so that the other player will not notice these
     > defections.:
 
@@ -75,7 +79,7 @@ class Graaskamp(Agent):
 
     Note that there is no information about 'Analogy' available thus Step 5 is
     a "best possible" interpretation of the description in the paper.
-    Furthermore the test for the clone is implemented as checking that both
+    Furthermore, the test for the clone is implemented as checking that both
     players have played the same moves for the entire game. This is unlikely to
     be the original approach but no further details are available.
 
@@ -103,16 +107,16 @@ class Graaskamp(Agent):
         if len(history) < 56:
             # Defect on the 51st turn
             if len(history) == 50:
-               #print("Graaskamp: playing D")
+                # print("Graaskamp: playing D")
                 return Action.DEFECT
 
             # Cooperate initially
             if not opp_history:
-               #print("Graaskamp: playing C")
+                # print("Graaskamp: playing C")
                 return Action.COOPERATE
 
             # Play the opponent's last action
-           #print("Graaskamp: playing " + str(opp_history[-1]))
+            # print("Graaskamp: playing " + str(opp_history[-1]))
             return opp_history[-1]
 
         cnt = Counter(opp_history)
@@ -122,24 +126,24 @@ class Graaskamp(Agent):
         # Check if opponent is random
         p_value = chisquare([num_c, num_d]).pvalue
         self.opponent_is_random = (
-            p_value >= self.alpha
-        ) or self.opponent_is_random
+                                          p_value >= self.alpha
+                                  ) or self.opponent_is_random
 
         # If so, defect for the rest of the game
         if self.opponent_is_random:
-           #print("Graaskamp: playing D")
+            # print("Graaskamp: playing D")
             return Action.DEFECT
 
         # Check if opponent is Tit For Tat or a clone of itself
         if (
-            all(
-                opp_history[i] == history[i - 1]
-                for i in range(1, len(history))
-            )
-            or opp_history == history
+                all(
+                    opp_history[i] == history[i - 1]
+                    for i in range(1, len(history))
+                )
+                or opp_history == history
         ):
             # If so, play TFT
-           #print("Graaskamp: playing " + str(opp_history[-1]))
+            # print("Graaskamp: playing " + str(opp_history[-1]))
             return opp_history[-1]
 
         # Otherwise, randomly defect every 5 to 15 moves
@@ -148,10 +152,10 @@ class Graaskamp(Agent):
 
         if len(history) == self.next_random_defection_turn:
             self.next_random_defection_turn = RandomState().randint(5, 15) + len(history)
-           #print("Graaskamp: playing D")
+            # print("Graaskamp: playing D")
             return Action.DEFECT
-        
-       #print("Graaskamp: playing C")
+
+        # print("Graaskamp: playing C")
         return Action.COOPERATE
 
 
@@ -159,7 +163,7 @@ class Shubik(Agent):
     """
    Submitted to Axelrod's first tournament by Martin Shubik.
    The description written in [Axelrod1980]_ is:
-   > "This rule cooperates until the other defects, and then defects once. If
+   > This rule cooperates until the other defects, and then defects once. If
    > the other defects again after the rule's cooperation is resumed, the rule
    > defects twice. In general, the length of retaliation is increased by one for
    > each departure from mutual cooperation. This rule is described with its
@@ -218,11 +222,12 @@ class Shubik(Agent):
 
         return Action.COOPERATE
 
+
 class SteinAndRapoport(Agent):
     """
     Submitted to Axelrod's first tournament by William Stein and Amnon Rapoport.
     The description written in [Axelrod1980]_ is:
-    > "This rule plays tit for tat except that it cooperates on the first four
+    > This rule plays tit-for-tat except that it cooperates on the first four
     > moves, it defects on the last two moves, and every fifteen moves it checks
     > to see if the opponent seems to be playing randomly. This check uses a
     > chi-squared test of the other's transition probabilities and also checks for
@@ -255,7 +260,7 @@ class SteinAndRapoport(Agent):
         if round_number < 5:
             return Action.COOPERATE
 
-        # For first 15 rounds tit for tat as we do not know opponents strategy
+        # For first 15 rounds tit-for-tat as we do not know opponents strategy
         elif round_number < 15:
             return opp_history[-1]
 
@@ -272,7 +277,6 @@ class SteinAndRapoport(Agent):
         else:  # TitForTat if opponent plays not randomly
             return opp_history[-1]
 
-        return Action.COOPERATE
 
 class Grudger(Agent):
     def __init__(self):
@@ -292,3 +296,109 @@ class Grudger(Agent):
 
         return Action.COOPERATE
 
+
+class TidemanAndChieruzzi(Agent):
+    """
+    Submitted to Axelrod's first tournament by Nicolas Tideman and Paula
+    Chieruzzi.
+
+    The description written in [Axelrod1980]_ is:
+    > "This rule begins with cooperation and tit-for-tat. However, when the
+    > other player finishes his second run of defections, an extra punishment is
+    > instituted, and the number of punishing defections is increased by one with
+    > each run of the other's defections. The other player is given a fresh start
+    > if he is 10 or more points behind, if he has not just started a run of
+    > defections, if it has been at least 20 moves since a fresh start, if there
+    > are at least 10 moves remaining, and if the number of defections differs
+    > from a 50-50 random generator by at least 3.0 standard deviations. A fresh
+    > start involves two cooperations and then play as if the game had just
+    > started. The program defects automatically on the last two moves."
+
+    This is interpreted as:
+    1. Every run of defections played by the opponent increases the number of
+    defections that this strategy retaliates with by 1.
+
+    2. The opponent is given a ‘fresh start’ if:
+        - it is 10 points behind this strategy
+        - and it has not just started a run of defections
+        - and it has been at least 20 rounds since the last ‘fresh start’
+        - and there are more than 10 rounds remaining in the match
+        - and the total number of defections differs from a 50-50 random sample
+          by at least 3.0 standard deviations.
+        A ‘fresh start’ is a sequence of two cooperations followed by an assumption
+        that the game has just started (everything is forgotten).
+
+    3. The strategy defects on the last two moves.
+    This strategy came 2nd in Axelrod’s original tournament.
+
+    Names:
+    - TidemanAndChieruzzi: [Axelrod1980]_
+    """
+
+    def __init__(self):
+        super().__init__()
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        return Action.COOPERATE
+
+
+class Nydegger(Agent):
+    """
+    Submitted to Axelrod's first tournament by Rudy Nydegger.
+
+    The description written in [Axelrod1980]_ is:
+
+    > "The program begins with tit-for-tat for the first three moves, except
+    > that if it was the only one to cooperate on the first move and the only one
+    > to defect on the second move, it defects on the third move. After the third
+    > move, its choice is determined from the 3 preceding outcomes in the
+    > following manner. Let A be the sum formed by counting the other's defection
+    > as 2 points and one's own as 1 point, and giving weights of 16, 4, and 1 to
+    > the preceding three moves in chronological order. The choice can be
+    > described as defecting only when A equals 1, 6, 7, 17, 22, 23, 26, 29, 30,
+    > 31, 33, 38, 39, 45, 49, 54, 55, 58, or 61. Thus if all three preceding moves
+    > are mutual defection, A = 63 and the rule cooperates. This rule was
+    > designed for use in laboratory experiments as a stooge which had a memory
+    > and appeared to be trustworthy, potentially cooperative, but not gullible
+    > (Nydegger, 1978)."
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.A_to_defect = [1, 6, 7, 17, 22, 23, 26, 29, 30, 31, 33, 38, 39, 45, 49, 54, 55, 58, 61]
+        self.score_map = {C: 0, D: 1}
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        if not len(history):
+            return C
+        if len(history) == 1:
+            return opp_history[0]
+        if len(history) == 2:
+            if opp_history[0] == D and opp_history[1] == C:
+                return D
+            return opp_history[1]
+        A = 16 * self.score_map[history[-3]] + 32 * self.score_map[opp_history[-3]] + \
+            4 * self.score_map[history[-2]] + 8 * self.score_map[opp_history[-2]] + \
+            1 * self.score_map[history[-1]] + 2 * self.score_map[opp_history[-1]]
+        if A in self.A_to_defect:
+            return D
+        return C
+
+
+class Grofman(Agent):
+    """
+    Submitted to Axelrod's first tournament by Bernard Grofman.
+    The description written in [Axelrod1980]_ is:
+    > "If the players did different things on the previous move, this rule
+    > cooperates with probability 2/7. Otherwise this rule always cooperates."
+
+    This strategy came 4th in Axelrod's original tournament.
+    """
+
+    def __init__(self):
+        super().__init__()
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        if history[-1] != opp_history[-1] and numpy.random.random() >= 2 / 7:
+            return D
+        return C
