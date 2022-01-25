@@ -8,9 +8,9 @@ from tournament.agents.axelrod_first import (
     SteinAndRapoport,
 )
 from tournament.agents.constant import AllC, AllD
-from tournament.agents.downing import Downing
-from tournament.agents.feld import Feld
-from tournament.agents.joss import Joss
+from tournament.agents.Downing import Downing
+from tournament.agents.Feld import Feld
+from tournament.agents.Joss import Joss
 from tournament.agents.pavlov import Pavlov
 from tournament.agents.random import Random
 from tournament.agents.tft import (
