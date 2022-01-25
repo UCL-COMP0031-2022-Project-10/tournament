@@ -1,4 +1,3 @@
-from random import choice
 from typing import List
 
 from tournament.action import Action
