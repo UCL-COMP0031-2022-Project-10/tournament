@@ -4,6 +4,8 @@ from tournament.action import Action
 from tournament.agent import Agent
 from tournament.match import PAYOFF_MATRIX
 
+C, D = Action.COOPERATE, Action.DEFECT
+
 
 class TitForTat(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
@@ -154,10 +156,10 @@ class GradualTFT(Agent):
 # Following a defection, cooperate with a probability
 class GenerousTFT(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        R = PAYOFF_MATRIX[Action.COOPERATE][Action.COOPERATE][0]
-        T = PAYOFF_MATRIX[Action.DEFECT][Action.COOPERATE][0]
-        S = PAYOFF_MATRIX[Action.COOPERATE][Action.DEFECT][0]
-        P = PAYOFF_MATRIX[Action.DEFECT][Action.DEFECT][0]
+        R = PAYOFF_MATRIX[(C, C)][0]
+        T = PAYOFF_MATRIX[(D, C)][0]
+        S = PAYOFF_MATRIX[(C, D)][0]
+        P = PAYOFF_MATRIX[(D, D)][0]
         generosity = min(1 - (T - R) / (R - S), (R - P) / (T - P))
 
         # Cooperate initially

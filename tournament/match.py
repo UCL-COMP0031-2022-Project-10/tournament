@@ -3,9 +3,13 @@ from random import random
 from tournament.action import Action, flip_action
 from tournament.agent import Agent
 
+C, D = Action.COOPERATE, Action.DEFECT
+
 PAYOFF_MATRIX = {
-    Action.COOPERATE: {Action.COOPERATE: (3, 3), Action.DEFECT: (0, 5)},
-    Action.DEFECT: {Action.COOPERATE: (5, 0), Action.DEFECT: (1, 1)},
+    (C, C): (3, 3),
+    (C, D): (0, 5),
+    (D, C): (5, 0),
+    (D, D): (1, 1),
 }
 
 
@@ -32,7 +36,7 @@ class Match:
             move1 = self._mutate(self.agent1.play_move(history1, history2), noise)
             move2 = self._mutate(self.agent2.play_move(history2, history1), noise)
 
-            increase1, increase2 = PAYOFF_MATRIX[move1][move2]
+            increase1, increase2 = PAYOFF_MATRIX[(move1, move2)]
             score1 += increase1
             score2 += increase2
 
