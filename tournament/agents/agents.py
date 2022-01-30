@@ -13,13 +13,15 @@ from tournament.agents.axelrod_second import (
     Borufsen,
     Leyvraz,
     SecondByHarrington,
+    SecondByWhiteK72R,
+    SecondByBlackK83R,
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.Downing import Downing
 from tournament.agents.Feld import Feld
 from tournament.agents.Joss import Joss
 from tournament.agents.pavlov import Pavlov
-from tournament.agents.random import Random
+from tournament.agents.randomAgent import RandomAgent
 from tournament.agents.tft import (
     TFTT,
     TTFT,
@@ -33,7 +35,7 @@ AGENTS = [
     AllC,
     AllD,
     TitForTat,
-    Random,
+    RandomAgent,
     Davis,
     Graaskamp,
     Shubik,
@@ -55,4 +57,6 @@ AGENTS = [
     Borufsen,
     Leyvraz,
     SecondByHarrington,
+    SecondByWhiteK72R,
+    SecondByBlackK83R,
 ]

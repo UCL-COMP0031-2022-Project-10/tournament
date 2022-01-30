@@ -1,4 +1,6 @@
 from collections import Counter
+import random
+import re
 from typing import List
 
 import numpy as np
@@ -580,3 +582,38 @@ class SecondByTidemanAndChieruzzi(Agent):
 
     def play_move(self, history: List[Action], opp_history: List[Action]):
         return C
+
+class SecondByWhiteK72R(Agent):
+    # Cooperate for 10 times firstly
+    # COOPERATE if oppnent COOPERATEs.
+    # Otherwise Defect if and only if:
+    #    floor(log(turn)) * opponent's DEFECTION >= turn
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        turn = len(history) + 1
+        opp_defection_count = 0
+        for i in range(len(opp_history)):
+            opp_defection_count += 1 if(opp_history[i] == Action.DEFECT) else 0
+        if turn <= 10 or opp_history[-1] == Action.COOPERATE:
+            return Action.COOPERATE
+        if np.floor(np.log(turn)) * opp_defection_count >= turn:
+            return Action.DEFECT
+        return Action.COOPERATE
+
+class SecondByBlackK83R(Agent):
+    # Cooperate for 5 times firstly
+    # Then it calculates the number of opponent defects 'number_defects' 
+    # in the last five moves and Cooperates with probability 'prob_coop', where:
+    # prob_coop[number_defects] = 1 - (number_defects^ 2 - 1) / 25
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        if len(opp_history) < 5:
+            return Action.COOPERATE
+        opp_defection_count_l5 = 0
+        for i in range(5):
+            opp_defection_count_l5 += 1 if(opp_history[-5:][i] == Action.DEFECT) else 0
+        prob_coop = {0: 1.0, 1: 1.0, 2: 0.88, 3: 0.68, 4: 0.4, 5: 0.04}
+        if random.random() <= prob_coop[opp_defection_count_l5]:
+            return Action.COOPERATE
+        else:
+            return Action.DEFECT
