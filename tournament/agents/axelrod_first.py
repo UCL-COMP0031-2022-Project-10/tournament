@@ -311,26 +311,6 @@ class TidemanAndChieruzzi(Agent):
     > from a 50-50 random generator by at least 3.0 standard deviations. A fresh
     > start involves two cooperations and then play as if the game had just
     > started. The program defects automatically on the last two moves."
-
-    This is interpreted as:
-    1. Every run of defections played by the opponent increases the number of
-    defections that this strategy retaliates with by 1.
-
-    2. The opponent is given a ‘fresh start’ if:
-        - it is 10 points behind this strategy
-        - and it has not just started a run of defections
-        - and it has been at least 20 rounds since the last ‘fresh start’
-        - and there are more than 10 rounds remaining in the match
-        - and the total number of defections differs from a 50-50 random sample
-          by at least 3.0 standard deviations.
-        A ‘fresh start’ is a sequence of two cooperations followed by an assumption
-        that the game has just started (everything is forgotten).
-
-    3. The strategy defects on the last two moves.
-    This strategy came 2nd in Axelrod’s original tournament.
-
-    Names:
-    - TidemanAndChieruzzi: [Axelrod1980]_
     """
 
     def __init__(self):
@@ -394,7 +374,6 @@ class Nydegger(Agent):
     Submitted to Axelrod's first tournament by Rudy Nydegger.
 
     The description written in [Axelrod1980]_ is:
-
     > "The program begins with tit-for-tat for the first three moves, except
     > that if it was the only one to cooperate on the first move and the only one
     > to defect on the second move, it defects on the third move. After the third
@@ -464,11 +443,10 @@ class Nydegger(Agent):
 class Grofman(Agent):
     """
     Submitted to Axelrod's first tournament by Bernard Grofman.
+
     The description written in [Axelrod1980]_ is:
     > "If the players did different things on the previous move, this rule
     > cooperates with probability 2/7. Otherwise this rule always cooperates."
-
-    This strategy came 4th in Axelrod's original tournament.
     """
 
     def __init__(self):
