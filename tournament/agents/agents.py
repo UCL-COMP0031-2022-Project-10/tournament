@@ -12,6 +12,7 @@ from tournament.agents.axelrod_second import (
     Champion,
     Borufsen,
     Leyvraz,
+    SecondByHarrington,
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.Downing import Downing
@@ -53,4 +54,5 @@ AGENTS = [
     Champion,
     Borufsen,
     Leyvraz,
+    SecondByHarrington,
 ]
