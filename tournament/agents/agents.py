@@ -6,6 +6,7 @@ from tournament.agents.axelrod_first import (
     Nydegger,
     Shubik,
     SteinAndRapoport,
+    TidemanAndChieruzzi,
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.Downing import Downing
@@ -43,4 +44,5 @@ AGENTS = [
     TTFT,
     GradualTFT,
     GenerousTFT,
+    TidemanAndChieruzzi,
 ]

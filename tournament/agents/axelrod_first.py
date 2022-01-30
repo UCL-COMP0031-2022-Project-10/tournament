@@ -6,6 +6,7 @@ from numpy.random import RandomState
 from scipy.stats import chisquare
 from tournament.action import Action
 from tournament.agent import Agent
+from tournament.match import PAYOFF_MATRIX
 
 C, D = Action.COOPERATE, Action.DEFECT
 
@@ -334,9 +335,51 @@ class TidemanAndChieruzzi(Agent):
 
     def __init__(self):
         super().__init__()
+        self.retaliation_length = 0
+        self.retaliation_remaining = 0
+        self.score_diff = 0
+        self.fresh_start = False
+        self.fresh_start_count = 0
+        self.opp_D_count = 0
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        return Action.COOPERATE
+        self.fresh_start_count += 1
+        if not history:
+            return C
+
+        # C = 1, D = 2
+        self.opp_D_count += opp_history[-1].value - 1
+        last_round = PAYOFF_MATRIX[(history[-1], opp_history[-1])]
+        self.score_diff += last_round[0]
+        self.score_diff -= last_round[1]
+
+        if self.retaliation_remaining:
+            self.retaliation_remaining -= 1
+            return D
+
+        # if the other player has just started a run of defections
+        if opp_history[-1] == D:
+            self.retaliation_remaining = self.retaliation_length
+            self.retaliation_length += 1
+            return D
+
+        # if the other player is 10 or more points behind
+        # if it has been at least 20 moves since a fresh start
+        if self.fresh_start_count >= 20 and self.score_diff >= 10:
+            std_deviation = (len(opp_history) ** (1 / 2)) / 2
+            lower = len(opp_history) / 2 - 3 * std_deviation
+            upper = len(opp_history) / 2 + 3 * std_deviation
+            if (
+                self.opp_D_count <= lower
+                or self.opp_D_count >= upper
+            ):
+                self.fresh_start = True
+        if self.fresh_start:
+            self.retaliation_length = 0
+            self.fresh_start = False
+            self.fresh_start_count = 0
+
+        return C
 
 
 class Nydegger(Agent):
@@ -386,14 +429,17 @@ class Nydegger(Agent):
         self.score_map = {C: 0, D: 1}
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        if not len(history):
+        if not history:
             return C
+
         if len(history) == 1:
             return opp_history[0]
+
         if len(history) == 2:
             if opp_history[0] == D and opp_history[1] == C:
                 return D
             return opp_history[1]
+
         A = (
             16 * self.score_map[history[-3]]
             + 32 * self.score_map[opp_history[-3]]
@@ -404,6 +450,7 @@ class Nydegger(Agent):
         )
         if A in self.A_to_defect:
             return D
+
         return C
 
 
@@ -426,4 +473,5 @@ class Grofman(Agent):
 
         if history[-1] != opp_history[-1] and numpy.random.random() >= 2 / 7:
             return D
+
         return C
