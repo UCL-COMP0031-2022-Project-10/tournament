@@ -8,6 +8,11 @@ from tournament.agents.axelrod_first import (
     SteinAndRapoport,
     TidemanAndChieruzzi,
 )
+from tournament.agents.axelrod_second import (
+    Champion,
+    Borufsen,
+    Leyvraz,
+)
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.Downing import Downing
 from tournament.agents.Feld import Feld
@@ -45,4 +50,7 @@ AGENTS = [
     GradualTFT,
     GenerousTFT,
     TidemanAndChieruzzi,
+    Champion,
+    Borufsen,
+    Leyvraz,
 ]
