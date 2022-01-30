@@ -361,6 +361,7 @@ class TidemanAndChieruzzi(Agent):
         if opp_history[-1] == D:
             self.retaliation_remaining = self.retaliation_length
             self.retaliation_length += 1
+            # print("retaliation_length += 1")
             return D
 
         # if the other player is 10 or more points behind
@@ -374,6 +375,12 @@ class TidemanAndChieruzzi(Agent):
                 or self.opp_D_count >= upper
             ):
                 self.fresh_start = True
+                # print("fresh start!")
+            """
+            else:
+                print("I think u are random!")
+            """
+
         if self.fresh_start:
             self.retaliation_length = 0
             self.fresh_start = False
