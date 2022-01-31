@@ -15,6 +15,7 @@ from tournament.agents.axelrod_second import (
     SecondByHarrington,
     SecondByWhiteK72R,
     SecondByBlackK83R,
+    SecondByTidemanAndChieruzzi,
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.Downing import Downing
@@ -59,4 +60,5 @@ AGENTS = [
     SecondByHarrington,
     SecondByWhiteK72R,
     SecondByBlackK83R,
+    SecondByTidemanAndChieruzzi,
 ]

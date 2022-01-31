@@ -1,6 +1,5 @@
-from collections import Counter
 import random
-import re
+from collections import Counter
 from typing import List
 
 import numpy as np
@@ -8,6 +7,7 @@ from numpy.random import RandomState
 
 from tournament.action import Action
 from tournament.agent import Agent
+from tournament.match import PAYOFF_MATRIX
 
 C, D = Action.COOPERATE, Action.DEFECT
 
@@ -249,27 +249,33 @@ class SecondByHarrington(Agent):
     """
     Strategy submitted to Axelrod's second tournament by Paul Harrington (K75R)
     and came in eighth in that tournament.
+
     This strategy has three modes:  Normal, Fair-weather, and Defect.  These
     mode names were not present in Harrington's submission.
+
     In Normal and Fair-weather modes, the strategy begins by:
     - Update history
     - Try to detect random opponent if turn is multiple of 15 and >=30.
     - Check if `burned` flag should be raised.
     - Check for Fair-weather opponent if turn is 38.
+
     Updating history means to increment the correct cell of the `move_history`.
     `move_history` is a matrix where the columns are the opponent's previous
     move and the rows are indexed by the combo of this player's and the
     opponent's moves two turns ago.  [The upper-left cell must be all
     Cooperations, but otherwise order doesn't matter.]  After we enter Defect
     mode, `move_history` won't be used again.
+
     If the turn is a multiple of 15 and >=30, then attempt to detect random.
     If random is detected, enter Defect mode and defect immediately.  If the
     player was previously in Defect mode, then do not re-enter.  The random
     detection logic is a modified Pearson's Chi Squared test, with some
     additional checks.  [More details in `detect_random` docstrings.]
+
     Some of this player's moves are marked as "generous."  If this player made
     a generous move two turns ago and the opponent replied with a Defect, then
     raise the `burned` flag.  This will stop certain generous moves later.
+
     The player mostly plays Tit-for-Tat for the first 36 moves, then defects on
     the 37th move.  If the opponent cooperates on the first 36 moves, and
     defects on the 37th move also, then enter Fair-weather mode and cooperate
@@ -277,6 +283,7 @@ class SecondByHarrington(Agent):
     only happen if the opponent cooperates for the first 36 then defects
     unprovoked on the 37th.  (That is, this player's first 36 moves are also
     Cooperations, so there's nothing really to trigger an opponent Defection.)
+
     Next in Normal Mode:
     1. Check for defect and parity streaks.
     2. Check if cooperations are scheduled.
@@ -288,11 +295,13 @@ class SecondByHarrington(Agent):
       Otherwise, Tit-for-Tat with probability 1 - `prob`.  And with
       probability `prob`, defect, schedule two cooperations, mark this move
       as generous, and increase `prob` by 5%.
+
     ** Scheduling two cooperations means to set `more_coop` flag to two.  If in
     Normal mode and no streaks are detected, then the player will cooperate and
     lower this flag, until hitting zero.  It's possible that the flag can be
     overwritten.  Notable on the 37th turn defect, this is set to two, but the
     38th turn Fair-weather check will set this.
+
     If the opponent's last twenty moves were defections, then defect this turn.
     Then check for a parity streak, by flipping the parity bit (there are two
     streaks that get tracked which are something like odd and even turns, but
@@ -304,18 +313,23 @@ class SecondByHarrington(Agent):
     we're pointing to also gets incremented if in normal mode, and we defect but
     not on turn 38, unless we are defecting as the result of a defect streak.
     Note that the parity streaks resets but the defect streak doesn't.
+
     If `more_coop` >= 1, then we cooperate and lower that flag here, in Normal
     mode after checking streaks.  Still lower this flag if cooperating as the
     result of a parity streak or in Fair-weather mode.
+
     Then use the logic based on turn from above.
+
     In Fair-Weather mode after running the code from above, check if opponent
     defected last turn.  If so, exit Fair-Weather mode, and proceed THIS TURN
     with Normal mode.  Otherwise, cooperate.
+
     In Defect mode, update the `exit_defect_meter` (originally zero) by
     incrementing if opponent defected last turn and decreasing by three
     otherwise.  If `exit_defect_meter` is then 11, then set mode to Normal (for
     future turns), cooperate and schedule two more cooperations.  [Note that
     this move is not marked generous.]
+
     Names:
     - Harrington: [Axelrod1980b]_
     """
@@ -576,17 +590,10 @@ class SecondByHarrington(Agent):
         return self.try_return(D, lower_flags=False)
 
 
-class SecondByTidemanAndChieruzzi(Agent):
-    def __init__(self):
-        super().__init__()
-
-    def play_move(self, history: List[Action], opp_history: List[Action]):
-        return C
-
 class SecondByWhiteK72R(Agent):
     # Cooperate for 10 times firstly
-    # COOPERATE if oppnent COOPERATEs.
-    # Otherwise Defect if and only if:
+    # Cooperate if opponent Cooperates.
+    # Otherwise, defect if and only if:
     #    floor(log(turn)) * opponent's DEFECTION >= turn
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
@@ -600,9 +607,10 @@ class SecondByWhiteK72R(Agent):
             return Action.DEFECT
         return Action.COOPERATE
 
+
 class SecondByBlackK83R(Agent):
     # Cooperate for 5 times firstly
-    # Then it calculates the number of opponent defects 'number_defects' 
+    # Then it calculates the number of opponent defects 'number_defects'
     # in the last five moves and Cooperates with probability 'prob_coop', where:
     # prob_coop[number_defects] = 1 - (number_defects^ 2 - 1) / 25
 
@@ -617,3 +625,95 @@ class SecondByBlackK83R(Agent):
             return Action.COOPERATE
         else:
             return Action.DEFECT
+
+
+class SecondByTidemanAndChieruzzi(Agent):
+    """
+    Strategy submitted to Axelrod's second tournament by T. Nicolaus Tideman
+    and Paula Chieruzzi (K84R) and came in ninth in that tournament.
+
+    This strategy Cooperates if this player's score exceeds the opponent's
+    score by at least `score_to_beat`.  `score_to_beat` starts at zero and
+    increases by `score_to_beat_inc` every time the opponent's last two moves
+    are a Cooperation and Defection in that order.  `score_to_beat_inc` itself
+    increase by 5 every time the opponent's last two moves are a Cooperation
+    and Defection in that order.
+
+    Additionally, the strategy executes a "fresh start" if the following hold:
+    - The strategy would Defect by score (difference less than `score_to_beat`)
+    - The opponent did not Cooperate and Defect (in order) in the last two
+      turns.
+    - It's been at least 10 turns since the last fresh start.  Or since the
+      match started if there hasn't been a fresh start yet.
+
+    A "fresh start" entails two Cooperations and resetting scores,
+    `scores_to_beat` and `scores_to_beat_inc`.
+
+    Names:
+    - TidemanAndChieruzzi: [Axelrod1980b]_
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.score_diff = 0
+        self.last_fresh_start = 0
+        self.fresh_start = False
+        self.score_to_beat = 0
+        self.score_to_beat_inc = 0
+        self.opp_D_count = 0
+
+    def _fresh_start(self):
+        """Give the opponent a fresh start by forgetting the past"""
+        self.score_diff = 0
+        self.score_to_beat = 0
+        self.score_to_beat_inc = 0
+
+    def play_move(self, history: List[Action], opp_history: List[Action]):
+        """Actual strategy definition that determines player's action."""
+        current_round = len(history) + 1
+
+        if current_round == 1:
+            return C
+
+        self.opp_D_count += opp_history[-1].value - 1  # C = 1, D = 2
+        # Calculate the scores.
+        last_round = PAYOFF_MATRIX[(history[-1], opp_history[-1])]
+        self.score_diff += last_round[0]
+        self.score_diff -= last_round[1]
+
+        # Check if we have recently given the strategy a fresh start.
+        if self.fresh_start:
+            self._fresh_start()
+            self.last_fresh_start = current_round
+            self.fresh_start = False
+            return C  # Second cooperation
+
+        opponent_CDd = False
+
+        opponent_two_turns_ago = C  # Default value for second turn.
+        if len(opp_history) >= 2:
+            opponent_two_turns_ago = opp_history[-2]
+        # If opponent's last two turns are C and D in that order.
+        if opponent_two_turns_ago == C and opp_history[-1] == D:
+            opponent_CDd = True
+            self.score_to_beat += self.score_to_beat_inc
+            self.score_to_beat_inc += 5
+
+        # Cooperate if we're beating opponent by at least `score_to_beat`
+        if self.score_diff >= self.score_to_beat:
+            return C
+
+        # Wait at least ten turns for another fresh start.
+        if (not opponent_CDd) and current_round - self.last_fresh_start >= 10:
+            # 50-50 split is based off the binomial distribution.
+            N = len(opp_history)
+            # std_dev = sqrt(N*p*(1-p)) where p is 1 / 2.
+            std_deviation = (N ** (1 / 2)) / 2
+            lower = N / 2 - 3 * std_deviation
+            upper = N / 2 + 3 * std_deviation
+            if self.opp_D_count <= lower or self.opp_D_count >= upper:
+                # Opponent deserves a fresh start
+                self.fresh_start = True
+                return C  # First cooperation
+
+        return D
