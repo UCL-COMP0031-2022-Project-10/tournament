@@ -22,3 +22,18 @@ class Agent:
         """
 
         raise NotImplementedError()
+
+
+class TrainableAgent(Agent):
+    """
+    An interface for trainable agents.
+    """
+
+    def setup(self):
+        pass
+
+    def teardown(self):
+        pass
+
+    def update(self, history: List[Action], opp_history: List[Action]):
+        raise NotImplementedError()
