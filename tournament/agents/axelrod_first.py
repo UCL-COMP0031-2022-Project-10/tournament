@@ -327,8 +327,7 @@ class TidemanAndChieruzzi(Agent):
         if not history:
             return C
 
-        # C = 1, D = 2
-        self.opp_D_count += opp_history[-1].value - 1
+        self.opp_D_count += opp_history[-1].value - 1  # C = 1, D = 2
         last_round = PAYOFF_MATRIX[(history[-1], opp_history[-1])]
         self.score_diff += last_round[0]
         self.score_diff -= last_round[1]
