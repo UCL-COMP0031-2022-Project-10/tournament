@@ -76,7 +76,7 @@ class QLearning(Agent):
     def _construct_current_state(self, history: List[Action], opp_history: List[Action]) -> tuple[tuple[Action, Action]]:
 
         # construct a tuple of tuples containing pairs of Actions.
-        return zip(history[-1 * self._len_history:], opp_history[-1 * self._len_history:])
+        return tuple(zip(history[-1 * self._len_history:], opp_history[-1 * self._len_history:]))
 
     def _build_q_table(self, len_history: int) -> dict[tuple[tuple[Action, Action]], List[float]]:
 
@@ -108,7 +108,7 @@ class QLearning(Agent):
         '''
         
         q_table = {}
-        vec = [0 for _ in range(len_history)]     # base_4 vector of length 4^history. The ith value represents the outcome of the ith game in history.
+        vec = [0 for _ in range(len_history)]     # base_4 vector of length 4^history. The ith value represents the outcome of the previous ith game in history.
         final_vec = [-1 for _ in range(len_history)]
         while vec != final_vec:
             ''' 
@@ -126,17 +126,14 @@ class QLearning(Agent):
 
     def _create_key(self, vec: List[int]) -> tuple[tuple[Action, Action]]:
 
+        outcomes = {0 : (Action.COOPERATE, Action.COOPERATE),
+                    1 : (Action.COOPERATE, Action.DEFECT),
+                    2 : (Action.DEFECT, Action.COOPERATE),
+                    4 : (Action.DEFECT, Action.DEFECT)}
+
         ret = []
         for elem in vec:
-            if elem == 0:
-                ret.append((Action.COOPERATE, Action.COOPERATE))
-            elif elem == 1:
-                ret.append((Action.COOPERATE, Action.DEFECT))
-            elif elem == 2:
-                ret.append((Action.DEFECT, Action.COOPERATE))
-            else:
-                ret.append((Action.DEFECT, Action.DEFECT))
-        
+            ret.append(outcomes[elem])       
         return tuple(ret)
 
     def _increment_vec(self, vec: List[int], len_history: int) -> List[int]:

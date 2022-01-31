@@ -7,6 +7,10 @@ from tournament.agents.axelrod_first import (
     Shubik,
     SteinAndRapoport,
     TidemanAndChieruzzi,
+    Tullock,
+    Joss,
+    Feld,
+    Downing
 )
 from tournament.agents.axelrod_second import (
     Champion,
@@ -18,9 +22,6 @@ from tournament.agents.axelrod_second import (
     SecondByTidemanAndChieruzzi,
 )
 from tournament.agents.constant import AllC, AllD
-from tournament.agents.Downing import Downing
-from tournament.agents.Feld import Feld
-from tournament.agents.Joss import Joss
 from tournament.agents.pavlov import Pavlov
 from tournament.agents.randomAgent import RandomAgent
 from tournament.agents.tft import (
