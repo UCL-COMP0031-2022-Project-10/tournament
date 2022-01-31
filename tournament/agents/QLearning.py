@@ -76,7 +76,7 @@ class QLearning(Agent):
     def _construct_current_state(self, history: List[Action], opp_history: List[Action]) -> tuple[tuple[Action, Action]]:
 
         # construct a tuple of tuples containing pairs of Actions.
-        return zip(history[-1 * self._len_history], opp_history[-1 * self._len_history])
+        return zip(history[-1 * self._len_history:], opp_history[-1 * self._len_history:])
 
     def _build_q_table(self, len_history: int) -> dict[tuple[tuple[Action, Action]], List[float]]:
 
