@@ -76,10 +76,7 @@ class QLearning(Agent):
     def _construct_current_state(self, history: List[Action], opp_history: List[Action]) -> tuple[tuple[Action, Action]]:
 
         # construct a tuple of tuples containing pairs of Actions.
-        curr_state = []
-        for i in range(self._len_history, 0, -1):
-            curr_state.append((history[-1 * i], opp_history[-1 * i]))
-        return tuple(curr_state)
+        return zip(history[-1 * self._len_history], opp_history[-1 * self._len_history])
 
     def _build_q_table(self, len_history: int) -> dict[tuple[tuple[Action, Action]], List[float]]:
 
@@ -144,7 +141,7 @@ class QLearning(Agent):
 
     def _increment_vec(self, vec: List[int], len_history: int) -> List[int]:
 
-        curr = -1
+        curr = -1 
         while 1:
             if curr == -1 * (len(vec) + 1):
                 # overflow, which means we have generated all possible states. Time to break loop.
