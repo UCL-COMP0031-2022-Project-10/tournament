@@ -6,7 +6,7 @@ from tournament.agent import Agent
 
 class Joss(Agent):
 
-    def play_move(self, history: List[Agent], opp_history: List[Agent]) -> Action:
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
         if not history:
             return Action.DEFECT

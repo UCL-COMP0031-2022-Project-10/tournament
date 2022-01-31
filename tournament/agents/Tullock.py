@@ -6,7 +6,7 @@ from tournament.agent import Agent
 
 class Tullock(Agent):
 
-    def play_move(self, history: List[Agent], opp_history: List[Agent]) -> Action:
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
         if len(history) <= 11:
             # always cooperate on first 11 moves.

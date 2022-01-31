@@ -10,7 +10,7 @@ class Downing(Agent):
         self._num_coop_following_coop = 0 # num of times opp has cooperated after Downing has cooperated. 
         self._num_coop_following_defect = 0 # num of times opp has cooperated after Downing has defected. 
 
-    def _calc_conditional_probs(self, history: List[Agent]) -> Tuple[float, float]:
+    def _calc_conditional_probs(self, history: List[Action]) -> Tuple[float, float]:
 
         alpha = self._num_coop_following_coop / (history.count(Action.COOPERATE) + 1) # add 1 to remove divide by zero error. We assume in the nonexistent round 0, Downing cooperated.
         beta = self._num_coop_following_defect / (history.count(Action.DEFECT)) 
@@ -18,7 +18,7 @@ class Downing(Agent):
         return (alpha, beta)
 
 
-    def play_move(self, history: List[Agent], opp_history: List[Agent]) -> Action:
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         
         # Calc P(C_o | C_s) = Prob(Opp cooperates | Downing cooperated previous turn) = alpha
         #      P(C_o | D_s) = Prob(Opp cooperates | Downing defected previous turn) = beta

@@ -11,7 +11,7 @@ class Feld(Agent):
         self._rate_of_dec = 1/200 # rate at which _prob_coop decreases
         self._prob_coop = 1 # probability of cooperating after a cooperation by opp.
 
-    def play_move(self, history: List[Agent], opp_history: List[Agent]) -> Action:
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
         if not history:
             return Action.COOPERATE
