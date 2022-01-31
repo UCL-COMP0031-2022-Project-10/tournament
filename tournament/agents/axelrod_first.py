@@ -6,6 +6,7 @@ from numpy.random import RandomState
 from scipy.stats import chisquare
 from tournament.action import Action
 from tournament.agent import Agent
+from tournament.match import PAYOFF_MATRIX
 
 C, D = Action.COOPERATE, Action.DEFECT
 
@@ -310,33 +311,61 @@ class TidemanAndChieruzzi(Agent):
     > from a 50-50 random generator by at least 3.0 standard deviations. A fresh
     > start involves two cooperations and then play as if the game had just
     > started. The program defects automatically on the last two moves."
-
-    This is interpreted as:
-    1. Every run of defections played by the opponent increases the number of
-    defections that this strategy retaliates with by 1.
-
-    2. The opponent is given a ‘fresh start’ if:
-        - it is 10 points behind this strategy
-        - and it has not just started a run of defections
-        - and it has been at least 20 rounds since the last ‘fresh start’
-        - and there are more than 10 rounds remaining in the match
-        - and the total number of defections differs from a 50-50 random sample
-          by at least 3.0 standard deviations.
-        A ‘fresh start’ is a sequence of two cooperations followed by an assumption
-        that the game has just started (everything is forgotten).
-
-    3. The strategy defects on the last two moves.
-    This strategy came 2nd in Axelrod’s original tournament.
-
-    Names:
-    - TidemanAndChieruzzi: [Axelrod1980]_
     """
 
     def __init__(self):
         super().__init__()
+        self.retaliation_length = 0
+        self.retaliation_remaining = 0
+        self.score_diff = 0
+        self.fresh_start = False
+        self.fresh_start_count = 0
+        self.opp_D_count = 0
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        return Action.COOPERATE
+        self.fresh_start_count += 1
+        if not history:
+            return C
+
+        self.opp_D_count += opp_history[-1].value - 1  # C = 1, D = 2
+        last_round = PAYOFF_MATRIX[(history[-1], opp_history[-1])]
+        self.score_diff += last_round[0]
+        self.score_diff -= last_round[1]
+
+        if self.retaliation_remaining:
+            self.retaliation_remaining -= 1
+            return D
+
+        # if the other player has just started a run of defections
+        if opp_history[-1] == D:
+            self.retaliation_remaining = self.retaliation_length
+            self.retaliation_length += 1
+            # print("retaliation_length += 1")
+            return D
+
+        # if the other player is 10 or more points behind
+        # if it has been at least 20 moves since a fresh start
+        if self.fresh_start_count >= 20 and self.score_diff >= 10:
+            std_deviation = (len(opp_history) ** (1 / 2)) / 2
+            lower = len(opp_history) / 2 - 3 * std_deviation
+            upper = len(opp_history) / 2 + 3 * std_deviation
+            if (
+                self.opp_D_count <= lower
+                or self.opp_D_count >= upper
+            ):
+                self.fresh_start = True
+                # print("fresh start!")
+            """
+            else:
+                print("I think u are random!")
+            """
+
+        if self.fresh_start:
+            self.retaliation_length = 0
+            self.fresh_start = False
+            self.fresh_start_count = 0
+
+        return C
 
 
 class Nydegger(Agent):
@@ -344,7 +373,6 @@ class Nydegger(Agent):
     Submitted to Axelrod's first tournament by Rudy Nydegger.
 
     The description written in [Axelrod1980]_ is:
-
     > "The program begins with tit-for-tat for the first three moves, except
     > that if it was the only one to cooperate on the first move and the only one
     > to defect on the second move, it defects on the third move. After the third
@@ -386,14 +414,17 @@ class Nydegger(Agent):
         self.score_map = {C: 0, D: 1}
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        if not len(history):
+        if not history:
             return C
+
         if len(history) == 1:
             return opp_history[0]
+
         if len(history) == 2:
             if opp_history[0] == D and opp_history[1] == C:
                 return D
             return opp_history[1]
+
         A = (
             16 * self.score_map[history[-3]]
             + 32 * self.score_map[opp_history[-3]]
@@ -404,17 +435,17 @@ class Nydegger(Agent):
         )
         if A in self.A_to_defect:
             return D
+
         return C
 
 
 class Grofman(Agent):
     """
     Submitted to Axelrod's first tournament by Bernard Grofman.
+
     The description written in [Axelrod1980]_ is:
     > "If the players did different things on the previous move, this rule
     > cooperates with probability 2/7. Otherwise this rule always cooperates."
-
-    This strategy came 4th in Axelrod's original tournament.
     """
 
     def __init__(self):
@@ -426,4 +457,5 @@ class Grofman(Agent):
 
         if history[-1] != opp_history[-1] and numpy.random.random() >= 2 / 7:
             return D
+
         return C
