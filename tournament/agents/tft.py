@@ -26,9 +26,7 @@ class OmegaTFT(Agent):
     - OmegaTFT: [Slany2007]_
     """
 
-    def __init__(
-            self, deadlock_threshold: int = 3, randomness_threshold: int = 8
-    ):
+    def __init__(self, deadlock_threshold: int = 3, randomness_threshold: int = 8):
         """
         deadlock_threshold: the threshold for deadlock detection.
         randomness_threshold: the threshold for randomness detection.
@@ -88,7 +86,9 @@ class OmegaTFT(Agent):
 # defect on opponent's two consecutive defection
 class TFTT(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        if len(opp_history) >= 2 and (opp_history[-1] == Action.DEFECT and opp_history[-2] == Action.DEFECT):
+        if len(opp_history) >= 2 and (
+            opp_history[-1] == Action.DEFECT and opp_history[-2] == Action.DEFECT
+        ):
             return Action.DEFECT
         else:
             return Action.COOPERATE
@@ -97,8 +97,15 @@ class TFTT(Agent):
 # defect twice on opponent's a single defection
 class TTFT(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        if (not opp_history) or (len(opp_history) == 1 and opp_history[-1] == Action.COOPERATE) or (
-                len(opp_history) >= 2 and opp_history[-1] == Action.COOPERATE and opp_history[-2] == Action.COOPERATE):
+        if (
+            (not opp_history)
+            or (len(opp_history) == 1 and opp_history[-1] == Action.COOPERATE)
+            or (
+                len(opp_history) >= 2
+                and opp_history[-1] == Action.COOPERATE
+                and opp_history[-2] == Action.COOPERATE
+            )
+        ):
             return Action.COOPERATE
         else:
             return Action.DEFECT
@@ -145,7 +152,7 @@ class GradualTFT(Agent):
         elif not (history[-1] == Action.COOPERATE and history[-2] == Action.COOPERATE):
             return Action.COOPERATE
 
-        # if we have NOT retaliated expected rounds 
+        # if we have NOT retaliated expected rounds
         elif self_defect_count < should_defect_total:
             return Action.DEFECT
 

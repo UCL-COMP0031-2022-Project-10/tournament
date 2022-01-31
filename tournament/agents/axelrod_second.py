@@ -4,7 +4,6 @@ from typing import List
 
 import numpy as np
 from numpy.random import RandomState
-
 from tournament.action import Action
 from tournament.agent import Agent
 from tournament.match import PAYOFF_MATRIX
@@ -239,9 +238,7 @@ class Leyvraz(Agent):
                 recent_history[-go_back] = opp_history[-go_back]
 
         return self.random_choice(
-            self.prob_coop[
-                (recent_history[-3], recent_history[-2], recent_history[-1])
-            ]
+            self.prob_coop[(recent_history[-3], recent_history[-2], recent_history[-1])]
         )
 
 
@@ -340,9 +337,7 @@ class SecondByHarrington(Agent):
         self.mode = "Normal"
         self.recorded_defects = 0  # Count opponent defects after turn 1
         self.exit_defect_meter = 0  # When >= 11, then exit defect mode.
-        self.coops_in_first_36 = (
-            None  # On turn 37, count cooperations in first 36
-        )
+        self.coops_in_first_36 = None  # On turn 37, count cooperations in first 36
         self.was_defective = False  # Previously in Defect mode
 
         self.prob = 0.25  # After turn 37, probability that we'll defect
@@ -352,9 +347,7 @@ class SecondByHarrington(Agent):
         self.more_coop = 0  # This schedules cooperation for future turns
         # Initial last_generous_n_turns_ago to 3 because this counts up and
         # triggers a strategy change at 2.
-        self.last_generous_n_turns_ago = (
-            3  # How many tuns ago was a "generous" move
-        )
+        self.last_generous_n_turns_ago = 3  # How many tuns ago was a "generous" move
         self.burned = False
 
         self.defect_streak = 0
@@ -363,9 +356,7 @@ class SecondByHarrington(Agent):
             0,
         ]  # Counters that get (almost) alternatively incremented.
         self.parity_bit = 0  # Which parity_streak to increment
-        self.parity_limit = (
-            5  # When a parity streak hits this limit, alter strategy.
-        )
+        self.parity_limit = 5  # When a parity streak hits this limit, alter strategy.
         self.parity_hits = 0  # Counts how many times a parity_limit was hit.
         # After hitting parity_hits 8 times, lower parity_limit to 3.
 
@@ -403,9 +394,7 @@ class SecondByHarrington(Agent):
         denominator = turn - 2
 
         expected_matrix = (
-            np.outer(
-                self.move_history.sum(axis=1), self.move_history.sum(axis=0)
-            )
+            np.outer(self.move_history.sum(axis=1), self.move_history.sum(axis=0))
             / denominator
         )
 
@@ -414,9 +403,7 @@ class SecondByHarrington(Agent):
             for j in range(2):
                 expect = expected_matrix[i, j]
                 if expect > 1.0:
-                    chi_squared += (
-                        expect - self.move_history[i, j]
-                    ) ** 2 / expect
+                    chi_squared += (expect - self.move_history[i, j]) ** 2 / expect
 
         return chi_squared
 
@@ -532,11 +519,7 @@ class SecondByHarrington(Agent):
 
         # Only enter Fair-weather mode if the opponent Cooperated the first 37
         # turns then Defected on the 38th.
-        if (
-            turn == 38
-            and opp_history[-1] == D
-            and self.opp_D_count == 36
-        ):
+        if turn == 38 and opp_history[-1] == D and self.opp_D_count == 36:
             self.mode = "Fair-weather"
             return self.try_return(to_return=C, lower_flags=False)
 
@@ -558,9 +541,7 @@ class SecondByHarrington(Agent):
             self.parity_streak[
                 self.parity_bit
             ] = 0  # Reset `parity_streak` when we hit the limit.
-            self.parity_hits += (
-                1  # Keep track of how many times we hit the limit.
-            )
+            self.parity_hits += 1  # Keep track of how many times we hit the limit.
             if self.parity_hits >= 8:  # After 8 times, lower the limit.
                 self.parity_limit = 3
             return self.try_return(
@@ -600,7 +581,7 @@ class SecondByWhiteK72R(Agent):
         turn = len(history) + 1
         opp_defection_count = 0
         for i in range(len(opp_history)):
-            opp_defection_count += 1 if(opp_history[i] == Action.DEFECT) else 0
+            opp_defection_count += 1 if (opp_history[i] == Action.DEFECT) else 0
         if turn <= 10 or opp_history[-1] == Action.COOPERATE:
             return Action.COOPERATE
         if np.floor(np.log(turn)) * opp_defection_count >= turn:
@@ -619,7 +600,7 @@ class SecondByBlackK83R(Agent):
             return Action.COOPERATE
         opp_defection_count_l5 = 0
         for i in range(5):
-            opp_defection_count_l5 += 1 if(opp_history[-5:][i] == Action.DEFECT) else 0
+            opp_defection_count_l5 += 1 if (opp_history[-5:][i] == Action.DEFECT) else 0
         prob_coop = {0: 1.0, 1: 1.0, 2: 0.88, 3: 0.68, 4: 0.4, 5: 0.04}
         if random.random() <= prob_coop[opp_defection_count_l5]:
             return Action.COOPERATE
@@ -718,41 +699,41 @@ class SecondByTidemanAndChieruzzi(Agent):
 
         return D
 
-class SecondByWmAdams(Agent):
 
+class SecondByWmAdams(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
-        '''
-            Count # of defects, label it c_defect
-            if c_defect equals 4, 7, or 9 => defect.
-            if c_defect > 9 => defect after opponent defection with prob 0.5 ^(c_defect - 1). Otherwise, cooperate.
-        '''
+        """
+        Count # of defects, label it c_defect
+        if c_defect equals 4, 7, or 9 => defect.
+        if c_defect > 9 => defect after opponent defection with prob 0.5 ^(c_defect - 1). Otherwise, cooperate.
+        """
 
         c_defect = opp_history.count(Action.DEFECT)
 
         if c_defect == 4 or c_defect == 7 or c_defect == 9:
             return Action.DEFECT
-        
+
         if opp_history[-1] == Action.DEFECT and c_defect > 9:
             if random() <= 0.5 ** (c_defect - 1):
                 return Action.DEFECT
-        
+
         return Action.COOPERATE
 
-class SecondByCave(Agent):
 
+class SecondByCave(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
-        '''
-            First, check if opponent is overly defective and defect if found. I.e., if they meet any of the following conditions:
-            - turn > 39 and % defects > 0.39
-            - turn > 29 and % defects > 0.65
-            - turn > 19 and % defects > 0.79
+        """
+        First, check if opponent is overly defective and defect if found. I.e., if they meet any of the following conditions:
+        - turn > 39 and % defects > 0.39
+        - turn > 29 and % defects > 0.65
+        - turn > 19 and % defects > 0.79
 
-            Else, cooperate if they cooperated last turn. If enemy defected, then either defect if opp has defected > 18 times or 50/50 chance.
-            Note, cooperate on first move.
-        '''
-        
+        Else, cooperate if they cooperated last turn. If enemy defected, then either defect if opp has defected > 18 times or 50/50 chance.
+        Note, cooperate on first move.
+        """
+
         if not history:
             return Action.COOPERATE
 
@@ -763,12 +744,12 @@ class SecondByCave(Agent):
         if len(history) > 29 and percent_defect > 0.65:
             return Action.DEFECT
         if len(history) > 19 and percent_defect > 0.79:
-            return Action.DEFECT 
+            return Action.DEFECT
 
         if opp_history[-1] == Action.DEFECT:
             if num_defects > 18:
                 return Action.DEFECT
             if random() < 0.5:
                 return Action.DEFECT
-        
+
         return Action.COOPERATE

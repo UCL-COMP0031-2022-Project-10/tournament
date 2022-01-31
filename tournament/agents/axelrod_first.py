@@ -1,7 +1,7 @@
 from collections import Counter
+from random import random
 from typing import List, Optional
 
-from random import random
 import numpy.random
 from numpy.random import RandomState
 from scipy.stats import chisquare
@@ -475,7 +475,7 @@ class Tullock(Agent):
         percent_coop = opp_history[-10:].count(Action.COOPERATE) / 10
         if percent_coop <= 0.1:
             return Action.DEFECT
-        
+
         if random() <= percent_coop - 10:
             return Action.COOPERATE
         return Action.DEFECT
@@ -484,22 +484,22 @@ class Downing(Agent):
 
     def __init__(self):
 
-        self._num_coop_following_coop = 0 # num of times opp has cooperated after Downing has cooperated. 
-        self._num_coop_following_defect = 0 # num of times opp has cooperated after Downing has defected. 
+        self._num_coop_following_coop = 0 # num of times opp has cooperated after Downing has cooperated.
+        self._num_coop_following_defect = 0 # num of times opp has cooperated after Downing has defected.
 
     def _calc_conditional_probs(self, history: List[Action]) -> Tuple[float, float]:
 
         alpha = self._num_coop_following_coop / (history.count(Action.COOPERATE) + 1) # add 1 to remove divide by zero error. We assume in the nonexistent round 0, Downing cooperated.
-        beta = self._num_coop_following_defect / (history.count(Action.DEFECT)) 
-        
+        beta = self._num_coop_following_defect / (history.count(Action.DEFECT))
+
         return (alpha, beta)
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        
+
         # Calc P(C_o | C_s) = Prob(Opp cooperates | Downing cooperated previous turn) = alpha
         #      P(C_o | D_s) = Prob(Opp cooperates | Downing defected previous turn) = beta
         # R = reward (3), T = temptation (5), S = sucker (0), P = Punishment (1).
-        # Expected Value for Cooperating (EV_C) = P(C_o | C_s) * R + (1 - P(C_o | C_s)) * S 
+        # Expected Value for Cooperating (EV_C) = P(C_o | C_s) * R + (1 - P(C_o | C_s)) * S
         # Expected Value for Defecting (EV_D) = P(C_o | D_s) * T + (1 - P(C_o | D_s)) * P
         # If EV_C > EV_D => Cooperate. If EV_D > EV_C => Defect. If EV_D = EV_C, do opposite of last action that Downing executed.
         # Downing has pessimistic assumption that starting probabilities are 0.5 each. Consequently, Downing always defects on first two turns.
@@ -535,7 +535,7 @@ class Joss(Agent):
         if opp_history[-1] == Action.DEFECT:
             # always defect if opp defects
             return Action.DEFECT
-        
+
         if random() <= 0.9:
             # if opp has cooperated, cooperate with 90% probability.
             return Action.COOPERATE

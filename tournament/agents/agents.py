@@ -1,29 +1,29 @@
 from tournament.agents.axelrod_first import (
     Davis,
+    Downing,
+    Feld,
     Graaskamp,
     Grofman,
     Grudger,
+    Joss,
     Nydegger,
     Shubik,
     SteinAndRapoport,
     TidemanAndChieruzzi,
     Tullock,
-    Joss,
-    Feld,
-    Downing
 )
 from tournament.agents.axelrod_second import (
-    Champion,
     Borufsen,
+    Champion,
     Leyvraz,
-    SecondByHarrington,
-    SecondByWhiteK72R,
     SecondByBlackK83R,
+    SecondByHarrington,
     SecondByTidemanAndChieruzzi,
+    SecondByWhiteK72R,
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.pavlov import Pavlov
-from tournament.agents.randomAgent import RandomAgent
+from tournament.agents.random import RandomAgent
 from tournament.agents.tft import (
     TFTT,
     TTFT,
