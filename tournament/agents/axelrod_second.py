@@ -717,3 +717,58 @@ class SecondByTidemanAndChieruzzi(Agent):
                 return C  # First cooperation
 
         return D
+
+class SecondByWmAdams(Agent):
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+
+        '''
+            Count # of defects, label it c_defect
+            if c_defect equals 4, 7, or 9 => defect.
+            if c_defect > 9 => defect after opponent defection with prob 0.5 ^(c_defect - 1). Otherwise, cooperate.
+        '''
+
+        c_defect = opp_history.count(Action.DEFECT)
+
+        if c_defect == 4 or c_defect == 7 or c_defect == 9:
+            return Action.DEFECT
+        
+        if opp_history[-1] == Action.DEFECT and c_defect > 9:
+            if random() <= 0.5 ** (c_defect - 1):
+                return Action.DEFECT
+        
+        return Action.COOPERATE
+
+class SecondByCave(Agent):
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+
+        '''
+            First, check if opponent is overly defective and defect if found. I.e., if they meet any of the following conditions:
+            - turn > 39 and % defects > 0.39
+            - turn > 29 and % defects > 0.65
+            - turn > 19 and % defects > 0.79
+
+            Else, cooperate if they cooperated last turn. If enemy defected, then either defect if opp has defected > 18 times or 50/50 chance.
+            Note, cooperate on first move.
+        '''
+        
+        if not history:
+            return Action.COOPERATE
+
+        num_defects = opp_history.count(Action.DEFECT)
+        percent_defect = num_defects / len(opp_history)
+        if len(history) > 39 and percent_defect > 0.39:
+            return Action.DEFECT
+        if len(history) > 29 and percent_defect > 0.65:
+            return Action.DEFECT
+        if len(history) > 19 and percent_defect > 0.79:
+            return Action.DEFECT 
+
+        if opp_history[-1] == Action.DEFECT:
+            if num_defects > 18:
+                return Action.DEFECT
+            if random() < 0.5:
+                return Action.DEFECT
+        
+        return Action.COOPERATE
