@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 
 from tournament.action import Action
 
@@ -30,10 +30,20 @@ class TrainableAgent(Agent):
     """
 
     def setup(self):
+        """Prepares a trainable agent for training and gameplay."""
+        pass
+
+    def notify_prematch(self):
+        """Handles new match starts in training."""
+        pass
+
+    def notify_postmatch(self):
+        """Handles match endings in training."""
         pass
 
     def teardown(self):
+        """Tears down a trainable again following training or gameplay."""
         pass
 
-    def update(self, history: List[Action], opp_history: List[Action]):
+    def update(self, moves: Tuple[Action, Action], scores: Tuple[float, float]):
         raise NotImplementedError()

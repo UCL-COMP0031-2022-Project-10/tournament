@@ -1,5 +1,5 @@
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from typing import List
+from typing import List, Type
 
 from tqdm import tqdm
 
@@ -25,7 +25,7 @@ def _play_match(a, b, repetitions, continuation_probability, limit, noise):
 
 
 class RoundRobinTournament:
-    def __init__(self, agents: List[Agent]) -> None:
+    def __init__(self, agents: List[Type[Agent]]) -> None:
         self.agents = agents
 
     def play(

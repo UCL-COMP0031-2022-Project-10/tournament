@@ -2,8 +2,8 @@ from enum import Enum
 
 
 class Action(Enum):
-    COOPERATE = 1
-    DEFECT = 2
+    COOPERATE = 0
+    DEFECT = 1
 
 
 def flip_action(action: Action):

@@ -12,4 +12,4 @@ if __name__ == "__main__":
     results.sort(key=lambda x: x[1], reverse=True)
 
     for c, score in results:
-        print(c.__name__, score)
+        print(f"{c.__name__:<30} {score:<20}")
