@@ -62,4 +62,5 @@ AGENTS = [
     SecondByWhiteK72R,
     SecondByBlackK83R,
     SecondByTidemanAndChieruzzi,
+    Tullock,
 ]
