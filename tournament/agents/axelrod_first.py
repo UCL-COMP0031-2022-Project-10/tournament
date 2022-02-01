@@ -1,6 +1,6 @@
 from collections import Counter
 from random import random
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 import numpy.random
 from numpy.random import RandomState
@@ -40,12 +40,10 @@ class Davis(Agent):
         Begins by playing C, then plays D for the remaining rounds if the opponent ever plays D.
         """
         if len(history) < self._rounds_to_cooperate:
-            # print("Davis: playing C")
             return Action.COOPERATE
         if opp_history and Action.DEFECT in opp_history:
-            # print("Davis: playing D")
             return Action.DEFECT
-        # print("Davis: playing C")
+
         return Action.COOPERATE
 
 
@@ -97,7 +95,7 @@ class Graaskamp(Agent):
         super().__init__()
         self.alpha = alpha
         self.opponent_is_random = False
-        self.next_random_defection_turn = None  # type: Optional[int]
+        self.next_random_defection_turn = None
 
     def play_move(self, history: List[Action], opp_history: List[Action]):
         """
@@ -107,16 +105,13 @@ class Graaskamp(Agent):
         if len(history) < 56:
             # Defect on the 51st turn
             if len(history) == 50:
-                # print("Graaskamp: playing D")
                 return Action.DEFECT
 
             # Cooperate initially
             if not opp_history:
-                # print("Graaskamp: playing C")
                 return Action.COOPERATE
 
             # Play the opponent's last action
-            # print("Graaskamp: playing " + str(opp_history[-1]))
             return opp_history[-1]
 
         cnt = Counter(opp_history)
@@ -129,7 +124,6 @@ class Graaskamp(Agent):
 
         # If so, defect for the rest of the game
         if self.opponent_is_random:
-            # print("Graaskamp: playing D")
             return Action.DEFECT
 
         # Check if opponent is Tit For Tat or a clone of itself
@@ -138,7 +132,6 @@ class Graaskamp(Agent):
             or opp_history == history
         ):
             # If so, play TFT
-            # print("Graaskamp: playing " + str(opp_history[-1]))
             return opp_history[-1]
 
         # Otherwise, randomly defect every 5 to 15 moves
@@ -151,10 +144,8 @@ class Graaskamp(Agent):
             self.next_random_defection_turn = RandomState().randint(5, 15) + len(
                 history
             )
-            # print("Graaskamp: playing D")
             return Action.DEFECT
 
-        # print("Graaskamp: playing C")
         return Action.COOPERATE
 
 
@@ -341,7 +332,6 @@ class TidemanAndChieruzzi(Agent):
         if opp_history[-1] == D:
             self.retaliation_remaining = self.retaliation_length
             self.retaliation_length += 1
-            # print("retaliation_length += 1")
             return D
 
         # if the other player is 10 or more points behind
@@ -350,16 +340,8 @@ class TidemanAndChieruzzi(Agent):
             std_deviation = (len(opp_history) ** (1 / 2)) / 2
             lower = len(opp_history) / 2 - 3 * std_deviation
             upper = len(opp_history) / 2 + 3 * std_deviation
-            if (
-                self.opp_D_count <= lower
-                or self.opp_D_count >= upper
-            ):
+            if self.opp_D_count <= lower or self.opp_D_count >= upper:
                 self.fresh_start = True
-                # print("fresh start!")
-            """
-            else:
-                print("I think u are random!")
-            """
 
         if self.fresh_start:
             self.retaliation_length = 0
@@ -461,8 +443,8 @@ class Grofman(Agent):
 
         return C
 
-class Tullock(Agent):
 
+class Tullock(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
         if len(history) <= 11:
@@ -480,16 +462,19 @@ class Tullock(Agent):
             return Action.COOPERATE
         return Action.DEFECT
 
+
 class Downing(Agent):
-
     def __init__(self):
+        # num of times opp has cooperated after Downing has cooperated.
+        self._num_coop_following_coop = 0
 
-        self._num_coop_following_coop = 0 # num of times opp has cooperated after Downing has cooperated.
-        self._num_coop_following_defect = 0 # num of times opp has cooperated after Downing has defected.
+        # num of times opp has cooperated after Downing has defected.
+        self._num_coop_following_defect = 0
 
     def _calc_conditional_probs(self, history: List[Action]) -> Tuple[float, float]:
-
-        alpha = self._num_coop_following_coop / (history.count(Action.COOPERATE) + 1) # add 1 to remove divide by zero error. We assume in the nonexistent round 0, Downing cooperated.
+        alpha = self._num_coop_following_coop / (
+            history.count(Action.COOPERATE) + 1
+        )  # add 1 to remove divide by zero error. We assume in the nonexistent round 0, Downing cooperated.
         beta = self._num_coop_following_defect / (history.count(Action.DEFECT))
 
         return (alpha, beta)
@@ -525,8 +510,8 @@ class Downing(Agent):
             return Action.DEFECT
         return Action.COOPERATE if history[-1] == Action.DEFECT else Action.DEFECT
 
-class Joss(Agent):
 
+class Joss(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
         if not history:
@@ -541,15 +526,13 @@ class Joss(Agent):
             return Action.COOPERATE
         return Action.DEFECT
 
+
 class Feld(Agent):
-
     def __init__(self):
-
-        self._rate_of_dec = 1/200 # rate at which _prob_coop decreases
-        self._prob_coop = 1 # probability of cooperating after a cooperation by opp.
+        self._rate_of_dec = 1 / 200  # rate at which _prob_coop decreases
+        self._prob_coop = 1  # probability of cooperating after a cooperation by opp.
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-
         if not history:
             return Action.COOPERATE
 
