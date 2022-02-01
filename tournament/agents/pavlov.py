@@ -2,7 +2,20 @@ from typing import List
 
 from tournament.action import Action
 from tournament.agent import Agent
-from tournament.rtsp_list import rtsp_list
+
+
+def rtsp_list(history: List[Action], opp_history: List[Action]) -> List[int]:
+    return_list = []
+    for i in range(len(history)):
+        if history[i] == Action.COOPERATE and opp_history[i] == Action.COOPERATE:
+            return_list.append(0)
+        elif history[i] == Action.DEFECT and opp_history[i] == Action.COOPERATE:
+            return_list.append(1)
+        elif history[i] == Action.COOPERATE and opp_history[i] == Action.DEFECT:
+            return_list.append(2)
+        else:  # if(history[i] == Action.COOPERATE and opp_history[i] == Action.COOPERATE)
+            return_list.append(3)
+    return return_list
 
 
 class Pavlov(Agent):
