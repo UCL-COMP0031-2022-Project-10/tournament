@@ -753,3 +753,150 @@ class SecondByCave(Agent):
                 return Action.DEFECT
 
         return Action.COOPERATE
+
+
+class SecondByGraaskampKatzen(Agent):
+    """
+   Strategy submitted to Axelrod's second tournament by Jim Graaskamp and Ken
+   Katzen (K60R), and came in sixth in that tournament.
+   Play Tit-for-Tat at first, and track own score.  At select checkpoints,
+   check for a high score.  Switch to Default Mode if:
+   - On move 11, score < 23
+   - On move 21, score < 53
+   - On move 31, score < 83
+   - On move 41, score < 113
+   - On move 51, score < 143
+   - On move 101, score < 293
+   Once in Defect Mode, defect forever.
+   Names:
+   - GraaskampKatzen: [Axelrod1980b]_
+   """
+
+    def __init__(self):
+        super().__init__()
+        self.own_score = 0
+        self.mode = "Normal"
+
+    def update_score(self, history: List[Action], opp_history: List[Action]):
+        own_last_move = history[-1]
+        opp_last_move = opp_history[-1]
+        if own_last_move == opp_last_move:
+            if own_last_move is Action.COOPERATE:
+                self.own_score += 3
+            else:
+                self.own_score += 1
+        else:
+            if own_last_move is Action.COOPERATE:
+                self.own_score += 0
+            else:
+                self.own_score += 5
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        if self.mode == "Defect":
+            return Action.DEFECT
+
+        turn = len(history) + 1
+        if turn == 1:
+            return Action.COOPERATE
+
+        self.update_score(history, opp_history)
+
+        if (
+                turn == 11
+                and self.own_score < 23
+                or turn == 21
+                and self.own_score < 53
+                or turn == 31
+                and self.own_score < 83
+                or turn == 41
+                and self.own_score < 113
+                or turn == 51
+                and self.own_score < 143
+                or turn == 101
+                and self.own_score < 293
+        ):
+            self.mode = "Defect"
+            return Action.DEFECT
+
+        return opp_history[-1]
+
+class SecondByWeiner(Agent):
+    """
+    Strategy submitted to Axelrod's second tournament by Herb Weiner (K41R),
+    and came in seventh in that tournament.
+    Play Tit-for-Tat with a chance for forgiveness and a defective override.
+    The chance for forgiveness happens only if `forgive_flag` is raised
+    (flag discussed below).  If raised and `turn` is greater than `grudge`,
+    then override Tit-for-Tat with Cooperation.  `grudge` is a variable that
+    starts at 0 and increments 20 with each forgiven Defect (a Defect that is
+    overriden through the forgiveness logic).  `forgive_flag` is lower whether
+    logic is overriden or not.
+    The variable `defect_padding` increments with each opponent Defect, but
+    resets to zero with each opponent Cooperate (or `forgive_flag` lowering) so
+    that it roughly counts Defects between Cooperates.  Whenever the opponent
+    Cooperates, if `defect_padding` (before reseting) is odd, then we raise
+    `forgive_flag` for next turn.
+    Finally a defective override is assessed after forgiveness.  If five or
+    more of the opponent's last twelve actions are Defects, then Defect.  This
+    will overrule a forgiveness, but doesn't undo the lowering of
+    `forgiveness_flag`.  Note that "last twelve actions" doesn't count the most
+    recent action.  Actually the original code updates history after checking
+    for defect override.
+    Names:
+    - Weiner: [Axelrod1980b]_
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.forgive_flag = False
+        self.grudge = 0
+        self.defect_padding = 0
+        self.last_twelve = [0] * 12
+        self.lt_index = 0  # Circles around last_twelve
+
+    def try_return(self, to_return):
+        """
+        We put the logic here to check for the defective override.
+        """
+
+        if np.sum(self.last_twelve) >= 5:
+            return D
+        return to_return
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        """Actual strategy definition that determines player's action."""
+        if len(opp_history) == 0:
+            return C
+
+        # Update history, lag 1.
+        if len(opp_history) >= 2:
+            self.last_twelve[self.lt_index] = 0
+            if opp_history[-2] == D:
+                self.last_twelve[self.lt_index] = 1
+            self.lt_index = (self.lt_index + 1) % 12
+
+        if self.forgive_flag:
+            self.forgive_flag = False
+            self.defect_padding = 0
+            if (
+                self.grudge < len(history) + 1
+                and opp_history[-1] == D
+            ):
+                # Then override
+                self.grudge += 20
+                return self.try_return(C)
+            else:
+                return self.try_return(opp_history[-1])
+        else:
+            # See if forgive_flag should be raised
+            if opp_history[-1] == D:
+                self.defect_padding += 1
+            else:
+                if self.defect_padding % 2 == 1:
+                    self.forgive_flag = True
+                self.defect_padding = 0
+
+            return self.try_return(opp_history[-1])
+
+
+

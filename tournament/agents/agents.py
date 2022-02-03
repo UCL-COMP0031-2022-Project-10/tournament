@@ -20,6 +20,8 @@ from tournament.agents.axelrod_second import (
     SecondByHarrington,
     SecondByTidemanAndChieruzzi,
     SecondByWhiteK72R,
+    SecondByGraaskampKatzen,
+    SecondByWeiner
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.pavlov import Pavlov
@@ -62,5 +64,7 @@ AGENTS = [
     SecondByWhiteK72R,
     SecondByBlackK83R,
     SecondByTidemanAndChieruzzi,
+    SecondByGraaskampKatzen,
+    SecondByWeiner,
     Tullock,
 ]
