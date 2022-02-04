@@ -3,7 +3,7 @@ from tournament.agents.random import RandomAgent
 from tournament.agents.tft import TitForTat
 from tournament.match import Match
 
-for i, ((move1, move2), (score1, score2)) in enumerate(
+for i, ((move1, move2), (score1, score2), (reward1, reward2)) in enumerate(
     Match(TidemanAndChieruzzi(), RandomAgent()).play_moves(
         continuation_probability=0.99654, limit=1000, noise=0
     )

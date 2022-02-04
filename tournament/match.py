@@ -44,12 +44,12 @@ class Match:
             history2.append(move2)
 
             i += 1
-            yield (move1, move2), (score1, score2)
+            yield (move1, move2), (score1, score2), (increase1, increase2)
 
     def play(
         self, continuation_probability: float = 1, limit: int = 10000, noise: float = 0
     ):
-        *_, (moves, scores) = self.play_moves(
+        *_, (moves, scores, rewards) = self.play_moves(
             continuation_probability=continuation_probability, limit=limit, noise=noise
         )
         return scores
