@@ -45,5 +45,10 @@ class TrainableAgent(Agent):
         """Tears down a trainable again following training or gameplay."""
         pass
 
-    def update(self, moves: Tuple[Action, Action], scores: Tuple[float, float]):
+    def update(
+        self,
+        moves: Tuple[Action, Action],
+        scores: Tuple[float, float],
+        rewards: Tuple[float, float],
+    ):
         raise NotImplementedError()
