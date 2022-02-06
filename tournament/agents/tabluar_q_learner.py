@@ -42,7 +42,7 @@ class TabluarQLearner(TrainableAgent):
         self._discount_rate = 0.99
         self._learning_rate = 0.001
         self._epsilon = 0.1
-        self._epsilon_decay = 0.00001
+        self._epsilon_decay = 0
         self._decay_limit = 0.1
         self._q_table = None
         self._current_state = None
@@ -92,9 +92,9 @@ class TabluarQLearner(TrainableAgent):
         Action.COOPERATE or Action.DEFECT indicating what action self should perform.
         """
 
-        """if self._epsilon > self._decay_limit:
+        if self._epsilon > self._decay_limit:
             # slowly reduce exploration rate.
-            self._epsilon -= self._epsilon_decay"""
+            self._epsilon -= self._epsilon_decay
 
         if random() < self._epsilon:
             # explore, so we do random move.
