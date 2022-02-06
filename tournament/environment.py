@@ -1,7 +1,7 @@
 from typing import List, Type
 
 from tournament.agent import Agent, TrainableAgent
-from tournament.environment import Environment
+from tournament.agent import Agent, TrainableAgent
 from tournament.match import Match
 
 
@@ -19,12 +19,12 @@ class Environment:
     ):
         trainee.notify_prematch()
 
-        for moves, scores in Match(trainee, opponent).play_moves(
+        for moves, scores, rewards in Match(trainee, opponent).play_moves(
             continuation_probability=continuation_probability,
             limit=limit,
             noise=noise,
         ):
-            trainee.update(moves, scores)
+            trainee.update(moves, scores, rewards)
 
         trainee.notify_postmatch()
 
@@ -42,7 +42,7 @@ class Environment:
         self,
         trainee: TrainableAgent,
         continuation_probability: float = 1,
-        limit: int = 10000,
+        limit: int = 100000,
         noise: float = 0,
         repetitions: int = 1,
         epochs: int = 1,
