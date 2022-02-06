@@ -21,7 +21,7 @@ from tournament.agents.axelrod_second import (
     SecondByTidemanAndChieruzzi,
     SecondByWhiteK72R,
     SecondByGraaskampKatzen,
-    SecondByWeiner
+    SecondByWeiner,
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.pavlov import Pavlov
@@ -34,6 +34,7 @@ from tournament.agents.tft import (
     OmegaTFT,
     TitForTat,
 )
+from tournament.agents.tabluar_q_learner import TabluarQLearner
 
 AGENTS = [
     AllC,
@@ -67,4 +68,5 @@ AGENTS = [
     SecondByGraaskampKatzen,
     SecondByWeiner,
     Tullock,
+    TabluarQLearner,
 ]

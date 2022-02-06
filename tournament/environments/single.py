@@ -4,7 +4,7 @@ from tournament.agent import Agent, TrainableAgent
 from tournament.environment import Environment
 
 
-class MultipleRuleBasedAgentEnvironment(Environment):
+class SingleRuleBasedAgentEnvironment(Environment):
     def __init__(self, opponent: Type[Agent]) -> None:
         super().__init__()
 
