@@ -19,12 +19,12 @@ class Environment:
     ):
         trainee.notify_prematch()
 
-        for moves, scores in Match(trainee, opponent).play_moves(
+        for moves, scores, rewards in Match(trainee, opponent).play_moves(
             continuation_probability=continuation_probability,
             limit=limit,
             noise=noise,
         ):
-            trainee.update(moves, scores)
+            trainee.update(moves, scores, rewards)
 
         trainee.notify_postmatch()
 

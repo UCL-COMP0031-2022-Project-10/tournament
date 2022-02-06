@@ -69,8 +69,10 @@ class TabluarQLearner(TrainableAgent):
         and is loaded in when the agents compete in the tournament.
         """
 
-        with open("tabluar_q_learner_table.json", "w") as fp:
-            json.dump(self._q_table, fp)
+        # with open("tabluar_q_learner_table.json", "w") as fp:
+        #    json.dump(self._q_table, fp)
+        for key in self._q_table.keys():
+            print(f"Key: {key}, Q-Values: {self._q_table[key]}")
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
@@ -103,7 +105,7 @@ class TabluarQLearner(TrainableAgent):
             return Action.COOPERATE if random() < 0.5 else Action.DEFECT
 
         curr_state = self._construct_current_state(history, opp_history)
-        self._prev_State = curr_state
+        self._prev_state = curr_state
 
         # execute action that has highest q_val for associated state.
         q_vals = self._q_table[curr_state]
@@ -135,14 +137,19 @@ class TabluarQLearner(TrainableAgent):
         rewards: Corresponds to payoff matrix values for the outcome specified by moves. The first element is the reward for self while
                     the second reward is the reward for opponent.
         """
-
-        if len(self._prev_state) <= 1:
-            new_state = moves
+        if not self._prev_state:
+            # first move
+            return
+        # remove oldest move and append most recent move.
+        if len(self._prev_state) == 1:
+            new_state = (moves,)
         else:
-            # remove oldest move and append most recent move.
             new_state = tuple([_ for _ in self._prev_state[1:]].extend(moves))
 
-        self._q_table[moves] = self._q_table[self._prev_state] + self._learning_rate * (
+        idx = 1 if moves[0] == Action.DEFECT else 0
+        self._q_table[self._prev_state][idx] = self._q_table[self._prev_state][
+            idx
+        ] + self._learning_rate * (
             rewards[0]
             + self._discount_rate * max(self._q_table[new_state])
             - max(self._q_table[self._prev_state])
