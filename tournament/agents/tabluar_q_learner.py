@@ -90,19 +90,16 @@ class TabluarQLearner(TrainableAgent):
         Action.COOPERATE or Action.DEFECT indicating what action self should perform.
         """
 
-        """
-                Agent
-                TrainableAgent   - update(), set_up(), tear_down()
-                QLearner         - priv variables, fileName for settings,
-            Tabular    Deep      -
-        SingleLookBack, DoubleLookBack, TripleLookBack, HighExplorationRate, LowExploration, FastExplorationDecay, Default
-        """
         if self._epsilon > self._decay_limit:
             # slowly reduce exploration rate.
             self._epsilon -= self._epsilon_decay
 
         if random() < self._epsilon:
             # explore, so we do random move.
+            return Action.COOPERATE if random() < 0.5 else Action.DEFECT
+
+        if not history:
+            # first move
             return Action.COOPERATE if random() < 0.5 else Action.DEFECT
 
         curr_state = self._construct_current_state(history, opp_history)
@@ -139,7 +136,7 @@ class TabluarQLearner(TrainableAgent):
                     the second reward is the reward for opponent.
         """
 
-        if len(self._prev_state) == 1:
+        if len(self._prev_state) <= 1:
             new_state = moves
         else:
             # remove oldest move and append most recent move.
@@ -210,8 +207,8 @@ class TabluarQLearner(TrainableAgent):
             As you increment the vector from 0 - (4^(h) - 1), each possible sequence of outcomes is constructed
             E.g., the vector 3212 represents the sequence ((D, D), (D, C), (C, D), (D, C))
             """
-            q_table[self._create_key(vec)] = [0, 0]
-            vec = self._increment_vec(vec, self._len_history)
+            q_table[self._create_key(vec)] = [0.0, 0.0]
+            vec = self._increment_vec(vec)
 
         return q_table
 
@@ -235,7 +232,7 @@ class TabluarQLearner(TrainableAgent):
             0: (Action.COOPERATE, Action.COOPERATE),
             1: (Action.COOPERATE, Action.DEFECT),
             2: (Action.DEFECT, Action.COOPERATE),
-            4: (Action.DEFECT, Action.DEFECT),
+            3: (Action.DEFECT, Action.DEFECT),
         }
 
         ret = []

@@ -1,7 +1,7 @@
 from typing import List, Type
 
 from tournament.agent import Agent, TrainableAgent
-from tournament.environment import Environment
+from tournament.agent import Agent, TrainableAgent
 from tournament.match import Match
 
 
