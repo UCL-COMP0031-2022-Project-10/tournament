@@ -42,7 +42,7 @@ class Environment:
         self,
         trainee: TrainableAgent,
         continuation_probability: float = 1,
-        limit: int = 10000,
+        limit: int = 100000,
         noise: float = 0,
         repetitions: int = 1,
         epochs: int = 1,

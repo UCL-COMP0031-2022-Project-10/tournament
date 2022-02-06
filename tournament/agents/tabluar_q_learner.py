@@ -41,7 +41,7 @@ class TabluarQLearner(TrainableAgent):
         self._len_history = 1
         self._discount_rate = 0.99
         self._learning_rate = 0.001
-        self._epsilon = 0.05
+        self._epsilon = 0.1
         self._epsilon_decay = 0.00001
         self._decay_limit = 0.1
         self._q_table = None
@@ -72,7 +72,7 @@ class TabluarQLearner(TrainableAgent):
         # with open("tabluar_q_learner_table.json", "w") as fp:
         #    json.dump(self._q_table, fp)
         for key in self._q_table.keys():
-            print(f"Key: {key}, Q-Values: {self._q_table[key]}")
+            print(f"Key: {key}\tQ-Values: {self._q_table[key]}")
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
@@ -92,9 +92,9 @@ class TabluarQLearner(TrainableAgent):
         Action.COOPERATE or Action.DEFECT indicating what action self should perform.
         """
 
-        if self._epsilon > self._decay_limit:
+        """if self._epsilon > self._decay_limit:
             # slowly reduce exploration rate.
-            self._epsilon -= self._epsilon_decay
+            self._epsilon -= self._epsilon_decay"""
 
         if random() < self._epsilon:
             # explore, so we do random move.
@@ -146,13 +146,14 @@ class TabluarQLearner(TrainableAgent):
         else:
             new_state = tuple([_ for _ in self._prev_state[1:]].extend(moves))
 
-        idx = 1 if moves[0] == Action.DEFECT else 0
+        # index the list for key. index 0 = Q-value for cooperating, 1 = defecting
+        idx = 0 if moves[0] == Action.COOPERATE else 1
         self._q_table[self._prev_state][idx] = self._q_table[self._prev_state][
             idx
         ] + self._learning_rate * (
             rewards[0]
             + self._discount_rate * max(self._q_table[new_state])
-            - max(self._q_table[self._prev_state])
+            - self._q_table[self._prev_state][idx]
         )
 
     """
