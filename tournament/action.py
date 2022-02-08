@@ -1,4 +1,5 @@
 from enum import Enum
+from random import choice
 
 
 class Action(Enum):
@@ -17,3 +18,7 @@ def flip_action(action: Action):
     """
 
     return Action.COOPERATE if action is Action.DEFECT else Action.DEFECT
+
+
+def random_action():
+    return choice([Action.COOPERATE, Action.DEFECT])

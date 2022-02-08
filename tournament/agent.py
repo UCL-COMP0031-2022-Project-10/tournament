@@ -11,8 +11,8 @@ class Agent:
         """Plays a move.
 
         Args:
-            history (List[Action]): The history of the agent's past moves.
-            opp_history (List[Action]): The history of the agent's opponent's past moves.
+            history (List[Action]): A chronological history of the agent's past moves.
+            opp_history (List[Action]): A chronological history of the agent's opponent's past moves.
 
         Raises:
             NotImplementedError: This is only a base class -- this method should be implemented by children.

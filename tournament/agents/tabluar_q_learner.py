@@ -1,9 +1,10 @@
-from typing import List, Tuple
-from tournament.action import Action
-from tournament.agent import TrainableAgent
-from random import random
 import json
 import os.path
+from random import choice, random
+from typing import List, Tuple
+
+from tournament.action import Action, random_action
+from tournament.agent import TrainableAgent
 
 
 class TabluarQLearner(TrainableAgent):
@@ -13,7 +14,7 @@ class TabluarQLearner(TrainableAgent):
 
     Attributes
     ----------
-    _len_history: int
+    _lookback: int
         indicates how many moves back long are the states of the Q-table.
     _discount_rate: float, range is [0,1]
         parameter corresponding to gamma in Q-value update. It indicates how much an agent discounts future rewards, higher value = more
@@ -29,26 +30,33 @@ class TabluarQLearner(TrainableAgent):
         so we slowly decrease it to _decay_limit.
     _decay_limit: float, range is [0, self._epsilon]
         The lowest value for self._epsilon. Once it has decayed to this value, it stops decreasing.
-    _q_table: dict[tuple[tuple[Action, Action]], list[float]], length of state = _len_history
+    _q_table: dict[tuple[tuple[Action, Action]], list[float]], length of state = _lookback
         Contains a tuple of states and a list containing the corresponding Q-values. the first value in the list is the Q-value for cooperating and the second value
         is the Q-value for defecting. The agent looks up the Q-values for current state and executes the move that gives highest Q-value.
-    _prev_state: tuple[tuple[Action, Action]], length of state = _len_history
+    _state: tuple[tuple[Action, Action]], length of state = _lookback
         Used to store the current state for update method.
     """
 
-    def __init__(self):
+    OUTCOMES = {
+        0: (Action.COOPERATE, Action.COOPERATE),
+        1: (Action.COOPERATE, Action.DEFECT),
+        2: (Action.DEFECT, Action.COOPERATE),
+        3: (Action.DEFECT, Action.DEFECT),
+    }
 
-        self._len_history = 1
+    def __init__(self):
+        self._lookback = 1
         self._discount_rate = 0.99
         self._learning_rate = 0.001
         self._epsilon = 0.1
         self._epsilon_decay = 0
         self._decay_limit = 0.1
+
         self._q_table = None
         self._current_state = None
-        self._prev_state = None
+        self._state = ()
 
-    def setup(self):
+    def setup(self) -> None:
 
         """
         If a file called "tabluar_q_learner_table.json" exists then we load in the trained Q-values; otherwise, we need to build
@@ -57,22 +65,18 @@ class TabluarQLearner(TrainableAgent):
 
         if os.path.exists("tabluar_q_learner_table.json"):
             with open("tabluar_q_learner_table.json", "r") as fp:
-                # TODO: maybe i might have to do some parsing of JSON to get the Q-values from string to int format.
                 self._q_table = json.loads(fp)
         else:
             self._q_table = self._build_q_table()
 
-    def teardown(self):
+    def teardown(self) -> None:
 
         """
         Saves self._q_table to a file called "tabluar_q_learner_table.json". This file contains the final Q-values after training
         and is loaded in when the agents compete in the tournament.
         """
 
-        # with open("tabluar_q_learner_table.json", "w") as fp:
-        #    json.dump(self._q_table, fp)
-        for key in self._q_table.keys():
-            print(f"Key: {key}\tQ-Values: {self._q_table[key]}")
+        pass
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
 
@@ -92,31 +96,26 @@ class TabluarQLearner(TrainableAgent):
         Action.COOPERATE or Action.DEFECT indicating what action self should perform.
         """
 
+        # slowly reduce the exploration rate when above the decay limit
         if self._epsilon > self._decay_limit:
-            # slowly reduce exploration rate.
             self._epsilon -= self._epsilon_decay
 
-        if random() < self._epsilon:
-            # explore, so we do random move.
-            return Action.COOPERATE if random() < 0.5 else Action.DEFECT
+        # initial or exploratory moves are picked uniformly at random
+        if len(history) < self._lookback or random() < self._epsilon:
+            return random_action()
 
-        if not history:
-            # first move
-            return Action.COOPERATE if random() < 0.5 else Action.DEFECT
-
-        curr_state = self._construct_current_state(history, opp_history)
-        self._prev_state = curr_state
+        self._state = self._construct_current_state(history, opp_history)
 
         # execute action that has highest q_val for associated state.
-        q_vals = self._q_table[curr_state]
+        q_vals = self._q_table[self._state]
         if q_vals[0] > q_vals[1]:
-            # q_val for coop > q_val for defect.
+            # q_val for coop > q_val for defect
             return Action.COOPERATE
         elif q_vals[0] < q_vals[1]:
             return Action.DEFECT
 
         # they are equal so random.
-        return Action.COOPERATE if random() < 0.5 else Action.DEFECT
+        return random_action()
 
     def update(
         self,
@@ -137,23 +136,18 @@ class TabluarQLearner(TrainableAgent):
         rewards: Corresponds to payoff matrix values for the outcome specified by moves. The first element is the reward for self while
                     the second reward is the reward for opponent.
         """
-        if not self._prev_state:
-            # first move
+        if not self._state:
             return
-        # remove oldest move and append most recent move.
-        if len(self._prev_state) == 1:
-            new_state = (moves,)
-        else:
-            new_state = tuple([_ for _ in self._prev_state[1:]].extend(moves))
+
+        # remove oldest move and append most recent move
+        new_state = self._state[1:] + (moves,)
 
         # index the list for key. index 0 = Q-value for cooperating, 1 = defecting
-        idx = 0 if moves[0] == Action.COOPERATE else 1
-        self._q_table[self._prev_state][idx] = self._q_table[self._prev_state][
-            idx
-        ] + self._learning_rate * (
+        idx = moves[0].value
+        self._q_table[self._state][idx] += self._learning_rate * (
             rewards[0]
             + self._discount_rate * max(self._q_table[new_state])
-            - self._q_table[self._prev_state][idx]
+            - self._q_table[self._state][idx]
         )
 
     """
@@ -163,21 +157,23 @@ class TabluarQLearner(TrainableAgent):
     def _construct_current_state(
         self, history: List[Action], opp_history: List[Action]
     ) -> tuple[tuple[Action, Action]]:
+        """Constructs the current state from the agent's history and the opponent's history.
 
+        Args:
+            history (List[Action]): The agent's history.
+            opp_history (List[Action]): The opponent's history.
+
+        Returns:
+            tuple[tuple[Action, Action]]: The current state.
         """
-        Construct current state from self's history and adversary's history. Ordering is chronological, i.e., oldest is at index 0 while latest is index -1.
-        """
-        return tuple(
-            zip(
-                history[-1 * self._len_history :], opp_history[-1 * self._len_history :]
-            )
-        )
+
+        return tuple(zip(history[-self._lookback :], opp_history[-self._lookback :]))
 
     def _build_q_table(self) -> dict[tuple[tuple[Action, Action]], List[float]]:
 
         """
         If there isn't a file containing saved Q-values, we need to construct the Q table ourselves. It is simply done by creating every possible
-        state for _len_history and initialising its Q-values for cooperating and defecting to 0.
+        state for _lookback and initialising its Q-values for cooperating and defecting to 0.
 
         A Q-table holds the q values for environment states and actions. The table is
         iteratively modified as the agent updates its q values. An example of q table is given
@@ -204,9 +200,8 @@ class TabluarQLearner(TrainableAgent):
         """
 
         q_table = {}
-        vec = [
-            0 for _ in range(self._len_history)
-        ]  # base_4 vector of length 4^history. The ith value represents the outcome of the previous ith game in history.
+        # base_4 vector of length 4^history. The ith value represents the outcome of the previous ith game in history.
+        vec = [0] * self._lookback
         while vec != [-1]:
             """
             State space is constructed as follows:
@@ -221,32 +216,22 @@ class TabluarQLearner(TrainableAgent):
         return q_table
 
     def _create_key(self, vec: List[int]) -> tuple[tuple[Action, Action]]:
+        """Takes a base_4 number and constructs the corresponding state.
 
+        The number of digits in the number = self._lookback.
+
+        Args:
+            vec (List[int]): a base_4 number in a list, in which the value at index 0
+                             is the most significant quaternary digit. A list is used
+                             for ease of incrementation. Each quaternary digit corresponds
+                             to an outcome. The combination of digits therein corresponds
+                             to a state.
+
+        Returns:
+            tuple[tuple[Action, Action]]: A possible state of length self._lookback
         """
-        Takes a base_4 number and constructs the corresponding state. The number of digits in the number = _len_history.
 
-        Parameters
-        ----------
-        vec:
-            base_4 number in a list. the value at index 0 is the most significant digit. Use a list for ease of incrementing this number. Each digit
-            corresponds to an outcome, and the combination of the digits corresponds to a state.
-
-        Returns
-        -------
-        a tuple of tuples with length self._len_history = len(vec). Contains a possible state.
-        """
-
-        outcomes = {
-            0: (Action.COOPERATE, Action.COOPERATE),
-            1: (Action.COOPERATE, Action.DEFECT),
-            2: (Action.DEFECT, Action.COOPERATE),
-            3: (Action.DEFECT, Action.DEFECT),
-        }
-
-        ret = []
-        for elem in vec:
-            ret.append(outcomes[elem])
-        return tuple(ret)
+        return tuple(self.OUTCOMES[elem] for elem in vec)
 
     def _increment_vec(self, vec: List[int]) -> List[int]:
 

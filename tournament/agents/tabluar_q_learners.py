@@ -8,13 +8,13 @@ from tournament.agents.tabluar_q_learner import TabluarQLearner
 class TDoubleLookBack(TabluarQLearner):
     def __init__(self):
         super().__init__()
-        self._len_history = 2
+        self._lookback = 2
 
 
 class TTripleLookBack(TabluarQLearner):
     def __init__(self):
         super().__init__()
-        self._len_history = 3
+        self._lookback = 3
 
 
 class THighExplorationRate(TabluarQLearner):
