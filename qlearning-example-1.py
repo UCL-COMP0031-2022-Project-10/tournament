@@ -19,3 +19,6 @@ env.train(
 print(f"{'Trainee move':<20} {'TFT move':<20}")
 for ((move1, move2),), (value1, value2) in agent._q_table.items():
     print(f"{move1:<20} {move2:<20} => {round(value1, 4):<10} {round(value2, 4):<10}")
+# print(f"{'Trainee move':<20} {'TFT move':<20}")
+# for ((move1, move2),), (value1, value2) in agent._q_table.items():
+#     print(f"{move1:<20} {move2:<20} => {round(value1, 4):<10} {round(value2, 4):<10}")

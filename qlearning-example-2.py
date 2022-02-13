@@ -1,23 +1,21 @@
-from tournament.agents.random import RandomAgent
-from tournament.agents.tabluar_q_learner import TabluarQLearner
-from tournament.agents.tabluar_q_learners import TDoubleLookBack, TTripleLookBack
+import numpy as np
+
+from tournament.agents.q_learning.tabular import DoubleLookback, TripleLookback
+from tournament.agents.tft import TitForTat
 from tournament.environments.single import SingleRuleBasedAgentEnvironment
 
-env = SingleRuleBasedAgentEnvironment(RandomAgent)
+env = SingleRuleBasedAgentEnvironment(TitForTat)
 
-agent = TDoubleLookBack()
+agent = TripleLookback()
 
 env.train(
     trainee=agent,
     continuation_probability=1,
-    limit=500000,
+    limit=10000,
     noise=0,
-    repetitions=1,
+    repetitions=100,
     epochs=1,
 )
 
 
-for moves, (value1, value2) in agent._q_table.items():
-    print(
-        f"{str(moves):<100} => {round(value1, 4):<10} {round(value2, 4):<10} {'DEFECTS' if value1 < value2 else 'COOPERATES'}"
-    )
+print(np.round_(agent._q_table, decimals=0))
