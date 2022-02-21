@@ -1,13 +1,13 @@
 from typing import List, Type
 
-from tournament.agent import Agent, TrainableAgent
+from tournament.action import Action
 from tournament.agent import Agent, TrainableAgent
 from tournament.match import Match
 
 
 class Environment:
     def __init__(self) -> None:
-        pass
+        self.counts = {Action.COOPERATE: 0, Action.DEFECT: 0}
 
     def _play_training_match(
         self,
@@ -24,6 +24,7 @@ class Environment:
             limit=limit,
             noise=noise,
         ):
+            self.counts[moves[0]] += 1
             trainee.update(moves, scores, rewards)
 
         trainee.notify_postmatch()

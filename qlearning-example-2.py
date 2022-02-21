@@ -19,3 +19,9 @@ env.train(
 
 
 print(np.round_(agent._q_table, decimals=0))
+
+
+# for moves, (value1, value2) in agent._q_table.items():
+#     print(
+#         f"{str(moves):<100} => {round(value1, 4):<10} {round(value2, 4):<10} {'DEFECTS' if value1 < value2 else 'COOPERATES'}"
+#     )
