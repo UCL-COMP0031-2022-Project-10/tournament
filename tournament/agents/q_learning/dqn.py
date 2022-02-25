@@ -1,7 +1,6 @@
-from random import randint, random
+from random import random
 from typing import List, Tuple
 
-import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -14,9 +13,14 @@ class QNetwork(nn.Module):
         super().__init__()
 
         self.flatten = nn.Flatten()
-        self.layer1 = nn.Linear(2 * lookback, lookback)
-        self.layer2 = nn.Linear(lookback, lookback)
-        self.layer3 = nn.Linear(lookback, 2)
+        # self.layer1 = nn.Linear(2 * lookback, lookback)
+        # self.layer2 = nn.Linear(lookback, lookback)
+        # self.layer3 = nn.Linear(lookback, 2)
+
+        self.layer1 = nn.Linear(2 * lookback, 32)
+        self.layer2 = nn.Linear(32, 64)
+        self.layer3 = nn.Linear(64, 32)
+        self.layer4 = nn.Linear(32, 2)
 
     def forward(self, x):
         x = x.unsqueeze(dim=0)
@@ -24,41 +28,61 @@ class QNetwork(nn.Module):
         x = torch.relu(self.layer1(x))
         x = torch.relu(self.layer2(x))
         x = torch.relu(self.layer3(x))
+        x = torch.relu(self.layer4(x))
 
         return x
 
 
 class DeepQLearner(TrainableAgent):
     def __init__(self) -> None:
-        self._lookback = 1
-        self._discount_rate = 0.99
-        self._learning_rate = 1e-3
-        self._epsilon = 0.2
-        self._epsilon_decay = 0
-        self._decay_limit = 0.1
+        self.epsilon = 0.2
+        self.decay_limit = 0.05
+        self.lookback = 1
+
+        self._discount_rate = 0.95
+        self._learning_rate = 0.008
+        self._epsilon_decay = 0.0  #  0.002
+
+        self._losses = []
+        self._loss = 0
+        self._games = 0  # TODO: remove
 
         self._count = 0
-        self._batch_size = 8
+        self._batch_size = 1
 
         self._state = None
         self._q_network = None
 
+    def notify_prematch(self):
+        self._epsilon = self.epsilon
+        self._decay_limit = self.decay_limit
+
+        # randomly initialise the state
+        self._state = torch.randint(
+            low=0, high=2, size=(self.lookback, 2), dtype=torch.float32
+        )
+
+        self._optimiser.zero_grad()
+
+    def notify_postmatch(self):
+        self._games += 1
+        self._losses.append(self._loss / self._count)
+        print(
+            f"POSTMATCH {self._games}:",
+            self._values,
+            self._losses[-1],
+        )
+
     def setup(self) -> None:
         # TODO: implement loading from disk
-        self._q_network = QNetwork(self._lookback)
+        self._q_network = QNetwork(self.lookback)
         self._criterion = torch.nn.MSELoss()
         self._optimiser = optim.Adam(
             self._q_network.parameters(), lr=self._learning_rate  # , weight_decay=1e-5
         )
-        self._optimiser.zero_grad()
-
-        # randomly initialise the state
-        self._state = torch.randint(
-            low=0, high=2, size=(self._lookback, 2), dtype=torch.float32
-        )
 
     def teardown(self) -> None:
-        # TODO: implement saving to disk
+        # torch.save(self._q_network.state_dict(), "model.pt")
         pass
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
@@ -77,7 +101,7 @@ class DeepQLearner(TrainableAgent):
             self._epsilon -= self._epsilon_decay
 
         # get the Q-values from the model
-        self._values = self._q_network(self._state)[0].clone()
+        self._values = self._q_network(self._state)
 
         # exploratory moves are picked uniformly at random with probability self._epsilon
         if random() < self._epsilon:
@@ -88,7 +112,11 @@ class DeepQLearner(TrainableAgent):
         # unlike the tabular case, lean towards cooperation if the values are equal
         # (although defection would be fine too), as the model had a tendency to
         # learn Q-values that are both zero to get a random_action() each time
-        return Action.COOPERATE if self._values[0] >= self._values[1] else Action.DEFECT
+        return (
+            Action.COOPERATE
+            if self._values[0, 0] >= self._values[0, 1]
+            else Action.DEFECT
+        )
 
     def update(
         self,
@@ -108,11 +136,15 @@ class DeepQLearner(TrainableAgent):
         state = self._state
         self._state = torch.cat((state[1:], torch.tensor([[move, moves[1].value]])))
 
+        prediction = self._values[0, move]
         target = (
             rewards[0] + self._discount_rate * self._q_network(self._state)[0].max()
         )
 
-        loss = self._criterion(self._values[move], target)
+        # print("=>", rewards, prediction.item(), target.item(), self._values)
+
+        loss = self._criterion(prediction, target)
+        self._loss += float(loss)
         loss.backward()
 
         if self._count % self._batch_size == 0:
@@ -129,34 +161,34 @@ class SingleLookback(DeepQLearner):
 class DoubleLookback(DeepQLearner):
     def __init__(self):
         super().__init__()
-        self._lookback = 2
+        self.lookback = 2
         self._epsilon = 0.25
 
 
 class TripleLookback(DeepQLearner):
     def __init__(self):
         super().__init__()
-        self._lookback = 3
+        self.lookback = 3
         self._epsilon = 0.2
 
 
 class LargeLookback(DeepQLearner):
     def __init__(self):
         super().__init__()
-        self._lookback = 16
-        self._epsilon = 0.1
+        self.lookback = 16
+        self.epsilon = 0.1
 
 
 class HighExplorationRate(DeepQLearner):
     def __init__(self):
         super().__init__()
-        self._epsilon = 0.25
+        self.epsilon = 0.25
 
 
 class LowExplorationRate(DeepQLearner):
     def __init__(self):
         super().__init__()
-        self._epsilon = self._decay_limit
+        self.epsilon = self._decay_limit
 
 
 class LowDiscountRate(DeepQLearner):
