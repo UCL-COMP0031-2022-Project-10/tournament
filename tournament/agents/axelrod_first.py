@@ -93,33 +93,45 @@ class Graaskamp(Agent):
         alpha: the significant level of p-value from chi-squared test.
         """
         super().__init__()
+
         self.alpha = alpha
         self.opponent_is_random = False
+        self.opponent_is_identical = True
+        self.opponent_is_tft = True
         self.next_random_defection_turn = None
+
+        self.counts = {Action.COOPERATE: 0, Action.DEFECT: 0}
 
     def play_move(self, history: List[Action], opp_history: List[Action]):
         """
         Plays a move.
         """
+
+        # Cooperate initially
+        if not opp_history:
+            return Action.COOPERATE
+
+        self.counts[opp_history[-1]] += 1
+
+        if history[-1] != opp_history[-1]:
+            self.opponent_is_identical = False
+
+        if len(history) > 1 and opp_history[-2] != history[-1]:
+            self.opponent_is_tft = False
+
         # Play TFT in the first 56 turns
         if len(history) < 56:
             # Defect on the 51st turn
             if len(history) == 50:
                 return Action.DEFECT
 
-            # Cooperate initially
-            if not opp_history:
-                return Action.COOPERATE
-
             # Play the opponent's last action
             return opp_history[-1]
 
-        cnt = Counter(opp_history)
-        num_c = cnt[Action.COOPERATE]
-        num_d = cnt[Action.DEFECT]
-
         # Check if opponent is random
-        p_value = chisquare([num_c, num_d]).pvalue
+        p_value = chisquare(
+            [self.counts[Action.COOPERATE], self.counts[Action.DEFECT]]
+        ).pvalue
         self.opponent_is_random = (p_value >= self.alpha) or self.opponent_is_random
 
         # If so, defect for the rest of the game
@@ -127,10 +139,7 @@ class Graaskamp(Agent):
             return Action.DEFECT
 
         # Check if opponent is Tit For Tat or a clone of itself
-        if (
-            all(opp_history[i] == history[i - 1] for i in range(1, len(history)))
-            or opp_history == history
-        ):
+        if self.opponent_is_tft or self.opponent_is_identical:
             # If so, play TFT
             return opp_history[-1]
 
