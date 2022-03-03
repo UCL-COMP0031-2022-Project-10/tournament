@@ -31,6 +31,9 @@ class Match:
         history1 = []
         history2 = []
 
+        self.agent1.on_match_start()
+        self.agent2.on_match_start()
+
         i = 0
         while i < limit and (i < 1 or random() < continuation_probability):
             move1 = self._mutate(self.agent1.play_move(history1, history2), noise)
@@ -45,6 +48,9 @@ class Match:
 
             i += 1
             yield (move1, move2), (score1, score2), (increase1, increase2)
+
+        self.agent1.on_match_end()
+        self.agent2.on_match_end()
 
     def play(
         self, continuation_probability: float = 1, limit: int = 10000, noise: float = 0
