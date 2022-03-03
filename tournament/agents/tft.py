@@ -1,3 +1,4 @@
+from random import random
 from typing import List
 
 from tournament.action import Action
@@ -115,37 +116,44 @@ class TTFT(Agent):
 # (1) an additional defection for each time the opponent defects
 # (2) having retaliated, cooperate twice
 class GradualTFT(Agent):
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.defections = 0
+        self.opp_defections = 0
+
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         # Cooperate initially
         if not opp_history:
             return Action.COOPERATE
+
+        if history[-1] == Action.DEFECT:
+            self.defections += 1
+
+        if opp_history[-1] == Action.DEFECT:
+            self.opp_defections += 1
+
         if len(opp_history) == 1 and opp_history[-1] == Action.DEFECT:
             return Action.DEFECT
+
         if len(opp_history) == 1 and opp_history[-1] == Action.COOPERATE:
             return Action.COOPERATE
 
-        opp_defect_count = 0
-        self_defect_count = 0
-        for i in opp_history:
-            opp_defect_count += 1 if i == Action.DEFECT else 0
-        for i in history:
-            self_defect_count += 1 if i == Action.DEFECT else 0
-
         should_defect_total = 0
-        for i in range(opp_defect_count):
+        for i in range(self.opp_defections):
             should_defect_total += i + 1
 
         # counting where we are in the retaliation series
         cur_retaliation_series_count = 0
         retaliation_to_complete_cur_series = 0
-        copy_self_defect_count = self_defect_count
+        copy_self_defect_count = self.defections
         while copy_self_defect_count > 0:
             cur_retaliation_series_count += 1
             copy_self_defect_count -= cur_retaliation_series_count
             retaliation_to_complete_cur_series += cur_retaliation_series_count
 
         # if we have NOT finished current retaliation series
-        if self_defect_count < retaliation_to_complete_cur_series:
+        if self.defections < retaliation_to_complete_cur_series:
             return Action.DEFECT
 
         # to cooperate before we retaliate again
@@ -153,7 +161,7 @@ class GradualTFT(Agent):
             return Action.COOPERATE
 
         # if we have NOT retaliated expected rounds
-        elif self_defect_count < should_defect_total:
+        elif self.defections < should_defect_total:
             return Action.DEFECT
 
         else:
@@ -162,15 +170,15 @@ class GradualTFT(Agent):
 
 # Following a defection, cooperate with a probability
 class GenerousTFT(Agent):
-    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        R = PAYOFF_MATRIX[(C, C)][0]
-        T = PAYOFF_MATRIX[(D, C)][0]
-        S = PAYOFF_MATRIX[(C, D)][0]
-        P = PAYOFF_MATRIX[(D, D)][0]
-        generosity = min(1 - (T - R) / (R - S), (R - P) / (T - P))
+    R = PAYOFF_MATRIX[(C, C)][0]
+    T = PAYOFF_MATRIX[(D, C)][0]
+    S = PAYOFF_MATRIX[(C, D)][0]
+    P = PAYOFF_MATRIX[(D, D)][0]
+    generosity = min(1 - (T - R) / (R - S), (R - P) / (T - P))
 
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         # Cooperate initially
-        if (not opp_history) or (opp_history[-1] == Action.COOPERATE):
+        if not opp_history or opp_history[-1] == Action.COOPERATE:
             return Action.COOPERATE
-        else:
-            return Action.COOPERATE if (generosity * 0 == 0) else Action.DEFECT
+
+        return Action.COOPERATE if random() < self.generosity else Action.DEFECT
