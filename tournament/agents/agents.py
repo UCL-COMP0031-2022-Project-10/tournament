@@ -41,7 +41,7 @@ AGENTS = [
     TitForTat,
     RandomAgent,
     Davis,
-    Graaskamp,
+    # Graaskamp,
     Shubik,
     SteinAndRapoport,
     Grudger,
