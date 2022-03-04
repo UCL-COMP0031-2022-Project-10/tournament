@@ -60,3 +60,8 @@ class TrainableAgent(Agent):
         rewards: Tuple[float, float],
     ):
         raise NotImplementedError()
+
+    @property
+    def metric(self):
+        """Allows a trainable agent to define an evaluation (or loss) metric."""
+        return None

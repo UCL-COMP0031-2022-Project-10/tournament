@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import List, Type
 
 from tournament.action import Action
@@ -50,9 +51,13 @@ class Environment:
     ) -> None:
         trainee.setup()
 
-        for _ in range(epochs):
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] Commencement of training.")
+        for i in range(epochs):
             self._play_epoch(
                 trainee, continuation_probability, limit, noise, repetitions
+            )
+            print(
+                f"[{datetime.now().strftime('%H:%M:%S')}] Completed epoch {i + 1}: {trainee.metric}"
             )
 
         trainee.teardown()
