@@ -1,3 +1,4 @@
+import random
 from typing import List, Type
 
 from tournament.agent import Agent, TrainableAgent
@@ -18,7 +19,7 @@ class MultipleRuleBasedAgentEnvironment(Environment):
         noise: float = 0,
         repetitions: int = 1,
     ):
-        for opponent in self.agents:
+        for opponent in random.sample(self.agents, len(self.agents)):
             for _ in range(repetitions):
                 self._play_training_match(
                     trainee, opponent(), continuation_probability, limit, noise
