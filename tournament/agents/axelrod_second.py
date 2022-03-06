@@ -15,33 +15,43 @@ class Champion(Agent):
     """
     Strategy submitted to Axelrod's second tournament by Danny Champion.
     This player cooperates on the first 10 moves,
-    plays Tit for Tat for the next 15 more moves. 
-    After 25 moves, the program cooperates unless all the following are true: 
-    the other player defected on the previous move, 
-    the other player cooperated less than 60% and 
+    plays Tit for Tat for the next 15 more moves.
+    After 25 moves, the program cooperates unless all the following are true:
+    the other player defected on the previous move,
+    the other player cooperated less than 60% and
     the random number between 0 and 1 is greater that the other player's cooperation rate.
     Names:
     - Champion: [Axelrod1980b]_
     """
 
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.defections = 0
+
     def play_move(self, history: List[Action], opp_history: List[Action]):
         """plays a move."""
+
         current_round = len(history)
+        if current_round > 0 and opp_history[-1] == Action.DEFECT:
+            self.defections += 1
+
         # Cooperate for the first 10 turns
         if current_round < 10:
             return C
+
         # TFT next 15 turns
         if current_round < 25:
             return opp_history[-1]
-        # Calculate defection rate 
-        cnt = Counter(opp_history)
-        num_d = cnt[Action.DEFECT]
-        defection_prop = num_d / len(opp_history)
+
+        # Calculate defection rate
+        defection_prop = self.defections / len(opp_history)
         # Check if all conditions are met
         if opp_history[-1] == D:
             r = RandomState().rand()
             if defection_prop >= max(0.4, r):
                 return D
+
         return C
 
 
@@ -52,8 +62,8 @@ class Borufsen(Agent):
     This player keeps track of the opponent's responses to own behavior:
     - `cd_count` counts: Opponent cooperates as response to player defecting.
     - `cc_count` counts: Opponent cooperates as response to player cooperating.
-    The player has a defect mode and a normal mode.  
-    In defect mode, the player will always defect. 
+    The player has a defect mode and a normal mode.
+    In defect mode, the player will always defect.
     In normal mode, the player obeys the following ranked rules:
     1. If in the last three turns, both the player/opponent defected, then
        cooperate for a single turn.
@@ -116,7 +126,7 @@ class Borufsen(Agent):
                 else:
                     self.cd_counts += 1
 
-        # Check for mode change from the 27th turn every 25 turns.  
+        # Check for mode change from the 27th turn every 25 turns.
         if turn > 2 and turn % 25 == 2:
             coming_from_defect = False
             if self.mode == "Defect":
@@ -156,7 +166,7 @@ class Borufsen(Agent):
                 self.mutual_defect_streak += 1
             else:
                 self.mutual_defect_streak = 0
-            
+
             # If in the last three turns, both the player/opponent defected, cooperate for a single turn.
             if self.mutual_defect_streak >= 3:
                 self.mutual_defect_streak = 0
@@ -215,7 +225,7 @@ class Leyvraz(Agent):
             (D, C, D): 1.0,
             (D, D, C): 1.0,
             # Rule 3
-            (C, D, C): 0.0, 
+            (C, D, C): 0.0,
             # Rule 4
             (C, C, D): 0.5,
             # Rule 5
@@ -583,14 +593,20 @@ class SecondByWhiteK72R(Agent):
     # Otherwise, defect if and only if:
     #    floor(log(turn)) * opponent's DEFECTION >= turn
 
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.defections = 0
+
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         turn = len(history) + 1
-        opp_defection_count = 0
-        for i in range(len(opp_history)):
-            opp_defection_count += 1 if (opp_history[i] == Action.DEFECT) else 0
+
+        if opp_history and opp_history[-1] == Action.DEFECT:
+            self.defections += 1
+
         if turn <= 10 or opp_history[-1] == Action.COOPERATE:
             return Action.COOPERATE
-        if np.floor(np.log(turn)) * opp_defection_count >= turn:
+        if np.floor(np.log(turn)) * self.defections >= turn:
             return Action.DEFECT
         return Action.COOPERATE
 
@@ -763,20 +779,20 @@ class SecondByCave(Agent):
 
 class SecondByGraaskampKatzen(Agent):
     """
-   Strategy submitted to Axelrod's second tournament by Jim Graaskamp and Ken
-   Katzen (K60R), and came in sixth in that tournament.
-   Play Tit-for-Tat at first, and track own score.  At select checkpoints,
-   check for a high score.  Switch to Default Mode if:
-   - On move 11, score < 23
-   - On move 21, score < 53
-   - On move 31, score < 83
-   - On move 41, score < 113
-   - On move 51, score < 143
-   - On move 101, score < 293
-   Once in Defect Mode, defect forever.
-   Names:
-   - GraaskampKatzen: [Axelrod1980b]_
-   """
+    Strategy submitted to Axelrod's second tournament by Jim Graaskamp and Ken
+    Katzen (K60R), and came in sixth in that tournament.
+    Play Tit-for-Tat at first, and track own score.  At select checkpoints,
+    check for a high score.  Switch to Default Mode if:
+    - On move 11, score < 23
+    - On move 21, score < 53
+    - On move 31, score < 83
+    - On move 41, score < 113
+    - On move 51, score < 143
+    - On move 101, score < 293
+    Once in Defect Mode, defect forever.
+    Names:
+    - GraaskampKatzen: [Axelrod1980b]_
+    """
 
     def __init__(self):
         super().__init__()
@@ -808,23 +824,24 @@ class SecondByGraaskampKatzen(Agent):
         self.update_score(history, opp_history)
 
         if (
-                turn == 11
-                and self.own_score < 23
-                or turn == 21
-                and self.own_score < 53
-                or turn == 31
-                and self.own_score < 83
-                or turn == 41
-                and self.own_score < 113
-                or turn == 51
-                and self.own_score < 143
-                or turn == 101
-                and self.own_score < 293
+            turn == 11
+            and self.own_score < 23
+            or turn == 21
+            and self.own_score < 53
+            or turn == 31
+            and self.own_score < 83
+            or turn == 41
+            and self.own_score < 113
+            or turn == 51
+            and self.own_score < 143
+            or turn == 101
+            and self.own_score < 293
         ):
             self.mode = "Defect"
             return Action.DEFECT
 
         return opp_history[-1]
+
 
 class SecondByWeiner(Agent):
     """
@@ -884,10 +901,7 @@ class SecondByWeiner(Agent):
         if self.forgive_flag:
             self.forgive_flag = False
             self.defect_padding = 0
-            if (
-                self.grudge < len(history) + 1
-                and opp_history[-1] == D
-            ):
+            if self.grudge < len(history) + 1 and opp_history[-1] == D:
                 # Then override
                 self.grudge += 20
                 return self.try_return(C)
@@ -903,6 +917,3 @@ class SecondByWeiner(Agent):
                 self.defect_padding = 0
 
             return self.try_return(opp_history[-1])
-
-
-

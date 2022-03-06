@@ -7,6 +7,14 @@ class Agent:
     def __init__(self) -> None:
         pass
 
+    def on_match_start(self):
+        """Runs anything required to set the agent up at the start of a match."""
+        pass
+
+    def on_match_end(self):
+        """Runs anything required at the end of a match."""
+        pass
+
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         """Plays a move.
 
@@ -52,3 +60,8 @@ class TrainableAgent(Agent):
         rewards: Tuple[float, float],
     ):
         raise NotImplementedError()
+
+    @property
+    def metric(self):
+        """Allows a trainable agent to define an evaluation (or loss) metric."""
+        return None
