@@ -464,18 +464,22 @@ class Tullock(Agent):
 
 
 class Downing(Agent):
+    # fix downing.
     def __init__(self):
         # num of times opp has cooperated after Downing has cooperated.
         self._num_coop_following_coop = 0
 
         # num of times opp has cooperated after Downing has defected.
         self._num_coop_following_defect = 0
+        self._num_defect = 0
+        self._num_cooperate = 0
 
-    def _calc_conditional_probs(self, history: List[Action]) -> Tuple[float, float]:
+
+    def _calc_conditional_probs(self) -> Tuple[float, float]:
         alpha = self._num_coop_following_coop / (
-            history.count(Action.COOPERATE) + 1
+            self._num_cooperate + 1
         )  # add 1 to remove divide by zero error. We assume in the nonexistent round 0, Downing cooperated.
-        beta = self._num_coop_following_defect / (history.count(Action.DEFECT))
+        beta = self._num_coop_following_defect / self._num_defect
 
         return (alpha, beta)
 
@@ -490,10 +494,12 @@ class Downing(Agent):
         # Downing has pessimistic assumption that starting probabilities are 0.5 each. Consequently, Downing always defects on first two turns.
 
         if len(history) == 0:
+            self._num_defect += 1
             return Action.DEFECT
         elif len(history) == 1:
             if opp_history[0] == Action.COOPERATE:
                 self._num_coop_following_defect += 1
+            self._num_defect += 1
             return Action.DEFECT
 
         if opp_history[-1] == Action.COOPERATE and history[-2] == Action.COOPERATE:
@@ -501,14 +507,20 @@ class Downing(Agent):
         if opp_history[-1] == Action.COOPERATE and history[-2] == Action.DEFECT:
             self._num_coop_following_defect += 1
 
-        alpha, beta = self._calc_conditional_probs(history)
+        alpha, beta = self._calc_conditional_probs()
         ev_c = alpha * 3 + (1 - alpha) * 0
         ev_d = beta * 5 + (1 - beta) * 1
         if ev_c > ev_d:
+            self._num_cooperate += 1
             return Action.COOPERATE
         elif ev_d > ev_c:
+            self._num_defect += 1
             return Action.DEFECT
-        return Action.COOPERATE if history[-1] == Action.DEFECT else Action.DEFECT
+        if history[-1] == Action.DEFECT:
+            self._num_cooperate += 1
+            return Action.COOPERATE
+        self._num_defect += 1
+        return Action.DEFECT
 
 
 class Joss(Agent):
