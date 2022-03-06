@@ -9,6 +9,8 @@ from tournament.match import Match
 class Environment:
     def __init__(self) -> None:
         self.counts = {Action.COOPERATE: 0, Action.DEFECT: 0}
+        self.rewards = []
+        self.metric_history = []
 
     def _play_training_match(
         self,
@@ -19,16 +21,18 @@ class Environment:
         noise: float,
     ):
         trainee.notify_prematch()
-
         for moves, scores, rewards in Match(trainee, opponent).play_moves(
             continuation_probability=continuation_probability,
             limit=limit,
             noise=noise,
         ):
             self.counts[moves[0]] += 1
+            self.rewards.append(rewards[0])
+
             trainee.update(moves, scores, rewards)
 
         trainee.notify_postmatch()
+        self.metric_history.append(trainee.metric)
 
     def _play_epoch(
         self,
