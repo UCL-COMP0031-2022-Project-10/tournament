@@ -6,7 +6,7 @@ from tournament.action import Action, random_action
 from tournament.agent import TrainableAgent
 
 
-class TabluarQLearner(TrainableAgent):
+class TabularQLearner(TrainableAgent):
     """
     An implementation of a reinforcement learning agent utilising the shallow
     Q-learning algorithm.
@@ -111,37 +111,37 @@ class TabluarQLearner(TrainableAgent):
         )
 
 
-class SingleLookback(TabluarQLearner):
+class SingleLookback(TabularQLearner):
     pass
 
 
-class DoubleLookback(TabluarQLearner):
+class DoubleLookback(TabularQLearner):
     def __init__(self):
         super().__init__()
         self._lookback = 2
         self._epsilon = 0.25
 
 
-class TripleLookback(TabluarQLearner):
+class TripleLookback(TabularQLearner):
     def __init__(self):
         super().__init__()
         self._lookback = 3
         self._epsilon = 0.2
 
 
-class HighExplorationRate(TabluarQLearner):
+class HighExplorationRate(TabularQLearner):
     def __init__(self):
         super().__init__()
         self._epsilon = 0.25
 
 
-class LowExplorationRate(TabluarQLearner):
+class LowExplorationRate(TabularQLearner):
     def __init__(self):
         super().__init__()
         self._epsilon = self._decay_limit
 
 
-class LowDiscountRate(TabluarQLearner):
+class LowDiscountRate(TabularQLearner):
     def __init__(self):
         super().__init__()
         self._discount_rate = 0.75
