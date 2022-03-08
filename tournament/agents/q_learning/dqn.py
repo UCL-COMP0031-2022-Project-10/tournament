@@ -52,6 +52,8 @@ class DeepQLearner(TrainableAgent):
         self._discount_rate = 0.95
         self._learning_rate = 0.008
         self._epsilon_decay = 0.0  #  0.002
+        self._evaluation_epsilon = 0.001
+        self._epsilon = self._evaluation_epsilon
 
         self._loss = 0
         self._games = 0  # TODO: remove
@@ -90,14 +92,16 @@ class DeepQLearner(TrainableAgent):
         except:
             pass
 
-        self._criterion = torch.nn.MSELoss()
+        self._criterion = torch.nn.HuberLoss()
         self._optimiser = optim.Adam(
             self._q_network.parameters(), lr=self._learning_rate  # , weight_decay=1e-5
         )
+        self._epsilon = 0.01
 
     def teardown(self) -> None:
         # torch.save(self._q_network.state_dict(), "model.pt")
-        pass
+
+        self._epsilon = self._evaluation_epsilon
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         """Plays a move.
@@ -147,7 +151,7 @@ class DeepQLearner(TrainableAgent):
         """
 
         move = moves[0].value
-        state = self._state
+        state = self._state.clone()
         self._state = torch.cat((state[1:], torch.tensor([[move, moves[1].value]])))
 
         prediction = self._values[0, move]
