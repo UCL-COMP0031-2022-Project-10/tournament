@@ -79,12 +79,10 @@ class TabularQLearner(TrainableAgent):
             return random_action()
 
         # perform the action associated with the highest Q-value for the current state
-        if self._q_table[self._state][0] > self._q_table[self._state][1]:
+        if self._q_table[self._state][0] >= self._q_table[self._state][1]:
             return Action.COOPERATE
-        elif self._q_table[self._state][0] < self._q_table[self._state][1]:
-            return Action.DEFECT
 
-        return random_action()
+        return Action.DEFECT
 
     def update(
         self,
