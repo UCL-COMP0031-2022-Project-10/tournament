@@ -7,8 +7,8 @@ from tournament.environment import Environment
 
 
 class MultipleRuleBasedAgentEnvironment(Environment):
-    def __init__(self, agents: List[Type[Agent]]) -> None:
-        super().__init__()
+    def __init__(self, agents: List[Type[Agent]], silent: bool = False) -> None:
+        super().__init__(silent)
 
         self.agents = agents
 

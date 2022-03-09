@@ -7,7 +7,8 @@ from tournament.match import Match
 
 
 class Environment:
-    def __init__(self) -> None:
+    def __init__(self, silent: bool = False) -> None:
+        self.silent = silent
         self.counts = {Action.COOPERATE: 0, Action.DEFECT: 0}
         self.epoch_count = {Action.COOPERATE: 0, Action.DEFECT: 0}
         self.epoch_counts = []
@@ -59,7 +60,9 @@ class Environment:
     ) -> None:
         trainee.setup()
 
-        print(f"[{datetime.now().strftime('%H:%M:%S')}] Commencement of training.")
+        if not self.silent:
+            print(f"[{datetime.now().strftime('%H:%M:%S')}] Commencement of training.")
+
         for i in range(epochs):
             self.epoch_count = {Action.COOPERATE: 0, Action.DEFECT: 0}
 
@@ -73,8 +76,9 @@ class Environment:
                 {a: self.epoch_count[a] / s for a in self.epoch_count}
             )
 
-            print(
-                f"[{datetime.now().strftime('%H:%M:%S')}] Completed epoch {i + 1}: {trainee.metric}"
-            )
+            if not self.silent:
+                print(
+                    f"[{datetime.now().strftime('%H:%M:%S')}] Completed epoch {i + 1}: {trainee.metric}"
+                )
 
         trainee.teardown()
