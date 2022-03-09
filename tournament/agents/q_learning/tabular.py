@@ -36,16 +36,19 @@ class TabularQLearner(TrainableAgent):
         Used to store the current state for update method.
     """
 
-    def __init__(self) -> None:
-        self._lookback = 1
-        self._discount_rate = 0.99
-        self._learning_rate = 0.001
-        self._epsilon = 0.2
-        self._epsilon_decay = 0
-        self._decay_limit = 0.1
+    epsilon = 0.2
 
+    _lookback = 1
+    _discount_rate = 0.99
+    _learning_rate = 0.001
+    _evaluation_epsilon = 0.001
+    _epsilon_decay = 0
+    _decay_limit = 0.1
+
+    def __init__(self) -> None:
         self._q_table = None
         self._state = None
+        self._epsilon = self._evaluation_epsilon
 
     def setup(self) -> None:
         # TODO: implement loading from disk
@@ -56,8 +59,10 @@ class TabularQLearner(TrainableAgent):
 
     def teardown(self) -> None:
         # TODO: implement saving to disk
+        self._epsilon = self._evaluation_epsilon
 
-        pass
+    def notify_prematch(self):
+        self._epsilon = self.epsilon
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         """Plays a move.
@@ -114,29 +119,29 @@ class SingleLookback(TabularQLearner):
 
 
 class DoubleLookback(TabularQLearner):
+    epsilon = 0.25
+
     def __init__(self):
         super().__init__()
         self._lookback = 2
-        self._epsilon = 0.25
 
 
 class TripleLookback(TabularQLearner):
+    epsilon = 0.2
+
     def __init__(self):
         super().__init__()
         self._lookback = 3
-        self._epsilon = 0.2
 
 
 class HighExplorationRate(TabularQLearner):
-    def __init__(self):
-        super().__init__()
-        self._epsilon = 0.25
+    epsilon = 0.25
 
 
 class LowExplorationRate(TabularQLearner):
     def __init__(self):
         super().__init__()
-        self._epsilon = self._decay_limit
+        self.epsilon = self._decay_limit
 
 
 class LowDiscountRate(TabularQLearner):
