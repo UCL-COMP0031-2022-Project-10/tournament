@@ -1,17 +1,13 @@
 import itertools
 from datetime import datetime
 
-import numpy as np
 import pandas as pd
 import torch
 import torch.nn as nn
 
-from tournament.action import Action
-from tournament.agents.agents import AGENTS
 from tournament.agents.q_learning.dqn import DeepQLearner
 from tournament.agents.tft import OmegaTFT, TitForTat
-from tournament.environments.multiple import MultipleRuleBasedAgentEnvironment
-from tournament.tournament import RoundRobinTournament
+from tournament.gridsearch import evaluate
 
 
 class QNetwork(nn.Module):
@@ -51,41 +47,6 @@ class DQN(DeepQLearner):
         self._q_network = QNetwork(self.lookback, n1)
 
 
-def evaluate(
-    agents, lookback, n1, epsilon, epsilon_decay, learning_rate, discount_rate
-):
-    env = MultipleRuleBasedAgentEnvironment(agents, silent=True)
-    agent = DQN(lookback, n1, epsilon, epsilon_decay, learning_rate, discount_rate)
-    env.train(
-        trainee=agent,
-        limit=200,
-        epochs=200,
-    )
-
-    s = sum(env.counts.values())
-
-    agent._q_network.eval()
-
-    tournament = RoundRobinTournament(AGENTS, [agent])
-    scores, times = tournament.play(
-        continuation_probability=0.99654, repetitions=50, jobs=12
-    )
-    results = {agent: sum(scores[agent]) / len(scores[agent]) for agent in scores}
-
-    return {
-        "model": str(agent._q_network),
-        "tr_cooperation_percentage": env.counts[Action.COOPERATE] / s,
-        "tr_defection_percentage": env.counts[Action.DEFECT] / s,
-        "tr_final_loss": env.metric_history[-1],
-        "tr_mean_reward": np.mean(env.rewards),
-        "tr_cumul_reward": np.sum(env.rewards),
-        "tr_cumul_regret": np.sum(3 - np.array(env.rewards)),
-        "tn_rank": sorted(results, key=results.get, reverse=True).index(DQN) + 1,
-        "tn_mean_score": results[DQN],
-        "tn_mean_time": sum(times[DQN]),
-    }
-
-
 def main():
     agents = [
         TitForTat,
@@ -102,11 +63,12 @@ def main():
     }
 
     results = []
-
     try:
         for hyperparameters in itertools.product(*grid.values()):
-            print(*hyperparameters)
-            results.append(evaluate(agents, **dict(zip(grid.keys(), hyperparameters))))
+            print(*hyperparameters, sep="\t")
+            results.append(
+                evaluate(agents, DQN, **dict(zip(grid.keys(), hyperparameters)))
+            )
     except:
         print("Quitting evaluation early.")
 
