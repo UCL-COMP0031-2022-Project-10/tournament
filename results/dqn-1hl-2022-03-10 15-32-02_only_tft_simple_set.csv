@@ -1,0 +1,433 @@
+,model,lookback,n1,epsilon,epsilon_decay,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.05,0.0,0.001,0.95,0.73825,0.26175,0.11230541337343333,2.51145,100458,19542,15,796.2269230769231,16.651471000000004,TitForTat
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.05,0.0,0.01,0.95,0.024675,0.975325,0.4576993686975577,1.092675,43707,76293,25,491.6730769230769,18.910428999999997,TitForTat
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.1,0.0,0.001,0.95,0.94975,0.05025,2.471375,2.94755,117902,2098,22,772.7057692307692,15.698527,TitForTat
+3,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.1,0.0,0.01,0.95,0.35945,0.64055,1.5725466643028894,2.0725,82900,37100,24,706.8692307692307,17.821340000000003,TitForTat
+4,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.2,0.0,0.001,0.95,0.900225,0.099775,2.437013688963652,2.892175,115687,4313,8,829.8038461538462,16.526804000000002,TitForTat
+5,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.2,0.0,0.01,0.95,0.9015,0.0985,2.437868591839075,2.893675,115747,4253,19,804.0769230769231,16.069029,TitForTat
+6,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.05,0.0,0.001,0.95,0.975,0.025,2.486875,2.97475,118990,1010,24,764.7942307692308,15.533457000000002,TitForTat
+7,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.05,0.0,0.01,0.95,0.8695,0.1305,0.16879927145497686,2.785075,111403,8597,24,766.3019230769231,16.292431,TitForTat
+8,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.1,0.0,0.001,0.95,0.783075,0.216925,0.20267362794230204,2.6884,107536,12464,24,702.1769230769231,14.333669999999994,TitForTat
+9,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.1,0.0,0.01,0.95,0.811125,0.188875,0.2633638413181729,2.698725,107949,12051,20,792.7057692307692,16.675405,TitForTat
+10,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.2,0.0,0.001,0.95,0.894925,0.105075,2.3919244721099266,2.885825,115433,4567,23,786.2173076923077,16.115902000000002,TitForTat
+11,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.2,0.0,0.01,0.95,0.90025,0.09975,2.417811072566919,2.891625,115665,4335,24,752.0865384615385,15.380883,TitForTat
+12,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.05,0.0,0.001,0.95,0.974,0.026,1.4304027216676738,2.973725,118949,1051,23,747.4442307692308,15.353938999999999,TitForTat
+13,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.05,0.0,0.01,0.95,0.89925,0.10075,0.19892891731778137,2.8403,113612,6388,23,794.3711538461539,16.555724,TitForTat
+14,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.1,0.0,0.001,0.95,0.8695,0.1305,1.0524804665315979,2.82085,112834,7166,24,748.026923076923,15.331998999999996,TitForTat
+15,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.1,0.0,0.01,0.95,0.949475,0.050525,2.472513676051423,2.947325,117893,2107,22,785.3384615384615,16.113907000000008,TitForTat
+16,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.2,0.0,0.001,0.95,0.83385,0.16615,0.15426575260538647,2.78535,111414,8586,18,812.5403846153846,17.327661,TitForTat
+17,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.2,0.0,0.01,0.95,0.902225,0.097775,2.4387611782170193,2.89455,115782,4218,24,775.8692307692307,15.586319000000003,TitForTat
+18,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.05,0.0,0.001,0.95,0.943725,0.056275,0.11041680858824239,2.92675,117070,2930,22,790.5403846153846,17.053394000000004,TitForTat
+19,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.05,0.0,0.01,0.95,0.9005,0.0995,0.23624197657851367,2.84295,113718,6282,24,760.5173076923077,16.103528,TitForTat
+20,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.1,0.0,0.001,0.95,0.8459,0.1541,0.5942727236509018,2.772875,110915,9085,12,860.0461538461539,18.043749000000005,TitForTat
+21,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.1,0.0,0.01,0.95,0.95165,0.04835,2.4736125,2.950475,118019,1981,19,779.0326923076923,16.203670000000002,TitForTat
+22,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.2,0.0,0.001,0.95,0.658075,0.341925,2.1456570534156634,2.626775,105071,14929,24,704.1423076923077,17.025467999999996,TitForTat
+23,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.2,0.0,0.01,0.95,0.900725,0.099275,2.4376229241099208,2.8922,115688,4312,23,790.5384615384615,16.558720000000005,TitForTat
+24,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.001,0.95,0.9752,0.0248,1.744326557360925,2.9749,118996,1004,23,747.6788461538462,14.645834999999998,TitForTat
+25,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.01,0.95,0.046175,0.953825,0.5089860948189707,1.136625,45465,74535,26,401.4365384615385,15.961315,TitForTat
+26,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.001,0.95,0.950025,0.049975,2.4423919332163453,2.947875,117915,2085,21,787.0153846153846,15.521998999999997,TitForTat
+27,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.01,0.95,0.8103,0.1897,1.4348868069243987,2.675275,107011,12989,23,744.0865384615385,15.208331999999997,TitForTat
+28,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.001,0.95,0.582275,0.417725,0.5948863272352611,2.325025,93001,26999,12,845.8038461538462,16.855924,TitForTat
+29,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.01,0.95,0.8977,0.1023,2.394385663110262,2.886775,115471,4529,11,838.4307692307692,16.511845,TitForTat
+30,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.05,0.0,0.001,0.95,0.967925,0.032075,1.532898440968179,2.96485,118594,1406,18,795.1461538461539,15.809724000000003,TitForTat
+31,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.05,0.0,0.01,0.95,0.97465,0.02535,2.4870615386128425,2.9747,118988,1012,22,784.8211538461538,16.004202000000003,TitForTat
+32,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.1,0.0,0.001,0.95,0.51225,0.48775,0.25028904193044293,2.2914,91656,28344,23,782.2365384615384,15.625215000000004,TitForTat
+33,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.1,0.0,0.01,0.95,0.9509,0.0491,2.473432616899829,2.949125,117965,2035,13,849.1576923076923,17.157120000000003,TitForTat
+34,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.2,0.0,0.001,0.95,0.6519,0.3481,0.8079997546012246,2.490775,99631,20369,21,787.0423076923076,15.723951000000001,TitForTat
+35,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.2,0.0,0.01,0.95,0.697075,0.302925,0.4418280959950968,2.5212,100848,19152,21,791.3269230769231,15.819695000000007,TitForTat
+36,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.05,0.0,0.001,0.95,0.974175,0.025825,2.4864566718487886,2.973925,118957,1043,21,772.2038461538461,15.552409999999997,TitForTat
+37,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.05,0.0,0.01,0.95,0.95955,0.04045,2.4560664319889147,2.9452,117808,2192,18,800.3807692307693,16.180729000000003,TitForTat
+38,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.1,0.0,0.001,0.95,0.52485,0.47515,0.9328364313521468,2.364075,94563,25437,20,786.2980769230769,15.94137,TitForTat
+39,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.1,0.0,0.01,0.95,0.8227,0.1773,0.2871354924328324,2.715275,108611,11389,21,783.5057692307693,15.916434000000004,TitForTat
+40,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.2,0.0,0.001,0.95,0.89865,0.10135,2.397593096770704,2.88885,115554,4446,23,749.6423076923077,14.807401999999996,TitForTat
+41,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.2,0.0,0.01,0.95,0.6986,0.3014,0.3235125283620557,2.518425,100737,19263,26,458.1865384615385,18.488560000000007,TitForTat
+42,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.05,0.0,0.001,0.95,0.92685,0.07315,0.44025963270328994,2.883825,115353,4647,24,755.8384615384615,15.652143,TitForTat
+43,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.05,0.0,0.01,0.95,0.972825,0.027175,2.4831311803945626,2.9703,118812,1188,23,759.5307692307692,15.837650000000002,TitForTat
+44,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.1,0.0,0.001,0.95,0.94965,0.05035,2.4714173974633216,2.947675,117907,2093,21,789.1403846153846,16.036117,TitForTat
+45,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.1,0.0,0.01,0.95,0.94915,0.05085,2.472060625115069,2.947975,117919,2081,24,704.0230769230769,15.099620000000002,TitForTat
+46,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.2,0.0,0.001,0.95,0.625425,0.374575,2.10818022648679,2.587325,103493,16507,24,588.1442307692307,19.160762,TitForTat
+47,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.2,0.0,0.01,0.95,0.901325,0.098675,2.4357657472133636,2.891975,115679,4321,15,820.0461538461539,17.138166999999996,TitForTat
+48,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.05,0.0,0.001,0.95,0.97435,0.02565,1.8223502110668044,2.974275,118971,1029,24,722.8519230769231,14.619902999999997,TitForTat
+49,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.05,0.0,0.01,0.95,0.026775,0.973225,0.4689913521115615,1.098325,43933,76067,26,461.3519230769231,17.460307999999998,TitForTat
+50,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.1,0.0,0.001,0.95,0.64135,0.35865,0.3783644394752402,2.362375,94495,25505,19,814.4961538461539,16.477935999999993,TitForTat
+51,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.1,0.0,0.01,0.95,0.950825,0.049175,2.4727743740798673,2.949425,117977,2023,20,813.1038461538461,16.280463,TitForTat
+52,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.2,0.0,0.001,0.95,0.430275,0.569725,0.7842754910750313,2.0117,80468,39532,24,739.0865384615385,14.771499999999998,TitForTat
+53,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.2,0.0,0.01,0.95,0.624425,0.375575,0.29936865430825577,2.36365,94546,25454,25,485.33076923076925,18.109572,TitForTat
+54,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.05,0.0,0.001,0.95,0.024675,0.975325,0.46464019506856274,1.093275,43731,76269,25,476.71923076923076,17.639827000000007,TitForTat
+55,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.05,0.0,0.01,0.95,0.84345,0.15655,2.218871138062115,2.7184,108736,11264,22,770.8365384615385,15.610256,TitForTat
+56,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.1,0.0,0.001,0.95,0.091725,0.908275,0.7918525669367068,1.28805,51522,68478,25,482.2576923076923,17.630851000000007,TitForTat
+57,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.1,0.0,0.01,0.95,0.7316,0.2684,1.2154986046168266,2.5726,102904,17096,25,478.09423076923076,18.176391999999996,TitForTat
+58,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.2,0.0,0.001,0.95,0.565675,0.434325,0.9638913998581489,2.30145,92058,27942,21,790.8038461538462,15.419762999999998,TitForTat
+59,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.2,0.0,0.01,0.95,0.77075,0.22925,2.2025871610543444,2.7077,108308,11692,24,751.498076923077,15.667102999999997,TitForTat
+60,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.05,0.0,0.001,0.95,0.725075,0.274925,0.29164512773864254,2.562125,102485,17515,24,772.4903846153846,16.132859000000003,TitForTat
+61,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.05,0.0,0.01,0.95,0.9753,0.0247,2.4865846739292143,2.9746,118984,1016,18,787.9153846153846,15.857592000000002,TitForTat
+62,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.1,0.0,0.001,0.95,0.400225,0.599775,1.69544104055008,2.188075,87523,32477,24,536.3538461538461,15.586318999999998,TitForTat
+63,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.1,0.0,0.01,0.95,0.9496,0.0504,2.4724444732490927,2.9484,117936,2064,6,849.8384615384615,17.532116,TitForTat
+64,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.2,0.0,0.001,0.95,0.89845,0.10155,2.4350957219358125,2.88965,115586,4414,18,802.5865384615385,16.570683999999996,TitForTat
+65,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.2,0.0,0.01,0.95,0.90115,0.09885,2.43768762042686,2.893225,115729,4271,22,786.2807692307692,20.006018999999995,TitForTat
+66,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.05,0.0,0.001,0.95,0.690125,0.309875,0.3347394626449122,2.426175,97047,22953,18,798.7846153846153,25.885001000000003,TitForTat
+67,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.05,0.0,0.01,0.95,0.898575,0.101425,0.24664349138004332,2.8353,113412,6588,24,759.5865384615385,27.16290499999999,TitForTat
+68,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.1,0.0,0.001,0.95,0.474725,0.525275,1.8703268660614016,2.3849,95396,24604,24,508.5826923076923,32.464043,TitForTat
+69,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.1,0.0,0.01,0.95,0.949125,0.050875,2.4709454829909845,2.9466,117864,2136,24,707.7942307692308,23.70094,TitForTat
+70,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.2,0.0,0.001,0.95,0.630825,0.369175,2.1205663229429295,2.5963,103852,16148,24,659.751923076923,28.789423999999993,TitForTat
+71,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.2,0.0,0.01,0.95,0.902525,0.097475,2.435580823663439,2.894625,115785,4215,23,790.6923076923077,28.295744000000006,TitForTat
