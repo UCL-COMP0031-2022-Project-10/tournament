@@ -16,6 +16,8 @@ def evaluate(agents, cls, **kwargs):
         epochs=200,
     )
 
+    print("Finished training")
+
     s = sum(env.counts.values())
 
     agent._q_network.eval()
