@@ -731,6 +731,9 @@ class SecondByWmAdams(Agent):
         if c_defect > 9 => defect after opponent defection with prob 0.5 ^(c_defect - 1). Otherwise, cooperate.
         """
 
+        if not history:
+            return Action.COOPERATE
+
         c_defect = opp_history.count(Action.DEFECT)
 
         if c_defect == 4 or c_defect == 7 or c_defect == 9:
