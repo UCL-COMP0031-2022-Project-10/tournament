@@ -1,0 +1,577 @@
+,model,lookback,n1,epsilon,epsilon_decay,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.05,0.0,0.001,0.95,0.79657,0.20343,0.06391723848229527,2.59791,519582,80418,19,742.6290322580645,15.125753999999997,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.05,0.0,0.01,0.95,0.3943,0.6057,0.22802990184826202,1.766765,353353,246647,26,469.4935483870968,18.597032000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.2,0.0,0.001,0.95,0.891135,0.108865,2.317623527765274,2.75002,550004,49996,25,653.9580645161291,13.250504000000003,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+3,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.2,0.0,0.01,0.95,0.90052,0.09948,2.3698325,2.813915,562783,37217,22,722.3177419354839,14.96055,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+4,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.05,0.0,0.001,0.95,0.388065,0.611935,0.10854239147802604,1.65219,330438,269562,21,713.5387096774193,14.688139999999997,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+5,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.05,0.0,0.01,0.95,0.97528,0.02472,2.4733126372087,2.958615,591723,8277,24,712.05,15.378428,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+6,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.2,0.0,0.001,0.95,0.89979,0.10021,2.338418138130802,2.81962,563924,36076,17,747.1822580645161,15.000179000000001,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+7,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.2,0.0,0.01,0.95,0.304815,0.695185,0.37179723299842443,1.40088,280176,319824,31,433.26935483870966,17.409187000000003,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+8,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.05,0.0,0.001,0.95,0.025565,0.974435,0.4374423322856075,1.065575,213115,386885,26,491.13709677419354,17.952975999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+9,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.05,0.0,0.01,0.95,0.321585,0.678415,0.19515846115681462,1.64621,329242,270758,26,502.6193548387097,18.313026999999998,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+10,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.2,0.0,0.001,0.95,0.89932,0.10068,2.346169058040275,2.828925,565785,34215,23,713.1290322580645,14.702396,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+11,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.2,0.0,0.01,0.95,0.901075,0.098925,2.375248382101059,2.82063,564126,35874,24,719.5870967741936,15.572529999999999,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+12,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.05,0.0,0.001,0.95,0.94744,0.05256,0.07286524976291679,2.8876,577520,22480,25,658.1290322580645,13.750794999999997,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+13,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.05,0.0,0.01,0.95,0.9745,0.0255,2.47197171498972,2.95685,591370,8630,23,709.5354838709677,14.749030000000001,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+14,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.2,0.0,0.001,0.95,0.65711,0.34289,1.2127836581983782,1.627785,325557,274443,25,680.3903225806451,14.007404999999999,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+15,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.2,0.0,0.01,0.95,0.898735,0.101265,2.360543170346662,2.8026,560520,39480,25,686.5693548387097,14.865612999999998,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+16,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.05,0.0,0.001,0.95,0.920455,0.079545,0.11095939665910566,2.80386,560772,39228,24,704.1177419354839,14.509962000000003,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+17,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.05,0.0,0.01,0.95,0.97502,0.02498,2.4752632053756716,2.960945,592189,7811,24,699.2774193548387,15.108489999999998,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+18,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.2,0.0,0.001,0.95,0.90059,0.09941,2.3610909599865857,2.804,560800,39200,25,668.4548387096775,14.355600000000003,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+19,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.2,0.0,0.01,0.95,0.90126,0.09874,2.3705076218064,2.814855,562971,37029,17,757.8403225806452,14.999017000000006,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+20,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.05,0.0,0.001,0.95,0.974405,0.025595,2.4744731929711232,2.959795,591959,8041,23,700.1322580645161,15.208786999999997,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+21,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.05,0.0,0.01,0.95,0.975625,0.024375,2.476375,2.96244,592488,7512,25,684.2935483870967,14.596838,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+22,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.2,0.0,0.001,0.95,0.89741,0.10259,2.3677021257449997,2.812325,562465,37535,25,668.0016129032258,14.214570000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+23,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.2,0.0,0.01,0.95,0.900475,0.099525,2.3790267743977904,2.824735,564947,35053,25,710.0774193548388,15.261819999999998,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+24,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.001,0.95,0.673535,0.326465,0.1232713159728768,2.316775,463355,136645,7,778.9032258064516,16.585378999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+25,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.01,0.95,0.168325,0.831675,0.15691535844645507,1.33759,267518,332482,31,428.8274193548387,18.00236,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+26,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.001,0.95,0.25717,0.74283,0.9430773792796291,1.410615,282123,317877,26,505.86129032258066,17.126366000000008,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+27,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.01,0.95,0.900075,0.099925,2.3749596502059975,2.819735,563947,36053,25,698.4548387096775,14.553455,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+28,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.001,0.95,0.974355,0.025645,2.4751045715618067,2.960435,592087,7913,17,741.8193548387097,15.468828000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+29,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.01,0.95,0.97483,0.02517,1.3853852329015164,2.96071,592142,7858,25,691.6096774193549,14.415558,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+30,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.001,0.95,0.32624,0.67376,0.9853392764872819,1.44722,289444,310556,29,471.6758064516129,14.633620000000006,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+31,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.01,0.95,0.566235,0.433765,1.2768124286371745,1.719875,343975,256025,25,566.658064516129,15.170712000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+32,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.001,0.95,0.910165,0.089835,0.08801891266675144,2.81889,563778,36222,24,714.8451612903226,15.347394000000007,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+33,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.01,0.95,0.027485,0.972515,0.43587396560083796,1.06761,213522,386478,30,435.81129032258065,18.011712,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+34,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.001,0.95,0.659395,0.340605,0.1628663655117118,2.27568,455136,144864,23,685.7612903225806,14.468843999999995,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+35,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.01,0.95,0.900245,0.099755,2.3707040844829614,2.815275,563055,36945,25,612.0241935483871,13.217288000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+36,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.05,0.0,0.001,0.95,0.80046,0.19954,0.11247375321830655,2.509455,501891,98109,18,739.1774193548387,15.501025000000007,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+37,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.05,0.0,0.01,0.95,0.975305,0.024695,2.4754212311523873,2.96123,592246,7754,22,722.4,14.894026,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+38,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.2,0.0,0.001,0.95,0.73751,0.26249,0.1534586200144064,2.42117,484234,115766,20,735.4790322580645,15.224843000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+39,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.2,0.0,0.01,0.95,0.345865,0.654135,0.2955197964931718,1.572805,314561,285439,30,442.89354838709676,18.055226000000005,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+40,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.05,0.0,0.001,0.95,0.97543,0.02457,1.3485631543087069,2.96167,592334,7666,18,739.674193548387,15.301312999999999,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+41,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.05,0.0,0.01,0.95,0.974925,0.025075,2.475897417628113,2.96154,592308,7692,15,758.9935483870968,15.894912000000005,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+42,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.2,0.0,0.001,0.95,0.76668,0.23332,0.1514767157298486,2.495665,499133,100867,11,771.0435483870967,16.064783000000006,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+43,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.2,0.0,0.01,0.95,0.8994,0.1006,2.368440249863397,2.81164,562328,37672,24,687.4596774193549,14.405742000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+44,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.05,0.0,0.001,0.95,0.97491,0.02509,2.4747252460227998,2.96018,592036,7964,23,725.9451612903226,15.435255999999999,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+45,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.05,0.0,0.01,0.95,0.97497,0.02503,2.4730003489578936,2.95768,591536,8464,16,756.7806451612903,15.900056000000003,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+46,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.2,0.0,0.001,0.95,0.900345,0.099655,2.3268258431510014,2.81542,563084,36916,25,700.8435483870968,15.029265999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+47,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.2,0.0,0.01,0.95,0.9001,0.0999,2.368927522100918,2.812495,562499,37501,23,702.0596774193548,15.36581,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+48,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.001,0.95,0.030015,0.969985,0.44053606364878006,1.067135,213427,386573,29,452.36290322580646,17.37325899999999,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+49,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.01,0.95,0.97534,0.02466,2.4756869405487927,2.96147,592294,7706,22,747.4806451612903,14.586441999999998,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+50,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.001,0.95,0.90149,0.09851,2.3661922110294724,2.80998,561996,38004,25,695.2629032258064,15.080769999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+51,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.01,0.95,0.35207,0.64793,0.27567306838098987,1.58329,316658,283342,27,481.258064516129,18.807352,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+52,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.001,0.95,0.81972,0.18028,0.048861530706096744,2.640065,528013,71987,17,724.8225806451613,14.940738000000003,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+53,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.01,0.95,0.423705,0.576295,0.14720045739374804,1.847765,369553,230447,28,455.8274193548387,18.129995000000005,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+54,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.001,0.95,0.20009,0.79991,0.2876291058830791,1.34232,268464,331536,26,492.3048387096774,14.347661,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+55,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.01,0.95,0.89157,0.10843,2.357414098471019,2.80254,560508,39492,24,698.5064516129032,15.111424000000003,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+56,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.001,0.95,0.024205,0.975795,0.4193410708195198,1.06323,212646,387354,28,453.1225806451613,17.603577999999995,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+57,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.01,0.95,0.15063,0.84937,0.1491617037679371,1.307985,261597,338403,29,444.7112903225806,17.293991,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+58,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.001,0.95,0.339505,0.660495,1.0970485087002262,1.565565,313113,286887,25,543.8790322580645,18.123755000000003,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+59,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.01,0.95,0.141545,0.858455,0.23752039310769116,1.21874,243748,356252,31,428.3048387096774,16.969316,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+60,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.05,0.0,0.001,0.95,0.83427,0.16573,0.0644330807132881,2.66776,533552,66448,25,690.2935483870967,14.799617999999999,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+61,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.05,0.0,0.01,0.95,0.618255,0.381745,0.40403994796151904,2.239985,447997,152003,26,470.1338709677419,18.645120000000006,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+62,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.2,0.0,0.001,0.95,0.739815,0.260185,0.15173449674558565,2.43497,486994,113006,25,674.8483870967742,14.186719999999998,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+63,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.2,0.0,0.01,0.95,0.901695,0.098305,2.3775075876686746,2.82326,564652,35348,24,701.7306451612903,14.286174000000004,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+64,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.05,0.0,0.001,0.95,0.87962,0.12038,0.08535176455828344,2.753625,550725,49275,31,451.73064516129034,16.03299,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+65,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.05,0.0,0.01,0.95,0.263125,0.736875,0.21168133745551268,1.53313,306626,293374,26,481.46451612903223,16.892588000000007,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+66,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.2,0.0,0.001,0.95,0.799925,0.200075,0.13378771021547461,2.552755,510551,89449,23,730.6129032258065,14.783114000000007,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+67,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.2,0.0,0.01,0.95,0.90065,0.09935,2.376309461313654,2.82161,564322,35678,22,741.1677419354838,15.365581000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+68,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.05,0.0,0.001,0.95,0.86615,0.13385,0.11027068017694641,2.72564,545128,54872,22,725.5258064516129,15.541028999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+69,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.05,0.0,0.01,0.95,0.9753,0.0247,2.476162593985796,2.96208,592416,7584,23,723.4048387096774,15.762976,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+70,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.2,0.0,0.001,0.95,0.7746,0.2254,0.22385305584885518,2.43356,486712,113288,25,666.7870967741935,14.634061999999997,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+71,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.2,0.0,0.01,0.95,0.900285,0.099715,2.374413954586219,2.819195,563839,36161,25,683.0032258064516,15.108354999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+72,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.05,0.0,0.001,0.95,0.025265,0.974735,0.43634428521679086,1.063815,212763,387237,26,476.73064516129034,17.927492999999995,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+73,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.05,0.0,0.01,0.95,0.975285,0.024715,1.3582230522103227,2.961335,592267,7733,18,735.5435483870967,15.767625999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+74,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.2,0.0,0.001,0.95,0.17681,0.82319,0.2621231738711063,1.30391,260782,339218,25,500.31612903225806,15.686005000000005,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+75,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.2,0.0,0.01,0.95,0.29185,0.70815,1.0124536064791791,1.48047,296094,303906,25,577.358064516129,17.684811999999997,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+76,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.05,0.0,0.001,0.95,0.86224,0.13776,0.13970795142201747,2.65261,530522,69478,25,696.3096774193548,14.616537999999998,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+77,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.05,0.0,0.01,0.95,0.396915,0.603085,0.32639249011351223,1.78043,356086,243914,30,431.06129032258065,17.165660999999997,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+78,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.2,0.0,0.001,0.95,0.691675,0.308325,0.15515368498896231,2.30914,461828,138172,25,683.7370967741936,15.045278000000001,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+79,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.2,0.0,0.01,0.95,0.89896,0.10104,2.3667573341880925,2.810035,562007,37993,15,765.3983870967742,15.326208000000001,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+80,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.05,0.0,0.001,0.95,0.032215,0.967785,0.4509655999839485,1.078705,215741,384259,30,448.19032258064516,17.343493999999993,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+81,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.05,0.0,0.01,0.95,0.16191,0.83809,0.14074871189926014,1.324905,264981,335019,30,439.6629032258065,16.740842,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+82,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.2,0.0,0.001,0.95,0.2886,0.7114,1.0193551371442247,1.486245,297249,302751,25,577.7290322580645,17.273622,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+83,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.2,0.0,0.01,0.95,0.35238,0.64762,0.3252507098089327,1.576715,315343,284657,28,448.15967741935486,18.082112999999993,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+84,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.05,0.0,0.001,0.95,0.83979,0.16021,0.07623189509736167,2.65922,531844,68156,25,718.9225806451612,15.193424999999998,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+85,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.05,0.0,0.01,0.95,0.974295,0.025705,2.471799272716045,2.956595,591319,8681,25,714.091935483871,15.03979,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+86,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.2,0.0,0.001,0.95,0.74695,0.25305,0.1394550613271822,2.445625,489125,110875,25,704.2629032258064,15.319250999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+87,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.2,0.0,0.01,0.95,0.28909,0.71091,0.29482164967515656,1.45742,291484,308516,26,485.93548387096774,18.098237,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+88,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.05,0.0,0.001,0.95,0.975115,0.024885,1.3746766160947492,2.962105,592421,7579,24,721.0,15.733112000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+89,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.05,0.0,0.01,0.95,0.97514,0.02486,1.3750410531396067,2.959195,591839,8161,20,721.1935483870968,14.829569,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+90,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.2,0.0,0.001,0.95,0.79158,0.20842,0.126376701258551,2.546595,509319,90681,24,717.7645161290322,14.977395,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+91,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.2,0.0,0.01,0.95,0.89984,0.10016,2.3651178153712302,2.808305,561661,38339,23,701.1193548387097,14.784068,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+92,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.05,0.0,0.001,0.95,0.91652,0.08348,0.07873104137834787,2.830875,566175,33825,24,729.333870967742,15.352045999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+93,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.05,0.0,0.01,0.95,0.97477,0.02523,2.47466973946929,2.960145,592029,7971,23,717.8435483870968,15.233150000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+94,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.2,0.0,0.001,0.95,0.78445,0.21555,0.22079485408651156,2.489395,497879,102121,24,699.0064516129032,15.351452000000002,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
+95,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.2,0.0,0.01,0.95,0.9008,0.0992,2.380151828707438,2.82579,565158,34842,25,650.7064516129033,14.507011999999996,"TTFT,SteinAndRapoport,OmegaTFT,SecondByWeiner,Borufsen"
