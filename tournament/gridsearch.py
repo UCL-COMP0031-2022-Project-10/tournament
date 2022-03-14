@@ -13,7 +13,7 @@ def train_and_evaluate(agents, cls, **kwargs):
     env.train(
         trainee=agent,
         limit=200,
-        epochs=100,
+        epochs=200,
     )
 
     s = sum(env.counts.values())
