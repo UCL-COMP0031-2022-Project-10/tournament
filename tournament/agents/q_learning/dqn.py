@@ -130,7 +130,6 @@ class DeepQLearner(TrainableAgent):
         # unlike the tabular case, lean towards cooperation if the values are equal
         # (although defection would be fine too), as the model had a tendency to
         # learn Q-values that are both zero to get a random_action() each time
-        print(self._values)
         return (
             Action.COOPERATE
             if self._values[0, 0] >= self._values[0, 1]
