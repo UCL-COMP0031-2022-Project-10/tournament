@@ -1,0 +1,1297 @@
+,model,lookback,n1,epsilon,epsilon_decay,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.05,0.0,0.001,0.95,0.8274875,0.1725125,0.20959683150323546,2.6868,644832,75168,31,412.3258064516129,10.532062999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.05,0.0,0.01,0.95,0.9752541666666666,0.024745833333333335,1.4054736494144764,2.9470125,707283,12717,24,654.5451612903225,8.436541000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.1,0.0,0.001,0.95,0.8510458333333333,0.14895416666666667,0.5569848791636582,2.2988583333333334,551726,168274,25,711.9854838709678,9.392776000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+3,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.1,0.0,0.01,0.95,0.4764041666666667,0.5235958333333334,0.4501771763292782,1.9267708333333333,462425,257575,25,690.3016129032258,9.175339999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+4,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.2,0.0,0.001,0.95,0.17410416666666667,0.8258958333333334,0.5017075766243972,1.6203125,388875,331125,26,466.3322580645161,11.088398,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+5,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.2,0.0,0.01,0.95,0.6524625,0.3475375,1.6458669137331492,2.0722125,497331,222669,25,589.4758064516129,10.674162000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+6,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.05,0.0,0.001,0.95,0.8947375,0.1052625,0.29633350805046577,2.6520625,636495,83505,25,708.4209677419354,9.026473999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+7,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.05,0.0,0.01,0.95,0.395575,0.604425,0.48022181982417117,1.9289625,462951,257049,31,431.8661290322581,10.276781000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+8,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.1,0.0,0.001,0.95,0.35817916666666666,0.6418208333333333,0.7100654220252541,1.6538041666666667,396913,323087,29,440.0,11.312157999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+9,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.1,0.0,0.01,0.95,0.9494458333333333,0.050554166666666664,2.390650087444981,2.8518583333333334,684446,35554,25,667.7741935483871,8.774527,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+10,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.2,0.0,0.001,0.95,0.6865875,0.3134125,1.6737614470620992,2.1158333333333332,507800,212200,25,629.9725806451613,9.943268999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+11,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",1,8,0.2,0.0,0.01,0.95,0.899375,0.100625,2.2154208333333334,2.632825,631878,88122,24,699.7854838709677,9.131291999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+12,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.05,0.0,0.001,0.95,0.9749791666666666,0.025020833333333332,1.4472918806183008,2.9467916666666665,707230,12770,19,751.15,9.830126000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+13,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.05,0.0,0.01,0.95,0.9753458333333334,0.024654166666666668,2.4633890346368155,2.946925,707262,12738,25,691.3612903225807,8.917001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+14,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.1,0.0,0.001,0.95,0.7964708333333334,0.20352916666666668,1.375779446979098,2.407525,577806,142194,25,678.3806451612903,10.581937,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+15,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.1,0.0,0.01,0.95,0.7076375,0.2923625,0.49104441918977354,2.3280125,558723,161277,25,665.6209677419355,9.662922999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+16,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.2,0.0,0.001,0.95,0.5598583333333333,0.44014166666666665,0.7144955320949138,2.0092666666666665,482224,237776,25,510.68225806451613,10.742579999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+17,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",1,16,0.2,0.0,0.01,0.95,0.6864375,0.3135625,1.6738288889069377,2.1161541666666666,507877,212123,24,682.8370967741936,9.752456000000004,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+18,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.05,0.0,0.001,0.95,0.9740583333333334,0.025941666666666665,1.4657679114127538,2.943975,706554,13446,25,693.9370967741935,9.056204000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+19,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.05,0.0,0.01,0.95,0.35704583333333334,0.6429541666666667,0.5399913618785627,1.8942125,454611,265389,27,463.7758064516129,11.070746999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+20,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.1,0.0,0.001,0.95,0.683825,0.316175,0.6848579877742492,2.2659125,543819,176181,25,616.6177419354839,9.451706999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+21,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.1,0.0,0.01,0.95,0.9503833333333334,0.04961666666666667,2.388387540229882,2.849625,683910,36090,25,687.2129032258065,9.264737999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+22,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.2,0.0,0.001,0.95,0.556575,0.443425,0.6777721963395258,2.0147416666666667,483538,236462,23,705.6790322580645,10.102561000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+23,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,0.2,0.0,0.01,0.95,0.3894375,0.6105625,0.49746132165508195,1.7773875,426573,293427,28,463.26290322580644,10.882970999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+24,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.05,0.0,0.001,0.95,0.8566083333333333,0.14339166666666667,0.3956640014800686,2.5580541666666665,613933,106067,25,681.5983870967742,9.340818,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+25,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.05,0.0,0.01,0.95,0.2771166666666667,0.7228833333333333,0.5009122733166956,1.7998,431952,288048,29,442.05645161290323,10.881677,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+26,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.1,0.0,0.001,0.95,0.7892083333333333,0.21079166666666665,0.9203229232984473,2.361575,566778,153222,25,668.5532258064516,9.046062000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+27,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.1,0.0,0.01,0.95,0.9492,0.0508,2.3911067648143156,2.8527125,684651,35349,25,703.9854838709678,9.591814000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+28,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.2,0.0,0.001,0.95,0.5704083333333333,0.42959166666666665,0.6889322436287313,2.0060583333333333,481454,238546,25,520.2983870967741,10.566922,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+29,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,0.2,0.0,0.01,0.95,0.9005375,0.0994625,2.2212640792353944,2.6397666666666666,633544,86456,20,746.9790322580645,9.642219000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+30,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.05,0.0,0.001,0.95,0.8719916666666667,0.12800833333333334,0.3524417285570349,2.615883333333333,627812,92188,25,586.1435483870968,9.685369999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+31,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.05,0.0,0.01,0.95,0.953675,0.046325,2.169231938823404,2.9053541666666667,697285,22715,25,675.8758064516129,9.139414,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+32,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.1,0.0,0.001,0.95,0.9506,0.0494,2.3910479274630547,2.8526375,684633,35367,25,683.8887096774193,9.501057,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+33,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.1,0.0,0.01,0.95,0.9505541666666667,0.049445833333333335,2.386801686475209,2.8475166666666665,683404,36596,20,737.2145161290323,9.972334000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+34,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.2,0.0,0.001,0.95,0.8993416666666667,0.10065833333333334,2.221050016521585,2.6397125,633531,86469,16,757.9096774193548,10.551710999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+35,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",1,128,0.2,0.0,0.01,0.95,0.8994458333333334,0.10055416666666667,2.2051604364355404,2.6208958333333334,629015,90985,22,719.2532258064516,9.899072000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+36,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.05,0.0,0.001,0.95,0.024866666666666665,0.9751333333333333,0.7457523949724834,1.3994416666666667,335866,384134,30,432.68064516129033,10.775588,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+37,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.05,0.0,0.01,0.95,0.97485,0.02515,1.4017582255503434,2.948275,707586,12414,24,725.8354838709678,9.442814,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+38,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.1,0.0,0.001,0.95,0.7741875,0.2258125,0.418145006499057,2.304025,552966,167034,25,664.8758064516129,9.025628000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+39,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.1,0.0,0.01,0.95,0.9493208333333333,0.050679166666666664,2.3648201724356643,2.8432958333333334,682391,37609,25,638.8241935483871,8.493568999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+40,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.2,0.0,0.001,0.95,0.11227916666666667,0.8877208333333333,0.5194707707905726,1.5027458333333332,360659,359341,27,467.8774193548387,11.725016999999994,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+41,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.2,0.0,0.01,0.95,0.451175,0.548825,0.42542067383064597,1.8556125,445347,274653,18,737.0693548387097,9.492895000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+42,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.05,0.0,0.001,0.95,0.4736,0.5264,0.2728047103045778,2.1070875,505701,214299,24,697.7193548387097,9.097593999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+43,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.05,0.0,0.01,0.95,0.024779166666666668,0.9752208333333333,0.7408912575754256,1.3991666666666667,335800,384200,30,426.76935483870966,11.444972,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+44,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.1,0.0,0.001,0.95,0.7727166666666667,0.22728333333333334,0.35244714832160523,2.4085041666666664,578041,141959,25,681.8967741935484,10.321570000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+45,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.1,0.0,0.01,0.95,0.12407916666666667,0.8759208333333334,0.4245096111568804,1.5264083333333334,366338,353662,29,464.6741935483871,11.706250000000004,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+46,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.2,0.0,0.001,0.95,0.5928833333333333,0.4071166666666667,0.637121991635395,1.9793583333333333,475046,244954,25,650.3887096774193,9.034319000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+47,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.2,0.0,0.01,0.95,0.89945,0.10055,2.203182659221228,2.6201375,628833,91167,21,716.6854838709677,9.230466999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+48,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.05,0.0,0.001,0.95,0.9748125,0.0251875,2.4638645833333332,2.9472791666666667,707347,12653,22,715.8403225806452,9.400656,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+49,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.05,0.0,0.01,0.95,0.030070833333333335,0.9699291666666666,0.7543952559624949,1.4053916666666666,337294,382706,28,436.4225806451613,10.684520999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+50,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.1,0.0,0.001,0.95,0.8170541666666666,0.18294583333333334,0.3583712712028258,2.508575,602058,117942,25,643.6064516129032,8.586290000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+51,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.1,0.0,0.01,0.95,0.40097916666666666,0.5990208333333333,0.41485731572832024,1.8755625,450135,269865,28,468.34032258064514,12.726825000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+52,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.2,0.0,0.001,0.95,0.6006583333333333,0.39934166666666665,0.5980799984251847,2.0131791666666667,483163,236837,25,650.424193548387,9.214507000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+53,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.2,0.0,0.01,0.95,0.26210833333333333,0.7378916666666666,0.5255912121521062,1.6671333333333334,400112,319888,30,446.85,11.258802999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+54,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",2,32,0.05,0.0,0.001,0.95,0.024525,0.975475,0.7315654435906205,1.3954291666666667,334903,385097,29,421.0709677419355,10.314706999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+55,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",2,32,0.05,0.0,0.01,0.95,0.3407375,0.6592625,0.43842458583227356,1.8822458333333334,451739,268261,30,463.1774193548387,11.081401,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+56,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",2,32,0.1,0.0,0.001,0.95,0.8445666666666667,0.15543333333333334,1.190859217171892,2.5503708333333335,612089,107911,24,715.0112903225806,9.530899999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+57,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",2,32,0.1,0.0,0.01,0.95,0.25517083333333335,0.7448291666666667,0.4175613752186759,1.71425,411420,308580,25,511.5032258064516,11.944972,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+58,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",2,32,0.2,0.0,0.001,0.95,0.6239666666666667,0.37603333333333333,0.5447821723352947,2.099683333333333,503924,216076,25,509.0983870967742,10.898802000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+59,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",2,32,0.2,0.0,0.01,0.95,0.9005583333333333,0.09944166666666666,2.2087609078529145,2.625370833333333,630089,89911,25,687.8516129032258,9.19046,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+60,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",2,64,0.05,0.0,0.001,0.95,0.860425,0.139575,0.24492436636891016,2.6525833333333333,636620,83380,25,705.6806451612903,9.289838,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+61,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",2,64,0.05,0.0,0.01,0.95,0.9746166666666667,0.025383333333333334,1.4257980316426309,2.9443166666666665,706636,13364,24,701.3096774193548,9.468687000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+62,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",2,64,0.1,0.0,0.001,0.95,0.949875,0.050125,2.38637390366594,2.8469208333333333,683261,36739,15,763.2532258064516,10.023697,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+63,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",2,64,0.1,0.0,0.01,0.95,0.9494041666666667,0.05059583333333333,2.377375857196345,2.8363958333333334,680735,39265,21,750.5822580645162,9.873083,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+64,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",2,64,0.2,0.0,0.001,0.95,0.6961125,0.3038875,0.5425956688057337,2.1831833333333335,523964,196036,25,658.1967741935484,8.698758999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+65,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",2,64,0.2,0.0,0.01,0.95,0.8998916666666666,0.10010833333333333,2.214605514310797,2.632125,631710,88290,25,664.0145161290322,9.361944000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+66,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",2,128,0.05,0.0,0.001,0.95,0.8822083333333334,0.11779166666666667,0.22730690488965966,2.7194583333333333,652670,67330,23,712.9822580645161,9.648917999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+67,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",2,128,0.05,0.0,0.01,0.95,0.9745875,0.0254125,2.4652975226666003,2.948945833333333,707747,12253,25,680.5064516129032,9.607483,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+68,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",2,128,0.1,0.0,0.001,0.95,0.9497666666666666,0.05023333333333333,2.382743144067566,2.8427,682248,37752,21,736.241935483871,10.330511999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+69,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",2,128,0.1,0.0,0.01,0.95,0.9487,0.0513,2.3849105029674664,2.84535,682884,37116,21,734.5258064516129,9.963137999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+70,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",2,128,0.2,0.0,0.001,0.95,0.8987708333333333,0.10122916666666666,2.2101614790351984,2.627475,630594,89406,25,702.6887096774194,9.985437,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+71,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",2,128,0.2,0.0,0.01,0.95,0.8994916666666667,0.10050833333333334,2.218326292644938,2.6352583333333333,632462,87538,23,722.0241935483871,9.956884999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+72,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.001,0.95,0.9747958333333333,0.025204166666666666,1.4108365186491516,2.947416666666667,707380,12620,19,739.0274193548387,9.48824,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+73,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.01,0.95,0.025254166666666668,0.9747458333333333,0.7594220944292513,1.3978125,335475,384525,26,494.7258064516129,11.385882,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+74,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.001,0.95,0.42136666666666667,0.5786333333333333,0.6101671237473669,1.971125,473070,246930,21,709.4887096774194,9.072994,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+75,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.01,0.95,0.11542083333333333,0.8845791666666667,0.7955266455257617,1.5211375,365073,354927,31,408.1016129032258,9.663625,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+76,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.001,0.95,0.7897875,0.2102125,0.4647363493312001,2.4203833333333336,580892,139108,23,711.0241935483871,9.79925,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+77,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.01,0.95,0.5304875,0.4695125,0.41468255678601357,1.9456166666666668,466948,253052,23,719.2612903225806,10.061669000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+78,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.001,0.95,0.7527083333333333,0.24729166666666666,0.17103945523899314,2.5360541666666667,608653,111347,23,693.8451612903226,9.129382,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+79,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.01,0.95,0.22011666666666665,0.7798833333333334,0.37619365002628413,1.7002708333333334,408065,311935,30,444.1548387096774,10.231609,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+80,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.1,0.0,0.001,0.95,0.7045166666666667,0.2954833333333333,0.4042895897292042,2.439204166666667,585409,134591,20,723.0387096774193,9.684102000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+81,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.1,0.0,0.01,0.95,0.9500625,0.0499375,2.3808296595017113,2.8406041666666666,681745,38255,21,738.9564516129033,9.551915000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+82,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.001,0.95,0.2524,0.7476,0.6111312768865119,1.7861083333333334,428666,291334,27,494.0306451612903,11.136693999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+83,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.01,0.95,0.900325,0.099675,2.2095799669807157,2.6266416666666665,630394,89606,19,738.2016129032259,9.347707,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+84,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.001,0.95,0.7812833333333333,0.21871666666666667,0.14875789978914714,2.6118333333333332,626840,93160,25,713.6322580645161,9.400638000000006,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+85,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.01,0.95,0.17317916666666666,0.8268208333333333,0.43000433254174136,1.6264875,390357,329643,29,462.03387096774196,11.797265999999995,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+86,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.1,0.0,0.001,0.95,0.61895,0.38105,0.3039033294236559,2.329654166666667,559117,160883,23,717.2532258064516,9.176208000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+87,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.1,0.0,0.01,0.95,0.49306666666666665,0.5069333333333333,0.37163916783470285,2.0382583333333333,489182,230818,25,489.1241935483871,11.746250000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+88,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.001,0.95,0.7018875,0.2981125,0.3893718548431671,2.323745833333333,557699,162301,21,738.7322580645161,9.632854000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+89,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.01,0.95,0.37792916666666665,0.6220708333333334,0.48493703710110375,1.8123166666666666,434956,285044,29,451.9,11.332081,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+90,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.05,0.0,0.001,0.95,0.7497833333333334,0.25021666666666664,0.2307399772412076,2.5375375,609009,110991,22,723.9516129032259,9.715490999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+91,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.05,0.0,0.01,0.95,0.9747666666666667,0.025233333333333333,2.4659195548578645,2.949679166666667,707923,12077,25,722.4177419354838,9.903258,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+92,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.1,0.0,0.001,0.95,0.7940208333333333,0.20597916666666666,0.25598392174226026,2.5543708333333335,613049,106951,8,783.7274193548387,10.10751,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+93,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.1,0.0,0.01,0.95,0.9498333333333333,0.050166666666666665,2.3815617870748045,2.8411125,681867,38133,24,697.8467741935484,9.141485,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+94,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.2,0.0,0.001,0.95,0.7101083333333333,0.28989166666666666,0.4597321853916333,2.3442125,562611,157389,25,643.7645161290322,8.596818999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+95,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,0.2,0.0,0.01,0.95,0.9005541666666667,0.09944583333333333,2.2140005036522945,2.6311666666666667,631480,88520,21,722.916129032258,9.877333000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+96,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.05,0.0,0.001,0.95,0.84665,0.15335,0.16795920994127786,2.68985,645564,74436,18,747.8903225806451,9.919488999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+97,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.05,0.0,0.01,0.95,0.42220416666666666,0.5777958333333333,0.4572427425480167,2.018895833333333,484535,235465,29,459.81935483870967,11.073641,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+98,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.1,0.0,0.001,0.95,0.78765,0.21235,0.248343916127766,2.56765,616236,103764,24,716.9322580645161,9.077361000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+99,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.1,0.0,0.01,0.95,0.9502708333333333,0.049729166666666665,2.394542743110657,2.8568583333333333,685646,34354,25,657.9596774193549,8.966343999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+100,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.2,0.0,0.001,0.95,0.8998,0.1002,2.2136664201155303,2.630904166666667,631417,88583,20,730.6161290322581,9.502999999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+101,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,0.2,0.0,0.01,0.95,0.899925,0.100075,2.207279768184821,2.623466666666667,629632,90368,24,708.2935483870967,9.393627,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+102,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.05,0.0,0.001,0.95,0.8688916666666666,0.13110833333333333,0.19018677726105718,2.71395,651348,68652,25,683.1854838709677,9.476715000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+103,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.05,0.0,0.01,0.95,0.2235375,0.7764625,0.37231899987900724,1.7073958333333332,409775,310225,30,425.51451612903224,10.992783999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+104,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.1,0.0,0.001,0.95,0.8195791666666666,0.18042083333333334,0.2808644651529048,2.586225,620694,99306,25,682.674193548387,9.432937999999996,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+105,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.1,0.0,0.01,0.95,0.9500125,0.0499875,2.3858663864015215,2.8457583333333334,682982,37018,23,731.1016129032258,10.314922,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+106,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.2,0.0,0.001,0.95,0.900175,0.099825,2.215379177637014,2.6330583333333335,631934,88066,25,695.9693548387097,9.505802000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+107,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",4,128,0.2,0.0,0.01,0.95,0.8993916666666667,0.10060833333333333,2.2124550490831334,2.6290541666666667,630973,89027,17,746.1290322580645,10.444868999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+108,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",6,4,0.05,0.0,0.001,0.95,0.8216416666666667,0.17835833333333334,0.13680744623334165,2.6727208333333334,641453,78547,22,727.4516129032259,9.871516999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+109,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",6,4,0.05,0.0,0.01,0.95,0.6196375,0.3803625,0.2642367425093635,2.3053375,553281,166719,28,470.06935483870967,11.606094000000004,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+110,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",6,4,0.1,0.0,0.001,0.95,0.7376666666666667,0.2623333333333333,0.24406338923144058,2.4822125,595731,124269,25,690.5741935483871,9.086288000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+111,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",6,4,0.1,0.0,0.01,0.95,0.9503583333333333,0.04964166666666667,2.388099849137913,2.8490208333333333,683765,36235,7,777.4774193548387,10.024448,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+112,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",6,4,0.2,0.0,0.001,0.95,0.4665416666666667,0.5334583333333334,1.5646021238745353,2.0404375,489705,230295,25,555.858064516129,10.076511999999996,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+113,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",6,4,0.2,0.0,0.01,0.95,0.3080541666666667,0.6919458333333334,0.4796718614095692,1.6938916666666666,406534,313466,26,453.9290322580645,11.032836000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+114,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",6,8,0.05,0.0,0.001,0.95,0.84125,0.15875,0.11800510414521169,2.7176125,652227,67773,24,718.4564516129033,9.384862999999996,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+115,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",6,8,0.05,0.0,0.01,0.95,0.9748875,0.0251125,1.4032179188379346,2.9492083333333334,707810,12190,22,711.3596774193549,9.452669000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+116,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",6,8,0.1,0.0,0.001,0.95,0.8232666666666667,0.17673333333333333,0.21974579456156168,2.618316666666667,628396,91604,25,586.1193548387097,9.888845,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+117,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",6,8,0.1,0.0,0.01,0.95,0.9502958333333333,0.04970416666666667,2.354360819667502,2.8517625,684423,35577,21,726.9483870967742,9.563792000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+118,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",6,8,0.2,0.0,0.001,0.95,0.26677083333333335,0.7332291666666667,0.49221774963974424,1.7958416666666666,431002,288998,25,627.2483870967742,10.656714999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+119,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",6,8,0.2,0.0,0.01,0.95,0.8988958333333333,0.10110416666666666,2.215533604563788,2.6330875,631941,88059,8,800.0645161290323,10.288694000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+120,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",6,16,0.05,0.0,0.001,0.95,0.0248,0.9752,0.7298497315861919,1.3986416666666666,335674,384326,27,467.56612903225806,12.014602000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+121,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",6,16,0.05,0.0,0.01,0.95,0.025070833333333334,0.9749291666666666,0.7382515797428678,1.3980166666666667,335524,384476,28,460.47903225806454,11.453216,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+122,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",6,16,0.1,0.0,0.001,0.95,0.8190166666666666,0.18098333333333333,0.2078449320481978,2.6155791666666666,627739,92261,24,679.8822580645161,9.232511999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+123,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",6,16,0.1,0.0,0.01,0.95,0.34858333333333336,0.6514166666666666,0.41576858864876803,1.8418791666666667,442051,277949,29,451.6693548387097,11.535497000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+124,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",6,16,0.2,0.0,0.001,0.95,0.7256666666666667,0.2743333333333333,0.3519826748629461,2.3466375,563193,156807,25,642.2290322580645,10.548274999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+125,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",6,16,0.2,0.0,0.01,0.95,0.9014041666666667,0.09859583333333333,2.220340123646097,2.6391958333333334,633407,86593,25,657.5370967741935,8.839910000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+126,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",6,32,0.05,0.0,0.001,0.95,0.9032875,0.0967125,0.12137230447887942,2.810791666666667,674590,45410,24,692.8129032258065,9.332153000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+127,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",6,32,0.05,0.0,0.01,0.95,0.9744666666666667,0.025533333333333335,2.4637845027595757,2.947033333333333,707288,12712,25,663.4774193548387,8.945452000000005,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+128,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",6,32,0.1,0.0,0.001,0.95,0.6603291666666666,0.3396708333333333,0.34548703509454537,2.3774583333333332,570590,149410,24,703.2790322580645,9.327587999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+129,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",6,32,0.1,0.0,0.01,0.95,0.2929875,0.7070125,0.4591574078146609,1.7828583333333334,427886,292114,31,461.1161290322581,10.995833,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+130,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",6,32,0.2,0.0,0.001,0.95,0.7369375,0.2630625,0.33974701501505455,2.3867958333333332,572831,147169,25,639.4112903225806,10.309025999999996,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+131,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",6,32,0.2,0.0,0.01,0.95,0.9004041666666667,0.09959583333333333,2.218881201131892,2.6371458333333333,632915,87085,25,688.6403225806451,9.374036,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+132,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",6,64,0.05,0.0,0.001,0.95,0.8730833333333333,0.12691666666666668,0.13599392089147216,2.751916666666667,660460,59540,25,689.6145161290323,9.329554000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+133,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",6,64,0.05,0.0,0.01,0.95,0.9751708333333333,0.024829166666666666,2.466165279106299,2.9501041666666667,708025,11975,25,694.7096774193549,8.973495999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+134,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",6,64,0.1,0.0,0.001,0.95,0.81305,0.18695,0.2375284562327598,2.5767375,618417,101583,25,620.3629032258065,9.606613999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+135,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",6,64,0.1,0.0,0.01,0.95,0.9503916666666666,0.04960833333333333,2.3919553809507654,2.8536375,684873,35127,25,670.0435483870967,9.17271,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+136,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",6,64,0.2,0.0,0.001,0.95,0.7029375,0.2970625,0.434890061846468,2.3213666666666666,557128,162872,24,707.166129032258,9.485719999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+137,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",6,64,0.2,0.0,0.01,0.95,0.8992916666666667,0.10070833333333333,2.213114236940878,2.6303541666666668,631285,88715,25,631.6774193548387,8.814163999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+138,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",6,128,0.05,0.0,0.001,0.95,0.9747708333333334,0.025229166666666667,2.4675732991603088,2.9516125,708387,11613,25,649.7838709677419,9.405648,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+139,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",6,128,0.05,0.0,0.01,0.95,0.9747333333333333,0.025266666666666666,2.463764711046219,2.9471083333333334,707306,12694,23,715.0467741935483,9.339573999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+140,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",6,128,0.1,0.0,0.001,0.95,0.7138083333333334,0.2861916666666667,0.3648636291357012,2.4218458333333333,581243,138757,25,616.0064516129032,10.056884,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+141,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",6,128,0.1,0.0,0.01,0.95,0.9468416666666667,0.053158333333333335,2.381078847254996,2.8416208333333333,681989,38011,25,709.2612903225806,9.63459,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+142,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",6,128,0.2,0.0,0.001,0.95,0.901275,0.098725,2.21159021611015,2.6289416666666665,630946,89054,23,725.7048387096775,10.227512000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+143,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=12, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",6,128,0.2,0.0,0.01,0.95,0.8997708333333333,0.10022916666666666,2.2129762281091883,2.6300125,631203,88797,24,736.2403225806452,10.036507999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+144,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.001,0.95,0.5831833333333334,0.41681666666666667,0.2635697403273317,2.297258333333333,551342,168658,24,705.8322580645162,9.168473,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+145,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.01,0.95,0.23356666666666667,0.7664333333333333,0.3634538697672489,1.6935833333333334,406460,313540,30,444.1983870967742,11.117452,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+146,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.1,0.0,0.001,0.95,0.7815208333333333,0.21847916666666667,0.19444814024499615,2.5632208333333333,615173,104827,31,420.1258064516129,10.524914999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+147,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.1,0.0,0.01,0.95,0.2520833333333333,0.7479166666666667,0.41116456942922125,1.6998083333333334,407954,312046,27,460.13870967741934,11.018802000000004,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+148,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.001,0.95,0.39912916666666665,0.6008708333333334,1.5160150912698358,1.9876625,477039,242961,25,534.266129032258,9.423155000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+149,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.01,0.95,0.5185916666666667,0.4814083333333333,0.4396023576452436,1.9092416666666667,458218,261782,29,458.9209677419355,11.495339000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+150,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.001,0.95,0.8903,0.1097,0.1309898485904251,2.792308333333333,670154,49846,23,727.424193548387,9.562287999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+151,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.01,0.95,0.025066666666666668,0.9749333333333333,0.7340402982915012,1.3993333333333333,335840,384160,29,436.6193548387097,11.296970000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+152,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.1,0.0,0.001,0.95,0.7473916666666667,0.2526083333333333,0.22549227914966838,2.494175,598602,121398,25,680.141935483871,9.574856,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+153,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.1,0.0,0.01,0.95,0.9506958333333333,0.04930416666666667,2.3876717965781236,2.8486875,683685,36315,24,708.4387096774194,9.737962,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+154,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.001,0.95,0.38916666666666666,0.6108333333333333,0.6025028344021326,1.9493791666666667,467851,252149,25,675.3693548387097,9.388612,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+155,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.01,0.95,0.8994291666666666,0.10057083333333333,2.206073684809059,2.6222833333333333,629348,90652,23,704.3451612903226,9.358638999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+156,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.001,0.95,0.8828,0.1172,0.10502425392347753,2.7789916666666667,666958,53042,23,705.9387096774194,9.459859999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+157,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.01,0.95,0.9748583333333334,0.025141666666666666,1.3904843437251295,2.9499,707976,12024,25,656.7354838709678,9.424705,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+158,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.1,0.0,0.001,0.95,0.8533458333333334,0.14665416666666667,0.2192979546697241,2.6655083333333334,639722,80278,10,784.833870967742,10.855210000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+159,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.1,0.0,0.01,0.95,0.9507333333333333,0.04926666666666667,2.393565150420456,2.8557041666666665,685369,34631,25,693.1451612903226,9.145695999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+160,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.001,0.95,0.6465833333333333,0.35341666666666666,0.36396389404369184,2.2831916666666667,547966,172034,7,782.075806451613,10.856057000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+161,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.01,0.95,0.5939375,0.4060625,1.6401653620465526,2.104804166666667,505153,214847,29,436.73064516129034,11.272139,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+162,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.05,0.0,0.001,0.95,0.8735625,0.1264375,0.10921237459472537,2.7678791666666664,664291,55709,21,736.9032258064516,9.765094999999995,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+163,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.05,0.0,0.01,0.95,0.9752,0.0248,2.4644177610844373,2.9480708333333334,707537,12463,24,705.8612903225807,9.225328,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+164,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.1,0.0,0.001,0.95,0.8250208333333333,0.17497916666666666,0.21294412305384292,2.6138666666666666,627328,92672,21,738.7854838709677,9.985633000000004,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+165,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.1,0.0,0.01,0.95,0.9498708333333333,0.05012916666666667,2.3848889605556614,2.8457458333333334,682979,37021,20,747.4274193548387,9.936688000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+166,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.2,0.0,0.001,0.95,0.7739416666666666,0.22605833333333333,0.31315032038174057,2.4260875,582261,137739,23,716.8532258064516,9.441562000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+167,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,0.2,0.0,0.01,0.95,0.9007041666666666,0.09929583333333333,2.2085550661870332,2.6250875,630021,89979,25,706.5241935483871,9.273158000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+168,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.05,0.0,0.001,0.95,0.025058333333333332,0.9749416666666667,0.7300489896624373,1.399325,335838,384162,29,448.7983870967742,10.706767999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+169,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.05,0.0,0.01,0.95,0.44826666666666665,0.5517333333333333,0.44670120435704314,2.0715833333333333,497180,222820,29,446.56290322580645,11.590368,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+170,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.1,0.0,0.001,0.95,0.8435416666666666,0.15645833333333334,0.22804439882119343,2.6321625,631719,88281,25,703.4774193548387,9.637118999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+171,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.1,0.0,0.01,0.95,0.9498041666666667,0.050195833333333335,2.388181643301669,2.8491583333333335,683798,36202,21,727.9887096774194,10.278095,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+172,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.2,0.0,0.001,0.95,0.7309333333333333,0.2690666666666667,0.382239766563431,2.3558875,565413,154587,24,710.3790322580645,9.626043999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+173,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,0.2,0.0,0.01,0.95,0.8976708333333333,0.10232916666666667,2.206587612011419,2.6239166666666667,629740,90260,24,701.9532258064517,9.743626000000004,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+174,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.05,0.0,0.001,0.95,0.92525,0.07475,0.11309823118487945,2.8428458333333335,682283,37717,25,683.5548387096774,9.599114999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+175,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.05,0.0,0.01,0.95,0.9745333333333334,0.025466666666666665,2.4650859375643837,2.9478541666666667,707485,12515,22,706.7274193548387,9.920301999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+176,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.1,0.0,0.001,0.95,0.851175,0.148825,0.25914105705305146,2.612016666666667,626884,93116,25,688.2387096774194,9.798973,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+177,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.1,0.0,0.01,0.95,0.9502833333333334,0.049716666666666666,2.3842816539472502,2.8444083333333334,682658,37342,25,684.9483870967742,9.520046,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+178,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.2,0.0,0.001,0.95,0.7436708333333333,0.25632916666666666,0.3581950729301749,2.34915,563796,156204,25,517.4596774193549,12.431694999999996,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+179,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",8,128,0.2,0.0,0.01,0.95,0.899525,0.100475,2.2156365040163197,2.6333375,632001,87999,17,739.0548387096774,10.148430000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+180,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.05,0.0,0.001,0.95,0.8007791666666667,0.19922083333333335,0.20623446927193928,2.629004166666667,630961,89039,18,746.9129032258064,9.772996,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+181,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.05,0.0,0.01,0.95,0.3992875,0.6007125,0.3216128500257864,1.9332708333333333,463985,256015,25,499.48064516129034,11.327462000000004,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+182,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.1,0.0,0.001,0.95,0.05199583333333333,0.9480041666666666,0.9342089360141467,1.434275,344226,375774,31,424.5854838709677,10.321912,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+183,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.1,0.0,0.01,0.95,0.9502541666666666,0.049745833333333336,2.3535235482396004,2.8491833333333334,683804,36196,23,719.841935483871,9.515692000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+184,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.2,0.0,0.001,0.95,0.8991291666666666,0.10087083333333334,2.188268515677755,2.634920833333333,632381,87619,23,710.2241935483871,9.319719999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+185,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",10,4,0.2,0.0,0.01,0.95,0.4725083333333333,0.5274916666666667,1.5586685220162417,2.0356708333333335,488561,231439,29,446.10806451612905,11.179795,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+186,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.05,0.0,0.001,0.95,0.024825,0.975175,0.7319131467686308,1.3982625,335583,384417,29,455.1677419354839,11.61652,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+187,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.05,0.0,0.01,0.95,0.02499583333333333,0.9750041666666667,0.7352601910774591,1.3975458333333333,335411,384589,29,439.6629032258065,10.900574999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+188,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.1,0.0,0.001,0.95,0.7806041666666667,0.21939583333333335,0.23484880219665888,2.5612708333333334,614705,105295,10,758.3741935483871,9.864995000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+189,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.1,0.0,0.01,0.95,0.9497125,0.0502875,2.341097555883911,2.8471083333333334,683306,36694,9,776.5661290322581,9.943361000000005,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+190,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.2,0.0,0.001,0.95,0.4124875,0.5875125,1.5035217050909395,1.9800291666666667,475207,244793,27,512.4129032258064,10.615060999999994,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+191,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",10,8,0.2,0.0,0.01,0.95,0.8997083333333333,0.10029166666666667,2.2200957644820165,2.6389375,633345,86655,22,727.3274193548388,9.706502999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+192,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.05,0.0,0.001,0.95,0.8569208333333334,0.14307916666666667,0.11549440816865252,2.7416541666666667,657997,62003,19,750.1596774193548,9.773112000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+193,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.05,0.0,0.01,0.95,0.9750083333333334,0.024991666666666666,2.4640673034849265,2.9475458333333333,707411,12589,20,747.608064516129,9.994771,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+194,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.1,0.0,0.001,0.95,0.6317541666666666,0.36824583333333333,0.32217403276926854,2.3319041666666664,559657,160343,21,725.9435483870968,10.043650999999999,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+195,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.1,0.0,0.01,0.95,0.9498291666666666,0.05017083333333333,2.3828050821493068,2.842766666666667,682264,37736,24,703.258064516129,9.660977999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+196,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.2,0.0,0.001,0.95,0.8998791666666667,0.10012083333333334,2.178241277429771,2.6363666666666665,632728,87272,18,753.0483870967741,10.052432000000001,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+197,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",10,16,0.2,0.0,0.01,0.95,0.899225,0.100775,2.2111735513331263,2.6283875,630813,89187,24,673.8758064516129,9.486594999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+198,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.05,0.0,0.001,0.95,0.8553291666666667,0.14467083333333333,0.1479825382710773,2.7239916666666666,653758,66242,21,731.5596774193548,9.972502999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+199,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.05,0.0,0.01,0.95,0.9752791666666667,0.024720833333333334,2.4673240091800688,2.9514666666666667,708352,11648,24,705.6790322580645,9.914073000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+200,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.1,0.0,0.001,0.95,0.8382416666666667,0.16175833333333334,0.22679039408878746,2.6330541666666667,631933,88067,24,702.1370967741935,9.795648000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+201,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.1,0.0,0.01,0.95,0.3978541666666667,0.6021458333333334,0.3731507236014203,1.9369166666666666,464860,255140,31,432.93548387096774,10.592654,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+202,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.2,0.0,0.001,0.95,0.7070625,0.2929375,0.40785396562591136,2.3659916666666665,567838,152162,25,623.3983870967742,10.392629999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+203,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=32, bias=True)
+  (layer2): Linear(in_features=32, out_features=32, bias=True)
+  (layer3): Linear(in_features=32, out_features=2, bias=True)
+)",10,32,0.2,0.0,0.01,0.95,0.9012208333333334,0.09877916666666667,2.222409060311547,2.641625,633990,86010,23,712.2919354838709,9.932311000000006,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+204,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.05,0.0,0.001,0.95,0.025883333333333335,0.9741166666666666,0.7292387152630566,1.3981083333333333,335546,384454,31,427.21774193548384,11.333167999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+205,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.05,0.0,0.01,0.95,0.9746416666666666,0.025358333333333333,2.465272734565288,2.9488541666666666,707725,12275,20,738.85,10.077566,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+206,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.1,0.0,0.001,0.95,0.9497833333333333,0.050216666666666666,2.3849482401618456,2.8450625,682815,37185,25,701.0435483870967,10.427792000000002,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+207,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.1,0.0,0.01,0.95,0.9492,0.0508,2.385113660514355,2.8453416666666667,682882,37118,21,723.1951612903226,9.968037,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+208,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.2,0.0,0.001,0.95,0.8988416666666666,0.10115833333333334,2.218441542745572,2.6362083333333333,632690,87310,14,739.5693548387097,10.791322999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+209,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=64, bias=True)
+  (layer2): Linear(in_features=64, out_features=64, bias=True)
+  (layer3): Linear(in_features=64, out_features=2, bias=True)
+)",10,64,0.2,0.0,0.01,0.95,0.8999125,0.1000875,2.223902298254054,2.6427416666666668,634258,85742,20,715.6532258064516,10.229933,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+210,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.05,0.0,0.001,0.95,0.9746166666666667,0.025383333333333334,2.4644073708271534,2.94785,707484,12516,21,735.174193548387,11.176169000000003,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+211,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.05,0.0,0.01,0.95,0.29590833333333333,0.7040916666666667,0.4922978456947558,1.8222208333333334,437333,282667,28,461.0274193548387,12.631978,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+212,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.1,0.0,0.001,0.95,0.6594291666666666,0.3405708333333333,0.4308932408999666,2.336691666666667,560806,159194,18,743.4758064516129,11.588822999999998,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+213,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.1,0.0,0.01,0.95,0.9436083333333334,0.056391666666666666,2.3749289203738964,2.8347416666666665,680338,39662,25,704.8629032258065,11.088593999999997,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+214,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.2,0.0,0.001,0.95,0.900525,0.099475,2.2117469065740187,2.6291125,630987,89013,21,737.8596774193549,10.575091,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
+215,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=20, out_features=128, bias=True)
+  (layer2): Linear(in_features=128, out_features=128, bias=True)
+  (layer3): Linear(in_features=128, out_features=2, bias=True)
+)",10,128,0.2,0.0,0.01,0.95,0.9004208333333333,0.09957916666666666,2.2135780469800035,2.6310041666666666,631441,88559,25,654.3661290322581,9.865514,"TitForTat,OmegaTFT,TFTT,TTFT,GradualTFT,GenerousTFT"
