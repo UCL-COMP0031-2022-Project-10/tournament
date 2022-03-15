@@ -5,6 +5,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 
+from tournament.agents.constant import AllC, AllD
 from tournament.agents.q_learning.dqn import DeepQLearner
 from tournament.agents.tft import OmegaTFT, TitForTat
 from tournament.gridsearch import evaluate
@@ -51,31 +52,38 @@ class DQN(DeepQLearner):
 
 
 def main():
-    agents = [
-        TitForTat,
-        OmegaTFT,
-    ]
+    agents = [TitForTat, OmegaTFT, AllC, AllD]
 
     grid = {
         "lookback": [4, 8],
-        "n1": [4, 8, 12, 16, 24, 32],
-        "n2": [4, 8, 12, 16, 24, 32],
+        "n1": [8, 12, 16, 24],
+        "n2": [8, 12, 16, 24],
         "epsilon": [0.2],
         "epsilon_decay": [0.0],
-        "learning_rate": [0.01, 0.001],
+        "learning_rate": [0.001],
         "discount_rate": [0.95],
     }
 
     results = []
     try:
-        for hyperparameters in itertools.product(*grid.values()):
+        space = list(itertools.product(*grid.values()))
+        size = len(space)
+        for i, hyperparameters in enumerate(space):
             print(
-                f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}]",
+                f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')} | {i + 1}/{size}]",
                 *hyperparameters,
                 sep="\t",
             )
             results.append(
                 evaluate(agents, DQN, **dict(zip(grid.keys(), hyperparameters)))
+            )
+            print(
+                f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')} | {i + 1}/{size}]",
+                f"COOP%={results[-1]['tr_cooperation_percentage']}",
+                f"LOSS={results[-1]['tr_final_loss']}",
+                f"RANK={results[-1]['tn_rank']}",
+                f"SCORE={results[-1]['tn_mean_score']}",
+                sep="\t",
             )
     except:
         print("Quitting evaluation early.")

@@ -6,13 +6,11 @@ import torch
 import torch.nn as nn
 
 from tournament.agents.q_learning.dqn import DeepQLearner
-from tournament.agents.tft import OmegaTFT, TTFT, TitForTat
-from tournament.agents.axelrod_first import SteinAndRapoport
-from tournament.agents.axelrod_second import SecondByWeiner, Borufsen
+import tournament.agents.tft as tft
 
-# rule-based agents to include 
+# rule-based agents to include
 # TFT
-
+# ALLC, ALLD
 
 from tournament.gridsearch import evaluate
 
@@ -42,7 +40,7 @@ class QNetwork(nn.Module):
 
 class DQN(DeepQLearner):
     def __init__(
-        self, lookback, n1, epsilon, epsilon_decay, learning_rate, discount_rate
+            self, lookback, n1, epsilon, epsilon_decay, learning_rate, discount_rate
     ):
         super().__init__()
 
@@ -56,16 +54,21 @@ class DQN(DeepQLearner):
 
 def main():
     agents = [
-        TitForTat
+        tft.TitForTat,
+        tft.OmegaTFT,
+        tft.TFTT,
+        tft.TTFT,
+        tft.GradualTFT,
+        tft.GenerousTFT
     ]
 
     grid = {
-        "lookback": [1, 2, 4, 8, 10], # [1, 2, 4, 6, 8, 10]
-        "n1": [4, 8, 16, 32, 64, 128], # [4, 8, 12, 16, 24, 32, 64, 96, 128],
-        "epsilon": [0.05, 0.1, 0.2], # [0.05, 0.1, 0.2]
+        "lookback": [1, 2, 4, 6, 8, 10],  # [1, 2, 4, 6, 8, 10]
+        "n1": [4, 8, 16, 32, 64, 128],  # [4, 8, 12, 16, 24, 32, 64, 96, 128],
+        "epsilon": [0.05, 0.1, 0.2],  # [0.05, 0.1, 0.2]
         "epsilon_decay": [0.0],
-        "learning_rate": [0.001, 0.01], # [0.001, 0.01], 
-        "discount_rate": [0.95], # [0.99, 0.95], 
+        "learning_rate": [0.001, 0.01],  # [0.001, 0.01],
+        "discount_rate": [0.95],  # [0.99, 0.95],
     }
 
     results = []
@@ -89,6 +92,6 @@ def main():
 
 
 if __name__ == "__main__":
-    torch.set_num_threads(2)
+    torch.set_num_threads(1)
 
     main()

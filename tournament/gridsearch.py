@@ -7,7 +7,7 @@ from tournament.environments.multiple import MultipleRuleBasedAgentEnvironment
 from tournament.tournament import RoundRobinTournament
 
 
-def evaluate(agents, cls, **kwargs):
+def train_and_evaluate(agents, cls, **kwargs):
     env = MultipleRuleBasedAgentEnvironment(agents, silent=True)
     agent = cls(**kwargs)
     env.train(
@@ -15,8 +15,6 @@ def evaluate(agents, cls, **kwargs):
         limit=200,
         epochs=200,
     )
-
-    print("Finished training")
 
     s = sum(env.counts.values())
 
@@ -41,4 +39,9 @@ def evaluate(agents, cls, **kwargs):
             "tn_rank": sorted(results, key=results.get, reverse=True).index(cls) + 1,
             "tn_mean_score": results[cls],
             "tn_mean_time": sum(times[cls]),
-        }
+        }, agent
+
+
+def evaluate(agents, cls, **kwargs):
+    results, agent = train_and_evaluate(agents, cls, **kwargs)
+    return results
