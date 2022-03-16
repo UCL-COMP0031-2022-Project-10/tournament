@@ -1,0 +1,25 @@
+,model,lookback,n1,epsilon,epsilon_decay,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.05,0.0,0.01,0.95,0.18662857142857142,0.8133714285714285,0.4248397509963194,1.7373142857142858,486448,353552,28,466.65,27.37664500000001,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.05,0.0,0.01,0.99,0.9399714285714286,0.06002857142857143,2.0704862813119043,2.4958285714285715,698832,141168,21,738.2887096774193,37.178343999999996,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.1,0.0,0.01,0.95,0.050564285714285714,0.9494357142857143,1.138491085446636,1.6360642857142857,458098,381902,30,449.26612903225805,35.08168099999999,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+3,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,0.1,0.0,0.01,0.99,0.3329285714285714,0.6670714285714285,0.7678595945001355,1.821775,510097,329903,27,457.6241935483871,49.89833799999998,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
