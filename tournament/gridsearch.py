@@ -18,7 +18,8 @@ def train_and_evaluate(agents, cls, **kwargs):
 
     s = sum(env.counts.values())
 
-    agent._q_network.eval()
+    if hasattr(agent, "_q_network"):
+        agent._q_network.eval()
 
     with torch.no_grad():
         tournament = RoundRobinTournament(AGENTS, [agent])
