@@ -37,7 +37,7 @@ def main():
     agents = [
         TitForTat,
         Nydegger,
-        Downing,
+        #Downing,
         TidemanAndChieruzzi,
         Champion,
         Borufsen,
