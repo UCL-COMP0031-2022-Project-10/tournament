@@ -75,7 +75,7 @@ def main():
         ]
     grid = {
         "lookback": [1, 2, 4, 6, 8],
-        "hidden_size": [1, 4, 32, 64],
+        "hidden_size": [4, 32, 64],
         "num_layers": [1],
         "epsilon": [0.1],
         "epsilon_decay": [0.0],

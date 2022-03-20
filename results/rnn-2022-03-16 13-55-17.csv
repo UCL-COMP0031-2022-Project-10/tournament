@@ -1,0 +1,76 @@
+,model,lookback,hidden_size,num_layers,epsilon,epsilon_decay,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(2, 4, batch_first=True)
+  (_fc): Linear(in_features=4, out_features=2, bias=True)
+)",1,4,1,0.1,0.0,0.01,0.99,0.32657857142857144,0.6734214285714286,3.586149049790004,1.7129035714285714,479613,360387,25,615.8016129032258,27.080109999999994,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+1,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(2, 32, batch_first=True)
+  (_fc): Linear(in_features=32, out_features=2, bias=True)
+)",1,32,1,0.1,0.0,0.01,0.99,0.26655357142857145,0.7334464285714286,2.2679969928067716,1.6455821428571429,460763,379237,26,492.6741935483871,32.30246,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+2,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(2, 64, batch_first=True)
+  (_fc): Linear(in_features=64, out_features=2, bias=True)
+)",1,64,1,0.1,0.0,0.01,0.99,0.38457857142857144,0.6154214285714286,2.660372601947502,1.7478571428571428,489400,350600,26,488.3693548387097,31.665495,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+3,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(4, 4, batch_first=True)
+  (_fc): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,1,0.1,0.0,0.01,0.99,0.25874642857142854,0.7412535714285714,3.5844884994318993,1.8116107142857143,507251,332749,25,516.1112903225807,30.256131999999987,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+4,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(4, 32, batch_first=True)
+  (_fc): Linear(in_features=32, out_features=2, bias=True)
+)",2,32,1,0.1,0.0,0.01,0.99,0.40995,0.59005,2.4849991312229043,1.7966357142857143,503058,336942,26,482.97903225806454,36.66598500000001,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+5,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(4, 64, batch_first=True)
+  (_fc): Linear(in_features=64, out_features=2, bias=True)
+)",2,64,1,0.1,0.0,0.01,0.99,0.4641571428571429,0.5358428571428572,2.6988175407970916,1.8280535714285715,511855,328145,26,481.4516129032258,50.41726200000001,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+6,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(8, 4, batch_first=True)
+  (_fc): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,1,0.1,0.0,0.01,0.99,0.272125,0.727875,3.777123903724656,1.8670214285714286,522766,317234,26,488.10483870967744,28.92849599999999,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+7,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(8, 32, batch_first=True)
+  (_fc): Linear(in_features=32, out_features=2, bias=True)
+)",4,32,1,0.1,0.0,0.01,0.99,0.47753214285714285,0.5224678571428572,2.7394397838314473,1.914607142857143,536090,303910,25,638.6903225806452,48.650724000000004,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+8,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(8, 64, batch_first=True)
+  (_fc): Linear(in_features=64, out_features=2, bias=True)
+)",4,64,1,0.1,0.0,0.01,0.99,0.45354285714285714,0.5464571428571429,2.7054642952701884,1.9009642857142857,532270,307730,25,599.4709677419355,30.954584000000008,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+9,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(12, 4, batch_first=True)
+  (_fc): Linear(in_features=4, out_features=2, bias=True)
+)",6,4,1,0.1,0.0,0.01,0.99,0.2947642857142857,0.7052357142857143,3.922495072024348,1.9247642857142857,538934,301066,25,507.35,32.616341999999996,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+10,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(12, 32, batch_first=True)
+  (_fc): Linear(in_features=32, out_features=2, bias=True)
+)",6,32,1,0.1,0.0,0.01,0.99,0.44226785714285716,0.5577321428571429,2.7684043721098828,1.9699142857142857,551576,288424,25,570.4467741935484,30.440796999999986,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+11,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(12, 64, batch_first=True)
+  (_fc): Linear(in_features=64, out_features=2, bias=True)
+)",6,64,1,0.1,0.0,0.01,0.99,0.4870035714285714,0.5129964285714286,2.859109883499455,1.9755107142857142,553143,286857,25,469.0741935483871,32.81834599999999,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+12,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(16, 4, batch_first=True)
+  (_fc): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,1,0.1,0.0,0.01,0.99,0.31059285714285717,0.6894071428571429,4.299953756634727,1.9951142857142856,558632,281368,25,649.8806451612903,32.598158,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+13,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(16, 32, batch_first=True)
+  (_fc): Linear(in_features=32, out_features=2, bias=True)
+)",8,32,1,0.1,0.0,0.01,0.99,0.39194285714285715,0.6080571428571429,2.833786297478005,1.9454214285714286,544718,295282,26,532.7725806451613,46.645109,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+14,"RNN(
+  (_flatten): Flatten(start_dim=1, end_dim=-1)
+  (_rnn): RNN(16, 64, batch_first=True)
+  (_fc): Linear(in_features=64, out_features=2, bias=True)
+)",8,64,1,0.1,0.0,0.01,0.99,0.46500714285714284,0.5349928571428572,2.9810125039946613,1.9684785714285715,551174,288826,25,568.2080645161291,27.201834999999992,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"

@@ -5,7 +5,6 @@ import numpy as np
 from tournament.action import Action, random_action
 from tournament.agent import TrainableAgent
 
-
 class TabularQLearner(TrainableAgent):
     """
     An implementation of a reinforcement learning agent utilising the shallow
