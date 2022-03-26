@@ -43,10 +43,10 @@ def main():
 
     grid = {
         "lookback": [1, 2, 4, 8, 10],
-        "epsilon": [0.05, 0.1, 0.2],
+        "epsilon": [0.1, 0.2],
         "epsilon_decay": [0.0],
         "decay_limit": [0.05],
-        "learning_rate": [0.001, 0.01],
+        "learning_rate": [0.1, 0.01, 0.001],
         "discount_rate": [0.95, 0.99],
     }
 
@@ -63,7 +63,7 @@ def main():
                 sep="\t",
             )
             result, agent = train_and_evaluate(
-                agents, Tabular, epochs=1000, **dict(zip(grid.keys(), hyperparameters))
+                agents, Tabular, epochs=10000, **dict(zip(grid.keys(), hyperparameters))
             )
             results.append(result)
             print(
