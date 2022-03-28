@@ -7,13 +7,13 @@ from tournament.environments.multiple import MultipleRuleBasedAgentEnvironment
 from tournament.tournament import RoundRobinTournament
 
 
-def train_and_evaluate(agents, cls, **kwargs):
+def train_and_evaluate(agents, cls, epochs=200, **kwargs):
     env = MultipleRuleBasedAgentEnvironment(agents, silent=True)
     agent = cls(**kwargs)
     env.train(
         trainee=agent,
         limit=200,
-        epochs=200,
+        epochs=epochs,
     )
 
     s = sum(env.counts.values())
@@ -34,9 +34,9 @@ def train_and_evaluate(agents, cls, **kwargs):
             "tr_cooperation_percentage": env.counts[Action.COOPERATE] / s,
             "tr_defection_percentage": env.counts[Action.DEFECT] / s,
             "tr_final_loss": env.metric_history[-1],
-            "tr_mean_reward": np.mean(env.rewards),
-            "tr_cumul_reward": np.sum(env.rewards),
-            "tr_cumul_regret": np.sum(3 - np.array(env.rewards)),
+            "tr_mean_reward": float(np.mean(env.rewards)),
+            "tr_cumul_reward": float(np.sum(env.rewards)),
+            "tr_cumul_regret": float(np.sum(3 - np.array(env.rewards))),
             "tn_rank": sorted(results, key=results.get, reverse=True).index(cls) + 1,
             "tn_mean_score": results[cls],
             "tn_mean_time": sum(times[cls]),
