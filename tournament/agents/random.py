@@ -21,13 +21,33 @@ class Probabilistic(Agent):
     """
 
     def __init__(self) -> None:
+        self.lb = 1
         self.p = {
-            Action.COOPERATE: 0.5,
-            Action.DEFECT: 0.5,
+            (Action.COOPERATE,): 0.5,
+            (Action.DEFECT,): 0.5,
         }
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-        if not history:
+        if len(history) < self.lb:
             return choice([Action.COOPERATE, Action.DEFECT])
 
-        return Action.COOPERATE if random() < self.p[opp_history[-1]] else Action.DEFECT
+        return (
+            Action.COOPERATE
+            if random() < self.p[tuple(opp_history[-self.lb :])]
+            else Action.DEFECT
+        )
+
+
+class ProbabilisticLB1(Probabilistic):
+    pass
+
+
+class ProbabilisticLB2(Probabilistic):
+    def __init__(self) -> None:
+        self.lb = 2
+        self.p = {
+            (Action.COOPERATE, Action.COOPERATE): 0.5,
+            (Action.COOPERATE, Action.DEFECT): 0.5,
+            (Action.DEFECT, Action.COOPERATE): 0.5,
+            (Action.DEFECT, Action.DEFECT): 0.5,
+        }
