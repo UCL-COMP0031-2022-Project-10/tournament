@@ -38,6 +38,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\results\tabular-2022-03-28 19-28-04.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

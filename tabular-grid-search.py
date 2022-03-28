@@ -33,7 +33,7 @@ class Tabular(TabularQLearner):
 
 
 def main():
-    agents = [TitForTat, AllC, AllD]
+    agents = [TitForTat]
 
     grid = {
         "lookback": [1, 2, 4, 8, 10],
