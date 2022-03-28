@@ -5,16 +5,8 @@ from json import dumps
 import numpy as np
 import pandas as pd
 
-
-# TTFT
-# SteinAndRapoport
-# OmegaTFT
-# SecondByWeiner
-# Borufsen
 from tournament.agents.q_learning.tabular import TabularQLearner
-from tournament.agents.tft import TitForTat, OmegaTFT
-from tournament.agents.axelrod_first import SteinAndRapoport
-from tournament.agents.axelrod_second import SecondByWeiner, Borufsen
+from tournament.agents.agents import AGENTS
 from tournament.gridsearch import train_and_evaluate
 
 
@@ -39,14 +31,14 @@ class Tabular(TabularQLearner):
 
 
 def main():
-    agents = [TitForTat, OmegaTFT, Borufsen, SteinAndRapoport, SecondByWeiner]
+    agents = AGENTS
 
     grid = {
-        "lookback": [1, 2, 4, 8, 10],
+        "lookback": [2, 8],
         "epsilon": [0.1, 0.2],
         "epsilon_decay": [0.0],
         "decay_limit": [0.05],
-        "learning_rate": [0.1, 0.01, 0.001],
+        "learning_rate": [0.01, 0.1],
         "discount_rate": [0.95, 0.99],
     }
 
@@ -63,7 +55,7 @@ def main():
                 sep="\t",
             )
             result, agent = train_and_evaluate(
-                agents, Tabular, epochs=10000, **dict(zip(grid.keys(), hyperparameters))
+                agents, Tabular, epochs=5000, **dict(zip(grid.keys(), hyperparameters))
             )
             results.append(result)
             print(
