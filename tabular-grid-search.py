@@ -78,7 +78,7 @@ def main():
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/dqn-1hl-{d}.csv")
+        df.to_csv(f"results/tabular-{d}.csv")
 
     if best_agent is not None:
         np.savez_compressed(
