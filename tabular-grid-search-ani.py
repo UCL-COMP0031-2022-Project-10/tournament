@@ -10,7 +10,8 @@ from tournament.agents.tft import OmegaTFT, TitForTat
 from tournament.agents.axelrod_first import (
     Downing,
     Nydegger,
-    TidemanAndChieruzzi
+    TidemanAndChieruzzi,
+    Grofman
     )
 from tournament.agents.axelrod_second import (
     Champion,
@@ -34,6 +35,14 @@ class TabularLearner(TabularQLearner):
         self._epsilon = epsilon
 
 def main():
+    # no downing : 23.5
+    # downing: 25~
+    # no downing or borufsen: 25~
+    # no tft: 25.3~
+    # no tft & tidemanAndChieruzzi: 25.3
+    # add grofman no downing: 23.4~
+    
+    
     agents = [
         TitForTat,
         Nydegger,
@@ -41,14 +50,15 @@ def main():
         TidemanAndChieruzzi,
         Champion,
         Borufsen,
-        SecondByGraaskampKatzen
+        SecondByGraaskampKatzen,
+        Grofman
         ]
     grid = {
         "lookback": [1, 2, 4, 6, 8, 10],
-        "epsilon": [0.1, 0.2, 0.01],
+        "epsilon": [0.1, 0.2, 0.3],
         "epsilon_decay": [0.0],
-        "learning_rate": [0.01],
-        "discount_rate": [0.99, 0.95]
+        "learning_rate": [0.01, 0.1],
+        "discount_rate": [0.99, 0.95, 0.9]
         }
 
     results = []
