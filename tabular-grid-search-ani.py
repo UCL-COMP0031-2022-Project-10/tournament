@@ -54,11 +54,11 @@ def main():
         Grofman
         ]
     grid = {
-        "lookback": [1, 2, 4, 6, 8, 10],
-        "epsilon": [0.1, 0.2, 0.3],
+        "lookback": [1, 2, 4],
+        "epsilon": [0.2, 0.3],
         "epsilon_decay": [0.0],
         "learning_rate": [0.01, 0.1],
-        "discount_rate": [0.99, 0.95, 0.9]
+        "discount_rate": [0.99, 0.95]
         }
 
     results = []

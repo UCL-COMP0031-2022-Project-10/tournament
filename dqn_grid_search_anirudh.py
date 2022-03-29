@@ -10,7 +10,8 @@ from tournament.agents.tft import TitForTat
 from tournament.agents.axelrod_first import (
     Downing,
     Nydegger,
-    TidemanAndChieruzzi
+    TidemanAndChieruzzi,
+    Grofman
     )
 from tournament.agents.axelrod_second import (
     Champion,
@@ -64,16 +65,17 @@ def main():
         TidemanAndChieruzzi,
         Champion,
         Borufsen,
-        SecondByGraaskampKatzen
+        SecondByGraaskampKatzen,
+        Grofman
     ]
 
     grid = {
-        "lookback": [1, 4],
-        "n1": [4, 64, 128],
-        "epsilon": [0.2],
+        "lookback": [1, 2],
+        "n1": [128],
+        "epsilon": [0.25],
         "epsilon_decay": [0.0],
         "learning_rate": [0.01],
-        "discount_rate": [0.95, 0.99],
+        "discount_rate": [0.99],
     }
 
     results = []
