@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 
 from tournament.agents.constant import AllC, AllD
+from tournament.agents.axelrod_first import Davis, Shubik, SteinAndRapoport, Grudger, TidemanAndChieruzzi, Nydegger, Grofman, Tullock, Downing, Joss, Feld
 from tournament.agents.q_learning.tabular import TabularQLearner
 from tournament.agents.tft import OmegaTFT, TitForTat
 from tournament.gridsearch import train_and_evaluate
@@ -32,14 +33,14 @@ class Tabular(TabularQLearner):
 
 
 def main():
-    agents = [TitForTat, OmegaTFT, AllC, AllD]
+    agents = [TitForTat]
 
     grid = {
-        "lookback": [2, 4, 8, 10],
+        "lookback": [1, 2, 4, 8, 10],
         "epsilon": [0.1, 0.2],
         "epsilon_decay": [0.0],
         "decay_limit": [0.05],
-        "learning_rate": [0.001],
+        "learning_rate": [0.001, 0.01, 0.1],
         "discount_rate": [0.95, 0.99],
     }
 
@@ -56,7 +57,7 @@ def main():
                 sep="\t",
             )
             result, agent = train_and_evaluate(
-                agents, Tabular, epochs=1000, **dict(zip(grid.keys(), hyperparameters))
+                agents, Tabular, epochs=10000, **dict(zip(grid.keys(), hyperparameters))
             )
             results.append(result)
             print(
@@ -78,7 +79,7 @@ def main():
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/dqn-1hl-{d}.csv")
+        df.to_csv(f"results/tabular-{d}.csv")
 
     if best_agent is not None:
         np.savez_compressed(
