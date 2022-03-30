@@ -1,0 +1,6 @@
+,model,lookback,epsilon,epsilon_decay,decay_limit,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,,2,0.1,0.0,0.05,0.001,0.95,0.636655,0.363345,,2.34393625,1875149.0,524851.0,31,445.13709677419354,3.4713690000000006,"TitForTat,OmegaTFT,AllC,AllD"
+1,,2,0.1,0.0,0.05,0.001,0.99,0.69935875,0.30064125,,2.4342175,1947374.0,452626.0,16,755.6612903225806,1.068086,"TitForTat,OmegaTFT,AllC,AllD"
+2,,2,0.2,0.0,0.05,0.001,0.95,0.3492775,0.6507225,,1.83572,1468576.0,931424.0,23,718.6,1.0865879999999999,"TitForTat,OmegaTFT,AllC,AllD"
+3,,2,0.2,0.0,0.05,0.001,0.99,0.67379,0.32621,,2.21686875,1773495.0,626505.0,23,719.3387096774194,1.5359029999999996,"TitForTat,OmegaTFT,AllC,AllD"
+4,,4,0.1,0.0,0.05,0.001,0.95,0.68882875,0.31117125,,2.41574625,1932597.0,467403.0,28,451.85645161290324,3.9668989999999997,"TitForTat,OmegaTFT,AllC,AllD"
