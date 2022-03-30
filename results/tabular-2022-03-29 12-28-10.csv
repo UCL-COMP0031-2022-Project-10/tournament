@@ -1,0 +1,7 @@
+,model,lookback,epsilon,epsilon_decay,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,,1,0.01,0.0,0.01,0.99,0.8901725,0.1098275,,2.630456666666667,3156548.0,443452.0,17,758.7306451612903,1.0440429999999996,"TitForTat,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman"
+1,,1,0.01,0.0,0.01,0.99,0.8878483333333334,0.11215166666666666,,2.6191733333333334,3143008.0,456992.0,25,690.2483870967742,0.9026320000000002,"TitForTat,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman"
+2,,1,0.01,0.0,0.01,0.99,0.8879875,0.1120125,,2.629204166666667,3155045.0,444955.0,14,754.5290322580645,1.6630249999999995,"TitForTat,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman"
+3,,2,0.01,0.0,0.01,0.99,0.869085,0.130915,,2.616983333333333,3140380.0,459620.0,22,723.1209677419355,0.8840379999999999,"TitForTat,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman"
+4,,2,0.01,0.0,0.01,0.99,0.7873241666666667,0.21267583333333334,,2.4058816666666667,2887058.0,712942.0,21,729.7854838709677,0.7559539999999998,"TitForTat,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman"
+5,,2,0.01,0.0,0.01,0.99,0.8126508333333333,0.18734916666666668,,2.5582525,3069903.0,530097.0,28,454.48387096774195,3.1880259999999985,"TitForTat,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman"

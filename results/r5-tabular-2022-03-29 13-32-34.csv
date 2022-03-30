@@ -1,0 +1,11 @@
+,model,lookback,epsilon,epsilon_decay,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,,1,0.01,0.0,0.1,0.99,0.814755,0.185245,,2.54904375,4078470.0,721530.0,30,446.6951612903226,2.997243,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+1,,1,0.01,0.0,0.1,0.99,0.816084375,0.183915625,,2.548448125,4077517.0,722483.0,28,444.4241935483871,8.598450000000003,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+2,,1,0.01,0.0,0.1,0.99,0.815963125,0.184036875,,2.554804375,4087687.0,712313.0,25,706.4516129032259,0.8497709999999999,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+3,,1,0.01,0.0,0.1,0.99,0.81722375,0.18277625,,2.554385,4087016.0,712984.0,25,669.2,0.948261,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+4,,1,0.01,0.0,0.1,0.99,0.813950625,0.186049375,,2.5563525,4090164.0,709836.0,25,656.6532258064516,0.7272670000000001,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+5,,1,0.01,0.0,0.1,0.99,0.8145075,0.1854925,,2.556825,4090920.0,709080.0,18,742.666129032258,0.9710080000000001,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+6,,1,0.01,0.0,0.1,0.99,0.81527,0.18473,,2.556658125,4090653.0,709347.0,24,714.3967741935484,1.129003,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+7,,1,0.01,0.0,0.1,0.99,0.81715875,0.18284125,,2.555770625,4089233.0,710767.0,29,441.09032258064514,3.361219999999999,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+8,,1,0.01,0.0,0.1,0.99,0.815539375,0.184460625,,2.55495625,4087930.0,712070.0,29,458.96290322580643,2.945795,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"
+9,,1,0.01,0.0,0.1,0.99,0.8171925,0.1828075,,2.54883125,4078130.0,721870.0,25,681.4854838709678,0.8528169999999998,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Shubik"

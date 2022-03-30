@@ -7,7 +7,7 @@ from tournament.environments.multiple import MultipleRuleBasedAgentEnvironment
 from tournament.tournament import RoundRobinTournament
 
 
-def train_and_evaluate(agents, cls, epochs=2000, **kwargs):
+def train_and_evaluate(agents, cls, epochs=1000, **kwargs):
     env = MultipleRuleBasedAgentEnvironment(agents, silent=True)
     agent = cls(**kwargs)
     env.train(
@@ -24,7 +24,7 @@ def train_and_evaluate(agents, cls, epochs=2000, **kwargs):
     with torch.no_grad():
         tournament = RoundRobinTournament(AGENTS, [agent])
         scores, times = tournament.play(
-            continuation_probability=0.99654, repetitions=10, jobs=12
+            continuation_probability=0.99654, noise=0.05, repetitions=10, jobs=12
         )
         results = {agent: sum(scores[agent]) / len(scores[agent]) for agent in scores}
 
