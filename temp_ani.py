@@ -14,11 +14,18 @@ from tournament.agents.axelrod_first import (
     Grofman,
     Shubik
     )
+from tournament.agents.random import RandomAgent
+from tournament.agents.pavlov import Pavlov
 from tournament.agents.axelrod_second import (
     Champion,
     Borufsen,
     SecondByGraaskampKatzen,
-    Leyvraz
+    Leyvraz,
+    SecondByHarrington,
+    SecondByWhiteK72R,
+    SecondByBlackK83R,
+    SecondByTidemanAndChieruzzi,
+    SecondByWeiner
     )
 from tournament.gridsearch import evaluate
 
@@ -63,20 +70,21 @@ def main():
     '''
     
     agents = [
-        TitForTat,
-        Nydegger,
-        #Downing,
-        TidemanAndChieruzzi,
+        Leyvraz,
+        RandomAgent,
+        Pavlov,
+        SecondByHarrington,
+        SecondByWhiteK72R,
+        SecondByBlackK83R,
+        SecondByTidemanAndChieruzzi,
+        SecondByWeiner,
         Champion,
-        Borufsen,
         SecondByGraaskampKatzen,
-        Grofman,
-        Leyvraz
-        #Shubik
+        Borufsen
         ]
     grid = {
         "lookback": [1],
-        "epsilon": [0.01, 0.1],
+        "epsilon": [0.01],
         "epsilon_decay": [0.0],
         "learning_rate": [0.1],
         "discount_rate": [0.99 for _ in range(50)]
@@ -101,7 +109,7 @@ def main():
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/r10-tabular-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv")
+        df.to_csv(f"results/bestpool-tabular-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv")
             
     
 if __name__ == "__main__":

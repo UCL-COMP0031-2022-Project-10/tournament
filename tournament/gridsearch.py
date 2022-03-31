@@ -15,7 +15,6 @@ def train_and_evaluate(agents, cls, epochs=2000, tournament_agents=AGENTS, **kwa
         limit=200,
         epochs=epochs,
     )
-
     s = sum(env.counts.values())
 
     if hasattr(agent, "_q_network"):

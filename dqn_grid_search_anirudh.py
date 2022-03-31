@@ -70,17 +70,19 @@ def main():
     ]
 
     grid = {
-        "lookback": [1, 2],
-        "n1": [128],
+        "lookback": [2],
+        "n1": [64],
         "epsilon": [0.25],
         "epsilon_decay": [0.0],
-        "learning_rate": [0.01],
-        "discount_rate": [0.99],
+        "learning_rate": [0.1],
+        "discount_rate": [0.99 for _ in range(30)],
     }
 
     results = []
     try:
+        count = 1
         for hyperparameters in itertools.product(*grid.values()):
+            print(f"{count} / 30")
             print(
                 f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}]",
                 *hyperparameters,
@@ -95,7 +97,7 @@ def main():
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/dqn-ani2-1hl-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv")
+        df.to_csv(f"results/dqn-high_lr_epsil_dr_lb2-1hl-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv")
 
 
 if __name__ == "__main__":
