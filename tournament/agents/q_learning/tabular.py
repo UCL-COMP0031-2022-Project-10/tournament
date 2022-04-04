@@ -49,11 +49,15 @@ class TabularQLearner(TrainableAgent):
         self._state = None
         self._epsilon = self._evaluation_epsilon
 
+    def get_initial_state(self):
+        """Returns a randomly initialised state."""
+        return tuple(randint(0, 3) for _ in range(self._lookback))
+
     def setup(self) -> None:
         self._q_table = np.zeros(shape=tuple(4 for _ in range(self._lookback)) + (2,))
 
-        # randomly initialise the state
-        self._state = tuple(randint(0, 3) for _ in range(self._lookback))
+        # initialise the state
+        self._state = self.get_initial_state()
 
     def load(self, filename):
         self._q_table = np.load(filename)["q_table"]
@@ -151,3 +155,8 @@ class TabularQLearner(TrainableAgent):
 #     def __init__(self):
 #         super().__init__()
 #         self._discount_rate = 0.75
+
+
+class NiceTabularQLearner(TabularQLearner):
+    def get_initial_state(self):
+        return tuple(0 for _ in range(self._lookback))
