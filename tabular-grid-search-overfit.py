@@ -23,7 +23,7 @@ from tournament.agents.axelrod_first import (
 from tournament.agents.axelrod_second import Borufsen, Champion, SecondByGraaskampKatzen
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.q_learning.tabular import TabularQLearner
-from tournament.agents.tft import GenerousTFT, OmegaTFT, TitForTat
+from tournament.agents.tft import GenerousTFT, GradualTFT, OmegaTFT, TitForTat
 from tournament.gridsearch import train_and_evaluate
 
 
@@ -47,8 +47,8 @@ class Tabular(TabularQLearner):
         self._decay_limit = decay_limit
 
 
-def main():
-    agents = [Borufsen]
+def main(agents):
+    print(agents)
 
     grid = {
         "lookback": [1, 2, 4, 8],
@@ -109,4 +109,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+
+    for agents in [Shubik, GradualTFT, Davis, Feld, AllC, AllD]:  # ,
+        main([agents])
