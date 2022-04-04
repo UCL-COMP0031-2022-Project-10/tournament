@@ -40,7 +40,7 @@ def main():
     tournament = RoundRobinTournament(agents)
 
     scores, times = tournament.play(
-        continuation_probability=0.99654, repetitions=1000, jobs=12
+        continuation_probability=0.99654, repetitions=5000, jobs=12
     )
 
     data = [
