@@ -1,5 +1,4 @@
 import random
-from collections import Counter
 from typing import List
 
 import numpy as np
@@ -740,7 +739,7 @@ class SecondByWmAdams(Agent):
             return Action.DEFECT
 
         if opp_history[-1] == Action.DEFECT and c_defect > 9:
-            if random() <= 0.5 ** (c_defect - 1):
+            if random.random() <= 0.5 ** (c_defect - 1):
                 return Action.DEFECT
 
         return Action.COOPERATE
@@ -774,7 +773,7 @@ class SecondByCave(Agent):
         if opp_history[-1] == Action.DEFECT:
             if num_defects > 18:
                 return Action.DEFECT
-            if random() < 0.5:
+            if random.random() < 0.5:
                 return Action.DEFECT
 
         return Action.COOPERATE
