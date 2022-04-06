@@ -6,8 +6,21 @@ import torch
 import torch.nn as nn
 
 from tournament.agents.q_learning.tabular import TabularQLearner
-from tournament.agents.tft import OmegaTFT, TitForTat
+from tournament.agents.tft import (
+    OmegaTFT,
+    TitForTat,
+    TFTT,
+    TTFT,
+    GenerousTFT,
+    GradualTFT,
+    )
 from tournament.agents.axelrod_first import (
+    Davis,
+    Feld,
+    Grudger,
+    Joss,
+    SteinAndRapoport,
+    Tullock,
     Downing,
     Nydegger,
     TidemanAndChieruzzi,
@@ -17,16 +30,17 @@ from tournament.agents.axelrod_first import (
 from tournament.agents.random import RandomAgent
 from tournament.agents.pavlov import Pavlov
 from tournament.agents.axelrod_second import (
-    Champion,
     Borufsen,
-    SecondByGraaskampKatzen,
+    Champion,
     Leyvraz,
-    SecondByHarrington,
-    SecondByWhiteK72R,
     SecondByBlackK83R,
+    SecondByGraaskampKatzen,
+    SecondByHarrington,
     SecondByTidemanAndChieruzzi,
-    SecondByWeiner
+    SecondByWeiner,
+    SecondByWhiteK72R,
     )
+from tournament.agents.constant import AllC, AllD
 from tournament.gridsearch import evaluate
 
 class TabularLearner(TabularQLearner):
@@ -70,24 +84,43 @@ def main():
     '''
     
     agents = [
-        Leyvraz,
-        RandomAgent,
+        #AllC,
+        #AllD,
+        TitForTat,
+        #RandomAgent,
+        #Davis,
+        Shubik,
+        #SteinAndRapoport,
+        #Grudger,
+        Nydegger,
+        Grofman,
+        #Downing,
+        #Feld,
+        #Joss,
         Pavlov,
-        SecondByHarrington,
-        SecondByWhiteK72R,
-        SecondByBlackK83R,
-        SecondByTidemanAndChieruzzi,
-        SecondByWeiner,
+        #OmegaTFT,
+        #TFTT,
+        #TTFT,
+        #GradualTFT,
+        #GenerousTFT,
+        TidemanAndChieruzzi,
         Champion,
+        Borufsen,
+        #Leyvraz,
+        #SecondByHarrington,
+        #SecondByWhiteK72R,
+        #SecondByBlackK83R,
+        #SecondByTidemanAndChieruzzi,
         SecondByGraaskampKatzen,
-        Borufsen
+        #SecondByWeiner,
+        #Tullock,
         ]
     grid = {
         "lookback": [1],
         "epsilon": [0.01],
-        "epsilon_decay": [0.0],
+        "epsilon_decay": [0],
         "learning_rate": [0.1],
-        "discount_rate": [0.99 for _ in range(50)]
+        "discount_rate": [0.99 for _ in range(150)]
         }
 
     results = []

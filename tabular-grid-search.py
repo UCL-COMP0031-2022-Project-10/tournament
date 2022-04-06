@@ -5,12 +5,43 @@ from json import dumps
 import numpy as np
 import pandas as pd
 
-from tournament.agents.constant import AllC, AllD
-from tournament.agents.axelrod_first import Davis, Shubik, SteinAndRapoport, Grudger, TidemanAndChieruzzi, Nydegger, Grofman, Tullock, Downing, Joss, Feld
 from tournament.agents.q_learning.tabular import TabularQLearner
-from tournament.agents.tft import OmegaTFT, TitForTat
+from tournament.agents.tft import (
+    OmegaTFT,
+    TitForTat,
+    TFTT,
+    TTFT,
+    GenerousTFT,
+    GradualTFT,
+    )
+from tournament.agents.axelrod_first import (
+    Davis,
+    Feld,
+    Grudger,
+    Joss,
+    SteinAndRapoport,
+    Tullock,
+    Downing,
+    Nydegger,
+    TidemanAndChieruzzi,
+    Grofman,
+    Shubik
+    )
+from tournament.agents.random import RandomAgent
+from tournament.agents.pavlov import Pavlov
+from tournament.agents.axelrod_second import (
+    Borufsen,
+    Champion,
+    Leyvraz,
+    SecondByBlackK83R,
+    SecondByGraaskampKatzen,
+    SecondByHarrington,
+    SecondByTidemanAndChieruzzi,
+    SecondByWeiner,
+    SecondByWhiteK72R,
+    )
+from tournament.agents.constant import AllC, AllD
 from tournament.gridsearch import train_and_evaluate
-
 
 class Tabular(TabularQLearner):
     def __init__(
@@ -33,15 +64,25 @@ class Tabular(TabularQLearner):
 
 
 def main():
-    agents = [TitForTat]
+    agents = [
+        TitForTat,
+        Shubik,
+        Nydegger,
+        Grofman,
+        Pavlov,
+        TidemanAndChieruzzi,
+        Champion,
+        Borufsen,
+        SecondByGraaskampKatzen
+        ]
 
     grid = {
-        "lookback": [1, 2, 4, 8, 10],
-        "epsilon": [0.1, 0.2],
+        "lookback": [1, 2],
+        "epsilon": [0.25],
         "epsilon_decay": [0.0],
         "decay_limit": [0.05],
-        "learning_rate": [0.001, 0.01, 0.1],
-        "discount_rate": [0.95, 0.99],
+        "learning_rate": [0.1],
+        "discount_rate": [0.99 for _ in range(77)],
     }
 
     results = []
@@ -72,21 +113,20 @@ def main():
                 best_score = results[-1]["tn_mean_score"]
                 best_agent = (results[-1], agent)
 
-    except:
+    except Exception as e:
+        d = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
+        if results:
+            df = pd.DataFrame(results)
+            df["agents"] = ",".join([a.__name__ for a in agents])
+            df.to_csv(f"results/tabular-{d}.csv")
+
+        if best_agent is not None:
+            np.savez_compressed(
+                f"models/{d} ({best_score}).npz", q_table=best_agent[1]._q_table
+            )
+            with open(f"models/{d} ({best_score}).txt", "w") as f:
+                f.write(dumps(best_agent[0]))
         print("Quitting evaluation early")
-
-    d = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
-    if results:
-        df = pd.DataFrame(results)
-        df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/tabular-{d}.csv")
-
-    if best_agent is not None:
-        np.savez_compressed(
-            f"models/{d} ({best_score}).npz", q_table=best_agent[1]._q_table
-        )
-        with open(f"models/{d} ({best_score}).txt", "w") as f:
-            f.write(dumps(best_agent[0]))
 
 
 if __name__ == "__main__":

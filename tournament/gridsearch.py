@@ -7,7 +7,7 @@ from tournament.environments.multiple import MultipleRuleBasedAgentEnvironment
 from tournament.tournament import RoundRobinTournament
 
 
-def train_and_evaluate(agents, cls, epochs=2000, tournament_agents=AGENTS, **kwargs):
+def train_and_evaluate(agents, cls, epochs=5000, tournament_agents=AGENTS, **kwargs):
     env = MultipleRuleBasedAgentEnvironment(agents, silent=True)
     agent = cls(**kwargs)
     env.train(

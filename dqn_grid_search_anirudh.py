@@ -16,9 +16,10 @@ from tournament.agents.axelrod_first import (
 from tournament.agents.axelrod_second import (
     Champion,
     Borufsen,
-    SecondByGraaskampKatzen
+    SecondByGraaskampKatzen,
+    Leyvraz
     )
-from tournament.gridsearch import evaluate
+from tournament.gridsearch import train_and_evaluate
 
 
 class QNetwork(nn.Module):
@@ -66,39 +67,63 @@ def main():
         Champion,
         Borufsen,
         SecondByGraaskampKatzen,
-        Grofman
+        Grofman,
+        Leyvraz
     ]
 
     grid = {
         "lookback": [2],
-        "n1": [64],
+        "n1": [128],
         "epsilon": [0.25],
         "epsilon_decay": [0.0],
-        "learning_rate": [0.1],
+        "learning_rate": [0.01],
         "discount_rate": [0.99 for _ in range(30)],
     }
 
     results = []
     try:
-        count = 1
-        for hyperparameters in itertools.product(*grid.values()):
-            print(f"{count} / 30")
+        space = list(itertools.product(*grid.values()))
+        size = len(space)
+        best_score = 0
+        best_agent = None
+        for i, hyperparameters in enumerate(space):
             print(
-                f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}]",
+                f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')} | {i + 1}/{size}]",
                 *hyperparameters,
                 sep="\t",
             )
-            results.append(
-                evaluate(agents, DQN, **dict(zip(grid.keys(), hyperparameters)))
+            result, agent = train_and_evaluate(
+                agents, DQN, **dict(zip(grid.keys(), hyperparameters))
             )
-    except:
-        print("Quitting evaluation early.")
+            results.append(result)
+            print(
+                f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')} | {i + 1}/{size}]",
+                f"COOP%={results[-1]['tr_cooperation_percentage']}",
+                f"LOSS={results[-1]['tr_final_loss']}",
+                f"RANK={results[-1]['tn_rank']}",
+                f"SCORE={results[-1]['tn_mean_score']}",
+                sep="\t",
+            )
+            if results[-1]["tn_mean_score"] > best_score:
+                best_score = results[-1]["tn_mean_score"]
+                best_agent = (results[-1]["model"], agent)
 
+    except Exception as e:
+        print(e)
+        print("Quitting evaluation early")
+
+    d = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/dqn-high_lr_epsil_dr_lb2-1hl-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv")
+        df.to_csv(f"results/dqn-1hl-{d}.csv")
 
+    if best_agent is not None:
+        torch.save(
+            best_agent[1]._q_network.state_dict(), f"models/{d} ({best_score}).pt"
+        )
+        with open(f"models/{d} ({best_score}).txt", "w") as f:
+            f.write(best_agent[0])
 
 if __name__ == "__main__":
     torch.set_num_threads(12)
