@@ -1,0 +1,22 @@
+,model,lookback,n1,n2,epsilon,epsilon_decay,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=4, bias=True)
+  (layer4): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,4,0.2,0.0,0.01,0.95,0.4883875,0.5116125,1.0946166393666044,1.5129125,121033,118967,26,529.7596774193548,28.489011000000012,"TitForTat,OmegaTFT"
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=4, bias=True)
+  (layer4): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,4,0.2,0.0,0.001,0.95,0.8991,0.1009,2.3946375,2.842625,227410,12590,24,719.325806451613,34.67574799999999,"TitForTat,OmegaTFT"
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=4, bias=True)
+  (layer4): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,8,0.2,0.0,0.01,0.95,0.8998125,0.1001875,2.406637504052667,2.85665,228532,11468,24,706.1516129032258,25.689076999999994,"TitForTat,OmegaTFT"

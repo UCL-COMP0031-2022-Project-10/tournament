@@ -1,0 +1,5 @@
+QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (gru): GRU(2, 2, num_layers=2, batch_first=True)
+  (layer4): Linear(in_features=8, out_features=2, bias=True)
+)

@@ -1,0 +1,43 @@
+,model,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",0.918075,0.081925,0.11102551991271685,2.848175,227854,12146,23,729.5645161290323,128.130128,"TitForTat,OmegaTFT"
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",0.974625,0.025375,2.4741822314546,2.9744625,237957,2043,24,707.0109677419355,121.49477999999999,"TitForTat,OmegaTFT"
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",0.0272375,0.9727625,0.4502555051276709,1.06455,85164,154836,30,437.138064516129,161.61758500000002,"TitForTat,OmegaTFT"
+3,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",0.49785,0.50215,0.5516643091914512,1.8888,151104,88896,25,707.1806451612903,128.94635599999995,"TitForTat,OmegaTFT"
+4,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",0.6691125,0.3308875,0.2677861315968713,2.2633625,181069,58931,30,439.25032258064516,150.51280899999998,"TitForTat,OmegaTFT"
+5,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",0.581975,0.418025,1.1905677159760861,1.5824875,126599,113401,25,558.9148387096774,154.962959,"TitForTat,OmegaTFT"
+6,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=2, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",0.049475,0.950525,0.5911543180972337,1.0890625,87125,152875,28,439.68806451612903,144.93436100000002,"TitForTat,OmegaTFT"

@@ -1,0 +1,2 @@
+,model,lookback,epsilon,epsilon_decay,decay_limit,learning_rate,discount_rate,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,,2,0.1,0.0,0.05,0.001,0.95,0.5127625,0.4872375,,2.0607125,329714,150286,25,644.2451612903226,0.7939960000000001,"TitForTat,OmegaTFT,AllC,AllD"
