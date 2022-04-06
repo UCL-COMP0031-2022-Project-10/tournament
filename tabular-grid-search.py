@@ -97,7 +97,7 @@ def main():
                 sep="\t",
             )
             result, agent = train_and_evaluate(
-                agents, Tabular, epochs=4000, **dict(zip(grid.keys(), hyperparameters))
+                agents, Tabular, epochs=2500, **dict(zip(grid.keys(), hyperparameters))
             )
             results.append(result)
             print(
