@@ -4,12 +4,12 @@ from json import dumps
 
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import GroupKFold
 
 from tournament.agents.axelrod_first import (
     Davis,
     Downing,
     Feld,
+    Friedman,
     Graaskamp,
     Grofman,
     Grudger,
@@ -20,10 +20,31 @@ from tournament.agents.axelrod_first import (
     TidemanAndChieruzzi,
     Tullock,
 )
-from tournament.agents.axelrod_second import Borufsen, Champion, SecondByGraaskampKatzen
+from tournament.agents.axelrod_second import (
+    Borufsen,
+    Champion,
+    Leyvraz,
+    SecondByBlackK83R,
+    SecondByCave,
+    SecondByGraaskampKatzen,
+    SecondByHarrington,
+    SecondByTidemanAndChieruzzi,
+    SecondByWeiner,
+    SecondByWhiteK72R,
+    SecondByWmAdams,
+)
 from tournament.agents.constant import AllC, AllD
+from tournament.agents.pavlov import Pavlov
 from tournament.agents.q_learning.tabular import TabularQLearner
-from tournament.agents.tft import GenerousTFT, GradualTFT, OmegaTFT, TitForTat
+from tournament.agents.random import RandomAgent
+from tournament.agents.tft import (
+    TFTT,
+    TTFT,
+    GenerousTFT,
+    GradualTFT,
+    OmegaTFT,
+    TitForTat,
+)
 from tournament.gridsearch import train_and_evaluate
 
 
@@ -51,20 +72,19 @@ def main(agents):
     print(agents)
 
     grid = {
-        "lookback": [1, 2, 4, 8],
-        "epsilon": [0.1, 0.2],
+        "lookback": [2, 4],
+        "epsilon": [0.2],
         "epsilon_decay": [0.0],
         "decay_limit": [0.05],
-        "learning_rate": [0.1],
+        "learning_rate": [0.01],
         "discount_rate": [0.95],
     }
 
+    d = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
     results = []
     try:
         space = list(itertools.product(*grid.values()))
         size = len(space)
-        best_score = 0
-        best_agent = None
         for i, hyperparameters in enumerate(space):
             print(
                 f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')} | {i + 1}/{size}]",
@@ -74,7 +94,7 @@ def main(agents):
             result, agent = train_and_evaluate(
                 agents,
                 Tabular,
-                epochs=10000,
+                epochs=2500,
                 tournament_agents=agents,
                 **dict(zip(grid.keys(), hyperparameters)),
             )
@@ -87,28 +107,52 @@ def main(agents):
                 f"SCORE={results[-1]['tn_mean_score']}",
                 sep="\t",
             )
-            if results[-1]["tn_mean_score"] > best_score:
-                best_score = results[-1]["tn_mean_score"]
-                best_agent = (results[-1], agent)
+            if result["tn_mean_score"] > 750 or result["tn_rank"] > 26:
+                np.savez_compressed(
+                    f"models/tabular-overfit/{d} - {i} - {result['tn_mean_score']} - {result['tn_rank']}.npz",
+                    q_table=agent._q_table,
+                )
+                with open(
+                    f"models/tabular-overfit/{d} - {i} - {result['tn_mean_score']} - {result['tn_rank']}.txt",
+                    "w",
+                ) as f:
+                    f.write(dumps(result))
 
     except:
         print("Quitting evaluation early")
 
-    d = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/tabular-overfit-{d}.csv")
-
-    if best_agent is not None:
-        np.savez_compressed(
-            f"models/{d} ({best_score}).npz", q_table=best_agent[1]._q_table
-        )
-        with open(f"models/{d} ({best_score}).txt", "w") as f:
-            f.write(dumps(best_agent[0]))
+        df.to_csv(f"results/tabular-overfit/tabular-{d}.csv")
 
 
 if __name__ == "__main__":
-
-    for agents in [Shubik, GradualTFT, Davis, Feld, AllC, AllD]:  # ,
-        main([agents])
+    for agents in [
+        # [TitForTat, OmegaTFT],
+        # [Davis],
+        # [Downing],
+        # [Feld],
+        # [Friedman],
+        # [Graaskamp],
+        # [Grofman],
+        # [Joss],
+        # [Nydegger],
+        # [RandomAgent],
+        # [Shubik],
+        # [SteinAndRapoport],
+        # [TidemanAndChieruzzi],
+        # [Tullock],
+        [Borufsen],
+        [Champion],
+        [Leyvraz],
+        [SecondByBlackK83R],
+        [SecondByCave],
+        [SecondByGraaskampKatzen],
+        [SecondByHarrington],
+        [SecondByTidemanAndChieruzzi],
+        [SecondByWeiner],
+        [SecondByWhiteK72R],
+        [SecondByWmAdams],
+    ]:
+        main(agents)

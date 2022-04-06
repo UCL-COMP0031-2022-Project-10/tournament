@@ -1,0 +1,3 @@
+,model,lookback,epsilon,epsilon_decay,decay_limit,learning_rate,discount_rate,epochs,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,,2,0.2,0.0,0.05,0.01,0.95,2500,0.199442,0.800558,,1.374334,687167.0,812833.0,2,286.85,0.274036,Feld
+1,,4,0.2,0.0,0.05,0.01,0.95,2500,0.47366,0.52634,,1.721588,860794.0,639206.0,2,306.435,0.29499800000000004,Feld
