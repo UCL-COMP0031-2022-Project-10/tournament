@@ -108,7 +108,7 @@ def main():
                 f"SCORE={results[-1]['tn_mean_score']}",
                 sep="\t",
             )
-            if result["tn_mean_score"] > 750:
+            if result["tn_mean_score"] > 750 or result["tn_rank"] > 26:
                 np.savez_compressed(
                     f"models/tabular/{d} - {i} - {result['tn_mean_score']} - {result['tn_rank']}.npz",
                     q_table=agent._q_table,
