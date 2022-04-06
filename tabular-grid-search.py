@@ -81,7 +81,7 @@ def main():
         "epsilon": [0.05, 0.1, 0.2],
         "epsilon_decay": [0.0],
         "decay_limit": [0.05],
-        "learning_rate": [0.01, 0.05, 0.1],
+        "learning_rate": [0.001, 0.01, 0.05, 0.1],
         "discount_rate": [0.95, 0.99],
     }
 
