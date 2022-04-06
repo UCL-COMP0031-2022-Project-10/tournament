@@ -139,7 +139,8 @@ def main():
                     "w",
                 ) as f:
                     f.write(dumps(result))
-
+    except Exception as e:
+        print("Qutting evaluation early:", str(e))
     except:
         print("Quitting evaluation early")
 
