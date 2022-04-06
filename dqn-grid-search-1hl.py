@@ -146,7 +146,7 @@ def main():
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/dqn/dqn-{d}.csv")
+        df.to_csv(f"results/dqn/dqn-1hl-{d}.csv")
 
 
 if __name__ == "__main__":

@@ -1,14 +1,50 @@
 import itertools
 from datetime import datetime
+from json import dumps
 
+import numpy as np
 import pandas as pd
 import torch
 import torch.nn as nn
 
+from tournament.agents.axelrod_first import (
+    Davis,
+    Downing,
+    Feld,
+    Grofman,
+    Grudger,
+    Joss,
+    Nydegger,
+    Shubik,
+    SteinAndRapoport,
+    TidemanAndChieruzzi,
+    Tullock,
+)
+from tournament.agents.axelrod_second import (
+    Borufsen,
+    Champion,
+    Leyvraz,
+    SecondByBlackK83R,
+    SecondByGraaskampKatzen,
+    SecondByHarrington,
+    SecondByTidemanAndChieruzzi,
+    SecondByWeiner,
+    SecondByWhiteK72R,
+)
 from tournament.agents.constant import AllC, AllD
+from tournament.agents.pavlov import Pavlov
 from tournament.agents.q_learning.dqn import DeepQLearner
-from tournament.agents.tft import OmegaTFT, TitForTat
-from tournament.gridsearch import evaluate
+from tournament.agents.q_learning.tabular import TabularQLearner
+from tournament.agents.random import RandomAgent
+from tournament.agents.tft import (
+    TFTT,
+    TTFT,
+    GenerousTFT,
+    GradualTFT,
+    OmegaTFT,
+    TitForTat,
+)
+from tournament.gridsearch import train_and_evaluate
 
 
 class QNetwork(nn.Module):
@@ -52,18 +88,24 @@ class DQN(DeepQLearner):
 
 
 def main():
-    agents = [TitForTat, OmegaTFT, AllC, AllD]
+    agents = [
+        TitForTat,
+        TidemanAndChieruzzi,
+        Champion,
+        Borufsen,
+    ]
 
     grid = {
-        "lookback": [4, 8],
-        "n1": [8, 12, 16, 24],
-        "n2": [8, 12, 16, 24],
-        "epsilon": [0.2],
+        "lookback": [2, 4, 8],
+        "n1": [4, 8, 16],
+        "n2": [4, 8, 16],
+        "epsilon": [0.05, 0.1, 0.2],
         "epsilon_decay": [0.0],
-        "learning_rate": [0.001],
-        "discount_rate": [0.95],
+        "learning_rate": [0.001, 0.01, 0.1],
+        "discount_rate": [0.95, 0.99],
     }
 
+    d = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
     results = []
     try:
         space = list(itertools.product(*grid.values()))
@@ -74,9 +116,10 @@ def main():
                 *hyperparameters,
                 sep="\t",
             )
-            results.append(
-                evaluate(agents, DQN, **dict(zip(grid.keys(), hyperparameters)))
+            result, agent = train_and_evaluate(
+                agents, DQN, epochs=50, **dict(zip(grid.keys(), hyperparameters))
             )
+            results.append(result)
             print(
                 f"[{datetime.now().strftime('%Y-%m-%d %H-%M-%S')} | {i + 1}/{size}]",
                 f"COOP%={results[-1]['tr_cooperation_percentage']}",
@@ -85,13 +128,24 @@ def main():
                 f"SCORE={results[-1]['tn_mean_score']}",
                 sep="\t",
             )
+            if result["tn_mean_score"] > 750 or result["tn_rank"] > 26:
+                np.savez_compressed(
+                    f"models/dqn/{d} - {i} - {result['tn_mean_score']} - {result['tn_rank']}.npz",
+                    q_table=agent._q_table,
+                )
+                with open(
+                    f"models/dqn/{d} - {i} - {result['tn_mean_score']} - {result['tn_rank']}.txt",
+                    "w",
+                ) as f:
+                    f.write(dumps(result))
+
     except:
-        print("Quitting evaluation early.")
+        print("Quitting evaluation early")
 
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/dqn-2hl-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv")
+        df.to_csv(f"results/dqn/dqn-2hl-{d}.csv")
 
 
 if __name__ == "__main__":
