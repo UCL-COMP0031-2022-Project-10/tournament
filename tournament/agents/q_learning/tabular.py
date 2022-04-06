@@ -98,10 +98,6 @@ class TabularQLearner(TrainableAgent):
         if random() < self._epsilon:
             return random_action()
 
-        # print("PREV STATE:", self._prev_state)
-        # print("NEW STATE:", self._state)
-        # print("Q-values:", self._q_table[self._prev_state])
-
         # perform the action associated with the highest Q-value for the current state
         if self._q_table[self._prev_state][0] >= self._q_table[self._prev_state][1]:
             return Action.COOPERATE
