@@ -6,6 +6,7 @@ from tournament.agents.axelrod_first import (
     Davis,
     Downing,
     Feld,
+    Friedman,
     Graaskamp,
     Grofman,
     Joss,
@@ -35,6 +36,7 @@ def main():
         Joss,
         Tullock,
         RandomAgent,
+        Friedman,
     ]
 
     tournament = RoundRobinTournament(agents)

@@ -483,7 +483,6 @@ class Downing(Agent):
         self._num_defect = 0
         self._num_cooperate = 0
 
-
     def _calc_conditional_probs(self) -> Tuple[float, float]:
         alpha = self._num_coop_following_coop / (
             self._num_cooperate + 1
@@ -569,3 +568,19 @@ class Feld(Agent):
             # cooperate with probability self._prob_coop else defect
             return Action.COOPERATE
         return Action.DEFECT
+
+
+class Friedman(Agent):
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.defect = False
+
+    def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
+        if not history:
+            return Action.COOPERATE
+
+        if opp_history[-1] == Action.DEFECT:
+            self.defect = True
+
+        return Action.DEFECT if self.defect else Action.COOPERATE
