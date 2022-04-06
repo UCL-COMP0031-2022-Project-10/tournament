@@ -30,6 +30,7 @@ def train_and_evaluate(agents, cls, epochs=5000, tournament_agents=AGENTS, **kwa
         return {
             "model": str(agent._q_network) if hasattr(agent, "_q_network") else None,
             **kwargs,
+            "epochs": epochs,
             "tr_cooperation_percentage": env.counts[Action.COOPERATE] / s,
             "tr_defection_percentage": env.counts[Action.DEFECT] / s,
             "tr_final_loss": env.metric_history[-1],
