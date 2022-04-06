@@ -1,0 +1,3 @@
+,model,lookback,epsilon,epsilon_decay,decay_limit,learning_rate,discount_rate,epochs,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,,2,0.2,0.0,0.05,0.01,0.95,2500,0.194676,0.805324,,3.109878,1554939.0,-54939.0,1,821.085,0.35297,Grofman
+1,,4,0.2,0.0,0.05,0.01,0.95,2500,0.528754,0.471246,,2.769734,1384867.0,115133.0,1,772.205,0.29307300000000003,Grofman
