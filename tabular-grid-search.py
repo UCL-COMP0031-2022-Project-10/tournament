@@ -5,30 +5,19 @@ from json import dumps
 import numpy as np
 import pandas as pd
 
-from tournament.agents.q_learning.tabular import TabularQLearner
-from tournament.agents.tft import (
-    OmegaTFT,
-    TitForTat,
-    TFTT,
-    TTFT,
-    GenerousTFT,
-    GradualTFT,
-    )
 from tournament.agents.axelrod_first import (
     Davis,
+    Downing,
     Feld,
+    Grofman,
     Grudger,
     Joss,
-    SteinAndRapoport,
-    Tullock,
-    Downing,
     Nydegger,
+    Shubik,
+    SteinAndRapoport,
     TidemanAndChieruzzi,
-    Grofman,
-    Shubik
-    )
-from tournament.agents.random import RandomAgent
-from tournament.agents.pavlov import Pavlov
+    Tullock,
+)
 from tournament.agents.axelrod_second import (
     Borufsen,
     Champion,
@@ -39,9 +28,21 @@ from tournament.agents.axelrod_second import (
     SecondByTidemanAndChieruzzi,
     SecondByWeiner,
     SecondByWhiteK72R,
-    )
+)
 from tournament.agents.constant import AllC, AllD
+from tournament.agents.pavlov import Pavlov
+from tournament.agents.q_learning.tabular import TabularQLearner
+from tournament.agents.random import RandomAgent
+from tournament.agents.tft import (
+    TFTT,
+    TTFT,
+    GenerousTFT,
+    GradualTFT,
+    OmegaTFT,
+    TitForTat,
+)
 from tournament.gridsearch import train_and_evaluate
+
 
 class Tabular(TabularQLearner):
     def __init__(
@@ -66,23 +67,22 @@ class Tabular(TabularQLearner):
 def main():
     agents = [
         TitForTat,
-        Shubik,
         Nydegger,
-        Grofman,
-        Pavlov,
         TidemanAndChieruzzi,
         Champion,
         Borufsen,
-        SecondByGraaskampKatzen
-        ]
+        SecondByGraaskampKatzen,
+        Grofman,
+        Leyvraz,
+    ]
 
     grid = {
-        "lookback": [1, 2],
-        "epsilon": [0.25],
+        "lookback": [1, 2, 4, 8],
+        "epsilon": [0.05, 0.1, 0.2],
         "epsilon_decay": [0.0],
         "decay_limit": [0.05],
-        "learning_rate": [0.1],
-        "discount_rate": [0.99 for _ in range(77)],
+        "learning_rate": [0.01, 0.05, 0.1],
+        "discount_rate": [0.95, 0.99],
     }
 
     results = []
@@ -98,7 +98,7 @@ def main():
                 sep="\t",
             )
             result, agent = train_and_evaluate(
-                agents, Tabular, epochs=10000, **dict(zip(grid.keys(), hyperparameters))
+                agents, Tabular, epochs=1000, **dict(zip(grid.keys(), hyperparameters))
             )
             results.append(result)
             print(

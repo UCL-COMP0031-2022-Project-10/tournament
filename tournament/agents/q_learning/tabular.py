@@ -41,7 +41,7 @@ class TabularQLearner(TrainableAgent):
         self._lookback = 1
         self._discount_rate = 0.99
         self._learning_rate = 0.001
-        self._evaluation_epsilon = 0.001
+        self._evaluation_epsilon = 0.0
         self._epsilon_decay = 0
         self._decay_limit = 0.1
 
@@ -50,12 +50,14 @@ class TabularQLearner(TrainableAgent):
         self._epsilon = self._evaluation_epsilon
 
     def get_initial_state(self):
-        """Returns a randomly initialised state."""
-        return tuple(randint(0, 3) for _ in range(self._lookback))
+        """Returns a cooperative initial state."""
+
+        return tuple(0 for _ in range(self._lookback))
 
     def setup(self) -> None:
         self._q_table = np.zeros(shape=tuple(4 for _ in range(self._lookback)) + (2,))
 
+    def on_match_start(self):
         # initialise the state
         self._state = self.get_initial_state()
 
@@ -82,6 +84,12 @@ class TabularQLearner(TrainableAgent):
             Action: The action to be performed.
         """
 
+        self._prev_state = self._state
+        if history:
+            self._state = self._prev_state[1:] + (
+                2 * history[-1].value + opp_history[-1].value,
+            )
+
         # slowly reduce the exploration rate when above the decay limit
         if self._epsilon > self._decay_limit:
             self._epsilon -= self._epsilon_decay
@@ -90,8 +98,12 @@ class TabularQLearner(TrainableAgent):
         if random() < self._epsilon:
             return random_action()
 
+        # print("PREV STATE:", self._prev_state)
+        # print("NEW STATE:", self._state)
+        # print("Q-values:", self._q_table[self._prev_state])
+
         # perform the action associated with the highest Q-value for the current state
-        if self._q_table[self._state][0] >= self._q_table[self._state][1]:
+        if self._q_table[self._prev_state][0] >= self._q_table[self._prev_state][1]:
             return Action.COOPERATE
 
         return Action.DEFECT
@@ -111,13 +123,11 @@ class TabularQLearner(TrainableAgent):
         """
 
         move = moves[0].value
-        state = self._state
-        self._state = state[1:] + (2 * move + moves[1].value,)
 
-        self._q_table[state][move] += self._learning_rate * (
+        self._q_table[self._prev_state][move] += self._learning_rate * (
             rewards[0]
             + self._discount_rate * self._q_table[self._state].max()
-            - self._q_table[state][move]
+            - self._q_table[self._prev_state][move]
         )
 
 
@@ -160,3 +170,8 @@ class TabularQLearner(TrainableAgent):
 class NiceTabularQLearner(TabularQLearner):
     def get_initial_state(self):
         return tuple(0 for _ in range(self._lookback))
+
+
+class NonNiceTabularQLearner(TabularQLearner):
+    def get_initial_state(self):
+        return tuple(randint(0, 3) for _ in range(self._lookback))
