@@ -129,15 +129,17 @@ def main():
                 sep="\t",
             )
             if result["tn_mean_score"] > 750 or result["tn_rank"] > 26:
-                np.savez_compressed(
-                    f"models/dqn/{d} - {i} - {result['tn_mean_score']} - {result['tn_rank']}.npz",
-                    q_table=agent._q_table,
+                torch.save(
+                    agent._q_network.state_dict(),
+                    f"models/dqn/{d} - 1hl - {i} - {result['tn_mean_score']} - {result['tn_rank']}.pt",
                 )
                 with open(
                     f"models/dqn/{d} - {i} - {result['tn_mean_score']} - {result['tn_rank']}.txt",
                     "w",
                 ) as f:
                     f.write(dumps(result))
+    except Exception as e:
+        print("Qutting evaluation early:", str(e))
 
     except:
         print("Quitting evaluation early")
