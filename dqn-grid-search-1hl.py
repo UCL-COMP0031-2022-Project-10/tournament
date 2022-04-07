@@ -86,23 +86,24 @@ class DQN(DeepQLearner):
 
 
 def main():
-    agents = [
+    agents = agents = [
         TitForTat,
-        Nydegger,
         TidemanAndChieruzzi,
-        Champion,
         Borufsen,
         SecondByGraaskampKatzen,
+        Nydegger,
         Grofman,
-        Leyvraz,
-    ]
+        Shubik,
+        Champion,
+        Leyvraz
+        ] 
 
     grid = {
-        "lookback": [2, 4, 8],
-        "n1": [4, 8, 16],
+        "lookback": [1, 2, 4, 8],
+        "n1": [8,12,16,24],
         "epsilon": [0.05, 0.1, 0.2],
         "epsilon_decay": [0.0],
-        "learning_rate": [0.001, 0.01, 0.1],
+        "learning_rate": [0.001, 0.01, 0.05, 0.1],
         "discount_rate": [0.95, 0.99],
     }
 
@@ -140,7 +141,8 @@ def main():
                 ) as f:
                     f.write(dumps(result))
 
-    except:
+    except Exception as e:
+        print(e)
         print("Quitting evaluation early")
 
     if results:

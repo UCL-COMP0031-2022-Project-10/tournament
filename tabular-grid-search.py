@@ -65,16 +65,17 @@ class Tabular(TabularQLearner):
 
 
 def main():
-    agents = [
+    agents = agents = [
         TitForTat,
-        Nydegger,
         TidemanAndChieruzzi,
-        Champion,
         Borufsen,
         SecondByGraaskampKatzen,
+        Nydegger,
         Grofman,
-        Leyvraz,
-    ]
+        Shubik,
+        Champion,
+        Leyvraz
+        ] 
 
     grid = {
         "lookback": [1, 2, 4, 8],
