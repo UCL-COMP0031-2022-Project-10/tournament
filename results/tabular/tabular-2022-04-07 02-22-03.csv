@@ -1,0 +1,4 @@
+,model,lookback,epsilon,epsilon_decay,decay_limit,learning_rate,discount_rate,epochs,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,,2,0.1,0.0,0.05,0.01,0.99,2500,0.4157392,0.5842608,,2.0422064,5105516.0,2394484.0,19,751.1506451612903,5.621982,"OmegaTFT,Pavlov,SecondByWeiner,Borufsen,Leyvraz"
+1,,4,0.1,0.0,0.05,0.01,0.99,2500,0.7686144,0.2313856,,2.5595736,6398934.0,1101066.0,1,805.3361290322581,5.887136,"OmegaTFT,Pavlov,SecondByWeiner,Borufsen,Leyvraz"
+2,,8,0.1,0.0,0.05,0.01,0.99,2500,0.7352112,0.2647888,,2.4520884,6130221.0,1369779.0,22,753.68,6.3621159999999986,"OmegaTFT,Pavlov,SecondByWeiner,Borufsen,Leyvraz"
