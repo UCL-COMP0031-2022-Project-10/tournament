@@ -1,0 +1,7 @@
+,model,lookback,n1,epsilon,epsilon_decay,learning_rate,discount_rate,epochs,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.05,0.95,250,0.15751,0.84249,0.727465008998098,1.7672275,706891.0,493109.0,29,450.0993548387097,160.73518200000004,"TitForTat,TFTT,TTFT,GenerousTFT,OmegaTFT,Davis,Grofman,Leyvraz"
