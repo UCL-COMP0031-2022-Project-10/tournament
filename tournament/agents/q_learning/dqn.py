@@ -81,17 +81,17 @@ class DeepQLearner(TrainableAgent):
     def metric(self):
         return self._loss / self._count if self._count > 0 else None
 
-    def setup(self, file) -> None:
-        try:
-            self._q_network.load_state_dict(torch.load(file))
-        except:
-             pass
+    def setup(self, file=None) -> None:
+        if file is not None:
+            try:
+                self._q_network.load_state_dict(torch.load(file))
+            except:
+                pass
 
         self._criterion = torch.nn.HuberLoss()
         self._optimiser = optim.Adam(
             self._q_network.parameters(), lr=self._learning_rate  # , weight_decay=1e-5
         )
-        self._epsilon = 0.01
 
     def teardown(self) -> None:
         # torch.save(self._q_network.state_dict(), "model.pt")
