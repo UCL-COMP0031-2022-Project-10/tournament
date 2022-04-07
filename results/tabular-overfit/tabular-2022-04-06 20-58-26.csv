@@ -1,0 +1,3 @@
+,model,lookback,epsilon,epsilon_decay,decay_limit,learning_rate,discount_rate,epochs,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,,2,0.2,0.0,0.05,0.01,0.95,2500,0.198328,0.801672,,1.142668,571334.0,928666.0,1,871.155,0.41502300000000003,SecondByGraaskampKatzen
+1,,4,0.2,0.0,0.05,0.01,0.95,2500,0.215648,0.784352,,1.16905,584525.0,915475.0,1,932.67,0.36499699999999996,SecondByGraaskampKatzen
