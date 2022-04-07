@@ -1,0 +1,25 @@
+,model,lookback,n1,epsilon,epsilon_decay,learning_rate,discount_rate,epochs,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.005,0.99,300,0.25093333333333334,0.7490666666666667,0.8483960977122132,1.7376466666666666,521294.0,378706.0,31,434.44354838709677,153.27886599999994,"OmegaTFT,Pavlov,SecondByWeiner,Borufsen,Leyvraz"
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.005,0.99,300,0.8996766666666667,0.10032333333333333,2.2000280987988665,2.61515,784545.0,115455.0,22,738.4945161290323,130.381078,"OmegaTFT,Pavlov,SecondByWeiner,Borufsen,Leyvraz"
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.005,0.99,300,0.2858366666666667,0.7141633333333334,0.8176524576518274,1.7683333333333333,530500.0,369500.0,27,480.70290322580644,170.07911600000006,"OmegaTFT,Pavlov,SecondByWeiner,Borufsen,Leyvraz"
+3,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.005,0.99,300,0.24960333333333334,0.7503966666666667,0.7972613963193358,1.7548133333333333,526444.0,373556.0,25,493.71354838709675,169.64508499999997,"OmegaTFT,Pavlov,SecondByWeiner,Borufsen,Leyvraz"
