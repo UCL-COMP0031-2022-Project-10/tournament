@@ -11,10 +11,10 @@ class TabularAgent(TabularQLearner):
     def __init__(self) -> None:
         super().__init__()
 
-        self.epsilon = 0.1
+        self.epsilon = 0.05
         self._lookback = 2
-        self._discount_rate = 0.95
-        self._learning_rate = 0.1
+        self._discount_rate = 0.99
+        self._learning_rate = 0.05
         self._evaluation_epsilon = 0.001
         self._epsilon_decay = 0.0
         self._decay_limit = 0.05
@@ -32,11 +32,10 @@ class ManualAgent(Agent):
 
 
 tabular_agent = TabularAgent()
-
 # tabular_agent._state = tabular_agent.get_initial_state()
-tabular_agent.load("models/2022-03-27 07-17-32 (798.4580645161291).npz")
-print(tabular_agent._q_table)
-print(tabular_agent._state)
+tabular_agent.load("../../models/tabular/2022-04-06 21-06-54 - 29 - 791.0035483870968 - 1.npz")
+#print(tabular_agent._q_table)
+#print(tabular_agent._state)
 
 manual_agent = ManualAgent()
 
