@@ -126,10 +126,10 @@ def main():
             if result["tn_mean_score"] > 750 or result["tn_rank"] > 27:
                 torch.save(
                     agent._q_network.state_dict(),
-                    f"models/dqn/{d} - 1hl - {i} - {result['tn_mean_score']} - {result['tn_rank']}.pt",
+                    f"models/drqn/{d} - 1hl - {i} - {result['tn_mean_score']} - {result['tn_rank']}.pt",
                 )
                 with open(
-                    f"models/dqn/{d} - 1hl - {i} - {result['tn_mean_score']} - {result['tn_rank']}.txt",
+                    f"models/drqn/{d} - 1hl - {i} - {result['tn_mean_score']} - {result['tn_rank']}.txt",
                     "w",
                 ) as f:
                     f.write(dumps(result))
@@ -141,7 +141,7 @@ def main():
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/dqn/dqn-1hl-{d}.csv")
+        df.to_csv(f"results/drqn/drqn-1hl-{d}.csv")
 
 
 if __name__ == "__main__":
