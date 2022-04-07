@@ -1,0 +1,973 @@
+﻿Unnamed: 0,model,lookback,n1,epsilon,epsilon_decay,learning_rate,discount_rate,epochs,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.05,0.0,0.001,0.95,250,0.02918,0.97082,0.4474706276293292,1.551936,387984.0,362016.0,27,454.52,137.308318,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.05,0.0,0.001,0.99,250,0.975088,0.024912,2.06377432774045,2.470296,617574.0,132426.0,24,734.1783870967741,88.74687500000003,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.05,0.0,0.01,0.95,250,0.129072,0.870928,0.3720777243174341,1.6072,401800.0,348200.0,29,441.74612903225807,113.259626,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+3,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.05,0.0,0.01,0.99,250,0.972848,0.027152,2.07010710106879,2.478592,619648.0,130352.0,23,743.6274193548387,86.77864699999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+4,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.05,0.0,0.1,0.95,250,0.420008,0.579992,0.7067278483352069,1.927196,481799.0,268201.0,29,456.4483870967742,122.479284,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+5,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.05,0.0,0.1,0.99,250,0.969248,0.030752,2.054993642294355,2.461644,615411.0,134589.0,23,730.0674193548388,87.24159399999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+6,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.1,0.0,0.001,0.95,250,0.07658,0.92342,0.502055095400614,1.576672,394168.0,355832.0,28,449.6677419354839,120.006625,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+7,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.1,0.0,0.001,0.99,250,0.95012,0.04988,1.9915965012034167,2.387176,596794.0,153206.0,24,744.2516129032258,91.092839,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+8,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.1,0.0,0.01,0.95,250,0.949424,0.050576,2.0016076967312797,2.391016,597754.0,152246.0,21,743.3845161290322,88.787214,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+9,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.1,0.0,0.01,0.99,250,0.950208,0.049792,1.999911836886136,2.389376,597344.0,152656.0,23,735.2970967741935,88.795926,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+10,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.1,0.0,0.1,0.95,250,0.163424,0.836576,0.54179395624906,1.590812,397703.0,352297.0,31,434.6651612903226,113.484612,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+11,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.1,0.0,0.1,0.99,250,0.950536,0.049464,2.003046728603363,2.393204,598301.0,151699.0,23,728.2838709677419,102.58512999999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+12,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.2,0.0,0.001,0.95,250,0.177336,0.822664,0.6605834737164268,1.63314,408285.0,341715.0,24,728.8025806451612,88.03683199999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+13,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.2,0.0,0.001,0.99,250,0.681004,0.318996,1.6323888566022404,1.978768,494692.0,255308.0,18,750.9274193548387,89.81440299999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+14,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.2,0.0,0.01,0.95,250,0.901044,0.098956,1.920898,2.288404,572101.0,177899.0,25,723.2835483870967,86.730646,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+15,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.2,0.0,0.01,0.99,250,0.89684,0.10316,1.9142668966164549,2.28176,570440.0,179560.0,23,723.2090322580646,88.18729999999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+16,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.2,0.0,0.1,0.95,250,0.16928,0.83072,0.5825550569628736,1.574412,393603.0,356397.0,30,439.85548387096776,119.124965,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+17,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",2,4,0.2,0.0,0.1,0.99,250,0.191376,0.808624,0.6435135927427009,1.572464,393116.0,356884.0,29,442.0806451612903,115.36690899999996,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+18,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.05,0.0,0.001,0.95,250,0.101476,0.898524,0.4770201571279291,1.611684,402921.0,347079.0,27,456.6983870967742,115.539632,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+19,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.05,0.0,0.001,0.99,250,0.137104,0.862896,0.9598159368985558,1.653484,413371.0,336629.0,29,440.9787096774194,112.84557599999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+20,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.05,0.0,0.01,0.95,250,0.97458,0.02542,2.070972075736683,2.478896,619724.0,130276.0,24,712.7438709677419,84.91807500000004,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+21,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.05,0.0,0.01,0.99,250,0.335064,0.664936,0.6771723375678802,1.788508,447127.0,302873.0,31,436.97806451612905,116.344856,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+22,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.05,0.0,0.1,0.95,250,0.363572,0.636428,0.6790710466792012,1.860264,465066.0,284934.0,30,450.4258064516129,123.109087,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+23,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.05,0.0,0.1,0.99,250,0.975156,0.024844,2.0666811986368856,2.47384,618460.0,131540.0,18,754.8987096774193,93.18612800000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+24,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.1,0.0,0.001,0.95,250,0.086416,0.913584,0.4969834171844889,1.578364,394591.0,355409.0,30,443.0919354838709,111.60818400000004,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+25,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.1,0.0,0.001,0.99,250,0.892916,0.107084,1.9300237986592157,2.317648,579412.0,170588.0,24,713.5277419354838,84.35952799999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+26,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.1,0.0,0.01,0.95,250,0.950456,0.049544,2.005355668852682,2.395536,598884.0,151116.0,19,747.1132258064516,87.34093200000004,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+27,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.1,0.0,0.01,0.99,250,0.949672,0.050328,1.998683872196503,2.387612,596903.0,153097.0,25,722.6148387096774,85.08216999999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+28,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.1,0.0,0.1,0.95,250,0.157776,0.842224,0.5440720596239296,1.590752,397688.0,352312.0,26,466.2025806451613,119.47497199999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+29,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.1,0.0,0.1,0.99,250,0.9497,0.0503,1.9962970161538125,2.384812,596203.0,153797.0,24,714.926129032258,84.00042400000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+30,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.2,0.0,0.001,0.95,250,0.186532,0.813468,0.5664800824947112,1.559136,389784.0,360216.0,29,441.5064516129032,118.24277399999995,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+31,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.2,0.0,0.001,0.99,250,0.173108,0.826892,0.9837507476678728,1.612564,403141.0,346859.0,31,434.0941935483871,118.15508,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+32,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.2,0.0,0.01,0.95,250,0.146088,0.853912,0.5441872946574258,1.57636,394090.0,355910.0,30,446.7261290322581,115.18879600000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+33,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.2,0.0,0.01,0.99,250,0.89924,0.10076,1.9229510983869271,2.291536,572884.0,177116.0,23,734.0545161290322,87.43722199999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+34,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.2,0.0,0.1,0.95,250,0.900568,0.099432,1.9217654291206188,2.289892,572473.0,177527.0,19,751.3770967741935,89.04004799999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+35,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",2,8,0.2,0.0,0.1,0.99,250,0.899908,0.100092,1.925233601717914,2.293852,573463.0,176537.0,23,733.4429032258065,86.82712800000003,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+36,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.05,0.0,0.001,0.95,250,0.154468,0.845532,0.5279555893122099,1.673376,418344.0,331656.0,25,522.9664516129033,110.858372,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+37,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.05,0.0,0.001,0.99,250,0.83062,0.16938,1.901339316765293,2.309356,577339.0,172661.0,24,721.858064516129,86.52665399999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+38,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.05,0.0,0.01,0.95,250,0.149096,0.850904,0.5090220654529918,1.645468,411367.0,338633.0,31,421.0696774193548,107.01554499999996,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+39,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.05,0.0,0.01,0.99,250,0.311964,0.688036,0.7120318819351926,1.752072,438018.0,311982.0,31,424.0077419354839,108.442882,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+40,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.05,0.0,0.1,0.95,250,0.975104,0.024896,2.06584797803655,2.473248,618312.0,131688.0,22,727.6925806451613,85.19007799999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+41,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.05,0.0,0.1,0.99,250,0.973964,0.026036,2.071736478072007,2.478424,619606.0,130394.0,24,729.9048387096774,86.24758800000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+42,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.1,0.0,0.001,0.95,250,0.066632,0.933368,0.7093355662577704,1.569,392250.0,357750.0,27,447.6974193548387,118.076043,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+43,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.1,0.0,0.001,0.99,250,0.148856,0.851144,0.7368420296263732,1.589848,397462.0,352538.0,27,455.15258064516127,123.92016400000004,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+44,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.1,0.0,0.01,0.95,250,0.115088,0.884912,0.4116107774332601,1.5742,393550.0,356450.0,30,440.0154838709677,115.13470599999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+45,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.1,0.0,0.01,0.99,250,0.299324,0.700676,0.6867123935910973,1.687548,421887.0,328113.0,31,427.8016129032258,113.11107900000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+46,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.1,0.0,0.1,0.95,250,0.950864,0.049136,2.0050400479303523,2.395248,598812.0,151188.0,24,736.9403225806452,87.91488399999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+47,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.1,0.0,0.1,0.99,250,0.948992,0.051008,1.9909891691662829,2.378792,594698.0,155302.0,21,748.6819354838709,88.92773300000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+48,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.2,0.0,0.001,0.95,250,0.174032,0.825968,0.548540776577434,1.564452,391113.0,358887.0,30,440.7961290322581,123.156823,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+49,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.2,0.0,0.001,0.99,250,0.738704,0.261296,1.7316036058698614,2.114196,528549.0,221451.0,24,717.9135483870967,85.23825799999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+50,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.2,0.0,0.01,0.95,250,0.901068,0.098932,1.927198157032181,2.295904,573976.0,176024.0,25,709.0025806451613,84.07066199999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+51,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.2,0.0,0.01,0.99,250,0.89886,0.10114,1.922329508048959,2.289988,572497.0,177503.0,23,715.888064516129,84.926355,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+52,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.2,0.0,0.1,0.95,250,0.900368,0.099632,1.9229364757202343,2.291348,572837.0,177163.0,24,724.1070967741936,85.22998199999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+53,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=4, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",2,16,0.2,0.0,0.1,0.99,250,0.900764,0.099236,1.9224767680590604,2.290248,572562.0,177438.0,25,708.9861290322581,85.154221,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+54,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.001,0.95,250,0.066392,0.933608,0.4976844318120642,1.5886,397150.0,352850.0,30,438.4606451612903,133.61408300000005,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+55,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.001,0.99,250,0.112888,0.887112,0.5365772312909577,1.56538,391345.0,358655.0,31,435.7732258064516,117.13149500000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+56,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.01,0.95,250,0.97476,0.02524,1.5772810364672931,2.47948,619870.0,130130.0,22,746.1716129032258,88.93554,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+57,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.01,0.99,250,0.963712,0.036288,2.0661085265819605,2.476248,619062.0,130938.0,23,741.7354838709678,88.97486500000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+58,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.1,0.95,250,0.430844,0.569156,0.7096194991622944,1.948292,487073.0,262927.0,28,455.97483870967744,118.52389699999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+59,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.05,0.0,0.1,0.99,250,0.975588,0.024412,2.074023741001807,2.482788,620697.0,129303.0,22,743.521935483871,88.41273700000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+60,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.001,0.95,250,0.091728,0.908272,0.776031372294916,1.58424,396060.0,353940.0,31,427.3722580645161,115.47192099999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+61,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.001,0.99,250,0.105648,0.894352,1.0277751843971994,1.499464,374866.0,375134.0,30,442.2945161290323,111.788347,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+62,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.01,0.95,250,0.103572,0.896428,0.4881595351482381,1.576696,394174.0,355826.0,31,439.0832258064516,121.09051799999996,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+63,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.01,0.99,250,0.94996,0.05004,1.995968,2.38448,596120.0,153880.0,23,717.5496774193548,85.45509300000003,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+64,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.1,0.95,250,0.162468,0.837532,0.5464251782925683,1.592756,398189.0,351811.0,29,436.4706451612904,114.65387599999995,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+65,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.1,0.0,0.1,0.99,250,0.949284,0.050716,1.9982943101648611,2.387408,596852.0,153148.0,24,721.8648387096774,85.440133,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+66,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.001,0.95,250,0.129232,0.870768,0.5688711821859759,1.578036,394509.0,355491.0,30,449.301935483871,113.03487399999996,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+67,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.001,0.99,250,0.222436,0.777564,0.9473068607081848,1.622744,405686.0,344314.0,31,422.6058064516129,113.91694800000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+68,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.01,0.95,250,0.8871,0.1129,1.912359389723809,2.282076,570519.0,179481.0,24,731.0767741935484,87.01209800000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+69,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.01,0.99,250,0.823524,0.176476,1.8285680256315,2.2041,551025.0,198975.0,17,748.4312903225806,90.46390499999995,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+70,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.1,0.95,250,0.900616,0.099384,1.9225459039706492,2.290764,572691.0,177309.0,22,746.2751612903226,89.39001599999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+71,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",4,4,0.2,0.0,0.1,0.99,250,0.899228,0.100772,1.9208878729712424,2.287996,571999.0,178001.0,22,738.9416129032259,86.51590700000003,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+72,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.001,0.95,250,0.03368,0.96632,0.8902430686675715,1.549948,387487.0,362513.0,28,451.52032258064514,116.50264999999996,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+73,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.001,0.99,250,0.975004,0.024996,2.079912,2.489592,622398.0,127602.0,21,740.43,89.63781299999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+74,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.01,0.95,250,0.160936,0.839064,0.3837570917203531,1.647608,411902.0,338098.0,28,447.47967741935486,119.927331,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+75,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.01,0.99,250,0.9558,0.0442,2.050908409863966,2.459772,614943.0,135057.0,25,730.8358064516129,87.12744400000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+76,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.1,0.95,250,0.975036,0.024964,2.0677901798522536,2.475592,618898.0,131102.0,22,735.5593548387096,88.036471,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+77,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.05,0.0,0.1,0.99,250,0.975116,0.024884,2.0655365805920534,2.47218,618045.0,131955.0,18,752.3012903225806,88.153107,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+78,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.1,0.0,0.001,0.95,250,0.057472,0.942528,0.5966073276642713,1.568872,392218.0,357782.0,31,446.3690322580645,110.173099,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+79,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.1,0.0,0.001,0.99,250,0.820212,0.179788,1.8665562904443864,2.268376,567094.0,182906.0,23,728.6574193548387,86.771434,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+80,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.1,0.0,0.01,0.95,250,0.049444,0.950556,1.0547306619878951,1.561484,390371.0,359629.0,30,445.1083870967742,110.96144800000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+81,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.1,0.0,0.01,0.99,250,0.266456,0.733544,0.6902493785193241,1.724024,431006.0,318994.0,17,748.5667741935484,89.06041799999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+82,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.1,0.0,0.1,0.95,250,0.945596,0.054404,1.995186529935766,2.385012,596253.0,153747.0,24,731.0941935483871,86.335261,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+83,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.1,0.0,0.1,0.99,250,0.950664,0.049336,2.003986978984222,2.394252,598563.0,151437.0,24,722.7406451612903,84.37809100000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+84,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.001,0.95,250,0.135616,0.864384,0.5518810857239765,1.587764,396941.0,353059.0,28,453.82193548387096,111.81039100000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+85,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.001,0.99,250,0.184588,0.815412,0.7202786685075035,1.590176,397544.0,352456.0,26,460.5206451612903,117.07666200000004,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+86,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.01,0.95,250,0.894188,0.105812,1.9164504790315813,2.28466,571165.0,178835.0,18,747.8032258064516,88.05737800000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+87,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.01,0.99,250,0.27944,0.72056,0.7097527549215408,1.666892,416723.0,333277.0,31,420.84806451612906,106.95860399999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+88,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.1,0.95,250,0.899032,0.100968,1.9202414265761376,2.287856,571964.0,178036.0,16,763.7303225806452,88.57989599999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+89,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",4,8,0.2,0.0,0.1,0.99,250,0.899232,0.100768,1.916393439574875,2.282788,570697.0,179303.0,24,730.1458064516129,87.86658800000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+90,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.001,0.95,250,0.134072,0.865928,0.4881678766167872,1.651224,412806.0,337194.0,26,472.28806451612905,109.24383399999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+91,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.001,0.99,250,0.107212,0.892788,0.9095615742347828,1.584956,396239.0,353761.0,28,443.2974193548387,115.134232,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+92,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.01,0.95,250,0.974972,0.025028,2.069278285747528,2.476876,619219.0,130781.0,25,721.2658064516129,84.24722900000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+93,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.01,0.99,250,0.960132,0.039868,2.045780733078766,2.452316,613079.0,136921.0,24,727.9858064516129,86.78861399999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+94,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.1,0.95,250,0.974444,0.025556,2.0733223735615205,2.482068,620517.0,129483.0,24,716.0922580645162,116.427485,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+95,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.05,0.0,0.1,0.99,250,0.974996,0.025004,2.0702880716795447,2.477976,619494.0,130506.0,11,772.1254838709677,130.60492800000003,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+96,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.1,0.0,0.001,0.95,250,0.105392,0.894608,0.498842285775963,1.600336,400084.0,349916.0,27,468.8458064516129,112.606366,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+97,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.1,0.0,0.001,0.99,250,0.18548,0.81452,0.6781771876527108,1.667256,416814.0,333186.0,30,437.56935483870967,110.224839,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+98,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.1,0.0,0.01,0.95,250,0.949016,0.050984,1.9916142220353985,2.378872,594718.0,155282.0,22,743.3187096774194,86.537516,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+99,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.1,0.0,0.01,0.99,250,0.949912,0.050088,2.006922069189693,2.397452,599363.0,150637.0,20,742.35,85.50318899999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+100,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.1,0.0,0.1,0.95,250,0.950428,0.049572,2.000338894082069,2.389636,597409.0,152591.0,25,717.6058064516129,84.20011800000005,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+101,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.1,0.0,0.1,0.99,250,0.950052,0.049948,1.9947750613285655,2.383296,595824.0,154176.0,25,706.7051612903226,82.98983699999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+102,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.001,0.95,250,0.136944,0.863056,0.508241362551545,1.574736,393684.0,356316.0,30,438.1348387096774,116.312462,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+103,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.001,0.99,250,0.194928,0.805072,0.7271051792244378,1.612332,403083.0,346917.0,31,439.1764516129032,111.671497,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+104,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.01,0.95,250,0.899248,0.100752,1.921768766108381,2.289972,572493.0,177507.0,17,762.2293548387097,87.909092,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+105,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.01,0.99,250,0.900152,0.099848,1.920379560845516,2.288164,572041.0,177959.0,16,744.804193548387,91.07636999999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+106,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.1,0.95,250,0.17714,0.82286,0.5858932430322011,1.575412,393853.0,356147.0,27,459.5825806451613,119.47991700000004,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+107,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=8, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",4,16,0.2,0.0,0.1,0.99,250,0.90048,0.09952,1.923740006475123,2.29204,573010.0,176990.0,23,733.3983870967742,86.34258400000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+0,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.001,0.95,250,0.065912,0.934088,0.4577401556781161,1.584212,396053.0,353947.0,27,454.1735483870968,86.34435299999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+1,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.001,0.99,250,0.127168,0.872832,0.6409640035137636,1.649912,412478.0,337522.0,26,467.308064516129,85.81163400000003,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+2,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.01,0.95,250,0.024928,0.975072,0.8984188074227235,1.547612,386903.0,363097.0,27,447.1264516129032,87.25039100000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+3,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.01,0.99,250,0.974836,0.025164,2.072352,2.480488,620122.0,129878.0,23,734.7725806451613,68.44978300000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+4,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.1,0.95,250,0.974896,0.025104,2.071446043007352,2.479556,619889.0,130111.0,23,723.8293548387097,65.95873099999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+5,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.05,0.0,0.1,0.99,250,0.974848,0.025152,2.0807991449370533,2.490576,622644.0,127356.0,22,738.8341935483871,66.746618,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+6,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.1,0.0,0.001,0.95,250,0.064776,0.935224,0.6475455664645521,1.572596,393149.0,356851.0,27,463.4496774193548,83.86703899999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+7,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.1,0.0,0.001,0.99,250,0.950148,0.049852,2.001306,2.390836,597709.0,152291.0,23,735.2951612903225,66.609448,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+8,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.1,0.0,0.01,0.95,250,0.110568,0.889432,0.5500990199582375,1.566104,391526.0,358474.0,31,424.3390322580645,86.53927700000003,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+9,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.1,0.0,0.01,0.99,250,0.252832,0.747168,0.6586288421833819,1.645376,411344.0,338656.0,20,754.35,68.122423,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+10,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.1,0.0,0.1,0.95,250,0.932776,0.067224,1.977561464824044,2.367832,591958.0,158042.0,18,749.0303225806451,69.73696799999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+11,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.1,0.0,0.1,0.99,250,0.949168,0.050832,2.003062399327159,2.393132,598283.0,151717.0,23,738.5158064516129,67.86107900000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+12,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.001,0.95,250,0.120444,0.879556,0.5394891833654282,1.583144,395786.0,354214.0,31,431.6041935483871,84.335606,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+13,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.001,0.99,250,0.179396,0.820604,0.6189350314310694,1.55856,389640.0,360360.0,23,717.8341935483871,64.014009,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+14,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.01,0.95,250,0.165756,0.834244,0.552349450383646,1.579116,394779.0,355221.0,30,434.1490322580645,77.850845,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+15,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.01,0.99,250,0.890176,0.109824,1.9090871817836763,2.277144,569286.0,180714.0,24,723.4025806451613,65.77923299999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+16,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.1,0.95,250,0.90054,0.09946,1.927529865549216,2.29674,574185.0,175815.0,21,734.0196774193548,67.850452,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+17,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=4, bias=True)
+  (layer2): Linear(in_features=4, out_features=4, bias=True)
+  (layer3): Linear(in_features=4, out_features=2, bias=True)
+)",8,4,0.2,0.0,0.1,0.99,250,0.899632,0.100368,1.920234272311211,2.287388,571847.0,178153.0,25,716.1416129032258,64.98622200000004,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+18,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.001,0.95,250,0.339144,0.660856,0.6030412605055729,1.894656,473664.0,276336.0,28,450.4216129032258,83.98197400000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+19,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.001,0.99,250,0.041356,0.958644,1.048568907699457,1.556772,389193.0,360807.0,29,446.6316129032258,82.74411100000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+20,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.01,0.95,250,0.254412,0.745588,0.5843995196455306,1.75042,437605.0,312395.0,29,446.29225806451615,84.16897699999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+21,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.01,0.99,250,0.294196,0.705804,0.7701455653698557,1.762196,440549.0,309451.0,28,455.5845161290322,83.92176000000003,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+22,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.1,0.95,250,0.974868,0.025132,2.0746021329262887,2.483928,620982.0,129018.0,22,731.313870967742,66.71039900000002,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+23,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.05,0.0,0.1,0.99,250,0.974916,0.025084,2.065178602481842,2.47186,617965.0,132035.0,25,701.733870967742,64.14604,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+24,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.1,0.0,0.001,0.95,250,0.13086,0.86914,0.5422177148778579,1.60814,402035.0,347965.0,27,453.7303225806452,83.45600899999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+25,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.1,0.0,0.001,0.99,250,0.1718,0.8282,0.7526523872697882,1.660456,415114.0,334886.0,25,520.0809677419355,67.86451500000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+26,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.1,0.0,0.01,0.95,250,0.950608,0.049392,1.9973262543115613,2.385924,596481.0,153519.0,21,760.5048387096774,68.906697,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+27,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.1,0.0,0.01,0.99,250,0.94174,0.05826,1.9918340037277944,2.382344,595586.0,154414.0,24,713.0767741935484,64.92395300000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+28,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.1,0.0,0.1,0.95,250,0.950156,0.049844,1.9975332013409053,2.386564,596641.0,153359.0,24,730.9422580645162,68.09268799999998,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+29,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.1,0.0,0.1,0.99,250,0.950108,0.049892,2.0035060997242717,2.393496,598374.0,151626.0,22,734.7977419354838,67.35890500000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+30,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.001,0.95,250,0.138972,0.861028,0.5820486644590904,1.575556,393889.0,356111.0,31,432.26870967741934,83.041544,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+31,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.001,0.99,250,0.250516,0.749484,1.263283771431271,1.706564,426641.0,323359.0,28,450.4290322580645,82.45744499999995,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+32,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.01,0.95,250,0.898772,0.101228,1.9184908917963956,2.286264,571566.0,178434.0,24,725.1164516129032,66.424883,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+33,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.01,0.99,250,0.900536,0.099464,1.92224646525189,2.29036,572590.0,177410.0,24,724.5532258064516,65.95849000000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+34,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.1,0.95,250,0.177368,0.822632,0.5856920938104517,1.573256,393314.0,356686.0,29,445.5190322580645,85.780084,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+35,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=8, bias=True)
+  (layer2): Linear(in_features=8, out_features=8, bias=True)
+  (layer3): Linear(in_features=8, out_features=2, bias=True)
+)",8,8,0.2,0.0,0.1,0.99,250,0.899592,0.100408,1.9211944348858596,2.288684,572171.0,177829.0,22,730.5745161290323,65.398768,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+36,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.001,0.95,250,0.20488,0.79512,0.4635893543938395,1.73106,432765.0,317235.0,17,757.6054838709678,66.55551299999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+37,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.001,0.99,250,0.186764,0.813236,0.6438176250990759,1.714688,428672.0,321328.0,26,462.97967741935486,82.70655099999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+38,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.01,0.95,250,0.156948,0.843052,0.378888991702813,1.64044,410110.0,339890.0,30,441.6767741935484,81.82368600000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+39,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.01,0.99,250,0.974716,0.025284,2.069787544494461,2.4775,619375.0,130625.0,22,733.8783870967742,66.50178499999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+40,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.1,0.95,250,0.975284,0.024716,2.072499641264688,2.479472,619868.0,130132.0,22,737.3709677419355,66.479166,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+41,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.05,0.0,0.1,0.99,250,0.97536,0.02464,2.075060432594478,2.483944,620986.0,129014.0,21,746.343870967742,68.23929700000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+42,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.1,0.0,0.001,0.95,250,0.094364,0.905636,0.465015508100224,1.582884,395721.0,354279.0,30,440.1683870967742,81.69031899999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+43,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.1,0.0,0.001,0.99,250,0.148636,0.851364,1.1537324608263564,1.631044,407761.0,342239.0,31,433.7567741935484,85.219056,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+44,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.1,0.0,0.01,0.95,250,0.949848,0.050152,1.9982975735435489,2.387168,596792.0,153208.0,24,712.2232258064516,65.700624,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+45,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.1,0.0,0.01,0.99,250,0.948736,0.051264,2.004565632878438,2.394648,598662.0,151338.0,23,721.8445161290323,66.697749,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+46,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.1,0.0,0.1,0.95,250,0.155884,0.844116,0.5388512872352376,1.584792,396198.0,353802.0,29,441.2741935483871,83.19183799999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+47,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.1,0.0,0.1,0.99,250,0.9493,0.0507,1.9907609878053665,2.378232,594558.0,155442.0,22,739.6790322580645,67.12964699999999,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+48,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.001,0.95,250,0.15652,0.84348,0.5246901806646004,1.585552,396388.0,353612.0,30,436.5406451612904,84.84943799999996,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+49,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.001,0.99,250,0.192768,0.807232,0.879572687724233,1.620152,405038.0,344962.0,25,504.9145161290323,72.796162,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+50,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.01,0.95,250,0.140808,0.859192,0.5829141460582432,1.599496,399874.0,350126.0,31,431.9341935483871,81.682562,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+51,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.01,0.99,250,0.89962,0.10038,1.920417127752262,2.288492,572123.0,177877.0,21,754.3103225806451,68.52641499999997,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+52,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.1,0.95,250,0.899628,0.100372,1.9243470509337468,2.292984,573246.0,176754.0,23,737.7648387096774,66.696442,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
+53,"QNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (layer1): Linear(in_features=16, out_features=16, bias=True)
+  (layer2): Linear(in_features=16, out_features=16, bias=True)
+  (layer3): Linear(in_features=16, out_features=2, bias=True)
+)",8,16,0.2,0.0,0.1,0.99,250,0.899728,0.100272,1.9212039472661075,2.289244,572311.0,177689.0,14,762.7732258064516,68.19276400000001,"SteinAndRapoport,TidemanAndChieruzzi,TitForTat,Grofman,Davis"
