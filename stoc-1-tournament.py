@@ -3,8 +3,8 @@ from datetime import datetime
 
 import pandas as pd
 
-from random_stoc1_agents import STOC_AGENTS, STOC_HYPERPARAMS
 from tournament.agents.agents import AGENTS
+from tournament.agents.probabilistic.random_stoc1 import STOC_AGENTS, STOC_HYPERPARAMS
 from tournament.tournament import RoundRobinTournament
 
 
