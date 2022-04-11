@@ -1,3 +1,3 @@
 ,model,lookback,epsilon,epsilon_decay,decay_limit,learning_rate,discount_rate,epochs,tr_cooperation_percentage,tr_defection_percentage,tr_final_loss,tr_mean_reward,tr_cumul_reward,tr_cumul_regret,tn_rank,tn_mean_score,tn_mean_time,agents
-0,,2,0.2,0.0,0.05,0.01,0.95,2500,0.166988,0.833012,,1.256098,628049.0,871951.0,2,326.97,0.388993,SecondByCave
-1,,4,0.2,0.0,0.05,0.01,0.95,2500,0.421314,0.578686,,1.865296,932648.0,567352.0,2,753.825,0.409033,SecondByCave
+0,,2,0.2,0.0,0.05,0.01,0.95,2500,0.166988,0.833012,,1.256098,628049.0,871951.0,2,326.97,0.388993,Cave
+1,,4,0.2,0.0,0.05,0.01,0.95,2500,0.421314,0.578686,,1.865296,932648.0,567352.0,2,753.825,0.409033,Cave

@@ -10,7 +10,7 @@ from tournament.agents.axelrod_second import (
     Borufsen,
     Champion,
     Leyvraz,
-    SecondByGraaskampKatzen,
+    GraaskampAndKatzen,
 )
 from tournament.agents.q_learning.dqn import DeepQLearner
 from tournament.agents.tft import TitForTat
@@ -61,7 +61,7 @@ def main():
         TidemanAndChieruzzi,
         Champion,
         Borufsen,
-        SecondByGraaskampKatzen,
+        GraaskampAndKatzen,
         Grofman,
         Leyvraz,
     ]

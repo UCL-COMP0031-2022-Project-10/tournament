@@ -4,4 +4,4 @@
   (layer1): Linear(in_features=4, out_features=4, bias=True)
   (layer2): Linear(in_features=4, out_features=4, bias=True)
   (layer3): Linear(in_features=4, out_features=2, bias=True)
-)",2,4,0.1,0.0,0.01,0.99,250,0.27608,0.72392,0.610784722864219,1.62233,324466.0,275534.0,30,433.38516129032257,149.368704,"OmegaTFT,SecondByWeiner,Borufsen,Leyvraz"
+)",2,4,0.1,0.0,0.01,0.99,250,0.27608,0.72392,0.610784722864219,1.62233,324466.0,275534.0,30,433.38516129032257,149.368704,"OmegaTFT,Weiner,Borufsen,Leyvraz"

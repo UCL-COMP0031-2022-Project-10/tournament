@@ -25,11 +25,11 @@ from tournament.agents.axelrod_second import (
     Champion,
     Leyvraz,
     SecondByBlackK83R,
-    SecondByGraaskampKatzen,
-    SecondByHarrington,
-    SecondByTidemanAndChieruzzi,
-    SecondByWeiner,
-    SecondByWhiteK72R,
+    GraaskampAndKatzen,
+    Harrington,
+    TidemanAndChieruzzi2,
+    Weiner,
+    White,
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.pavlov import Pavlov
@@ -90,17 +90,17 @@ def main():
         TitForTat,
         TidemanAndChieruzzi,
         Borufsen,
-        SecondByGraaskampKatzen,
+        GraaskampAndKatzen,
         Nydegger,
         Grofman,
         Shubik,
         Champion,
-        Leyvraz
-        ] 
+        Leyvraz,
+    ]
 
     grid = {
         "lookback": [1, 2, 4, 8],
-        "n1": [8,12,16,24],
+        "n1": [8, 12, 16, 24],
         "epsilon": [0.05, 0.1, 0.2],
         "epsilon_decay": [0.0],
         "learning_rate": [0.001, 0.01, 0.05, 0.1],

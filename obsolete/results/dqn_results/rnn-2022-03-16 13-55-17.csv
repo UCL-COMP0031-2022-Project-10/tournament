@@ -3,74 +3,74 @@
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(2, 4, batch_first=True)
   (_fc): Linear(in_features=4, out_features=2, bias=True)
-)",1,4,1,0.1,0,0.01,0.99,0.326578571,0.673421429,3.58614905,1.712903571,479613,360387,25,615.8016129,27.08011,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,4,1,0.1,0,0.01,0.99,0.326578571,0.673421429,3.58614905,1.712903571,479613,360387,25,615.8016129,27.08011,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 1,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(2, 32, batch_first=True)
   (_fc): Linear(in_features=32, out_features=2, bias=True)
-)",1,32,1,0.1,0,0.01,0.99,0.266553571,0.733446429,2.267996993,1.645582143,460763,379237,26,492.6741935,32.30246,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,32,1,0.1,0,0.01,0.99,0.266553571,0.733446429,2.267996993,1.645582143,460763,379237,26,492.6741935,32.30246,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 2,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(2, 64, batch_first=True)
   (_fc): Linear(in_features=64, out_features=2, bias=True)
-)",1,64,1,0.1,0,0.01,0.99,0.384578571,0.615421429,2.660372602,1.747857143,489400,350600,26,488.3693548,31.665495,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,64,1,0.1,0,0.01,0.99,0.384578571,0.615421429,2.660372602,1.747857143,489400,350600,26,488.3693548,31.665495,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 3,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(4, 4, batch_first=True)
   (_fc): Linear(in_features=4, out_features=2, bias=True)
-)",2,4,1,0.1,0,0.01,0.99,0.258746429,0.741253571,3.584488499,1.811610714,507251,332749,25,516.1112903,30.256132,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",2,4,1,0.1,0,0.01,0.99,0.258746429,0.741253571,3.584488499,1.811610714,507251,332749,25,516.1112903,30.256132,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 4,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(4, 32, batch_first=True)
   (_fc): Linear(in_features=32, out_features=2, bias=True)
-)",2,32,1,0.1,0,0.01,0.99,0.40995,0.59005,2.484999131,1.796635714,503058,336942,26,482.9790323,36.665985,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",2,32,1,0.1,0,0.01,0.99,0.40995,0.59005,2.484999131,1.796635714,503058,336942,26,482.9790323,36.665985,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 5,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(4, 64, batch_first=True)
   (_fc): Linear(in_features=64, out_features=2, bias=True)
-)",2,64,1,0.1,0,0.01,0.99,0.464157143,0.535842857,2.698817541,1.828053571,511855,328145,26,481.4516129,50.417262,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",2,64,1,0.1,0,0.01,0.99,0.464157143,0.535842857,2.698817541,1.828053571,511855,328145,26,481.4516129,50.417262,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 6,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(8, 4, batch_first=True)
   (_fc): Linear(in_features=4, out_features=2, bias=True)
-)",4,4,1,0.1,0,0.01,0.99,0.272125,0.727875,3.777123904,1.867021429,522766,317234,26,488.1048387,28.928496,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,4,1,0.1,0,0.01,0.99,0.272125,0.727875,3.777123904,1.867021429,522766,317234,26,488.1048387,28.928496,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 7,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(8, 32, batch_first=True)
   (_fc): Linear(in_features=32, out_features=2, bias=True)
-)",4,32,1,0.1,0,0.01,0.99,0.477532143,0.522467857,2.739439784,1.914607143,536090,303910,25,638.6903226,48.650724,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,32,1,0.1,0,0.01,0.99,0.477532143,0.522467857,2.739439784,1.914607143,536090,303910,25,638.6903226,48.650724,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 8,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(8, 64, batch_first=True)
   (_fc): Linear(in_features=64, out_features=2, bias=True)
-)",4,64,1,0.1,0,0.01,0.99,0.453542857,0.546457143,2.705464295,1.900964286,532270,307730,25,599.4709677,30.954584,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,64,1,0.1,0,0.01,0.99,0.453542857,0.546457143,2.705464295,1.900964286,532270,307730,25,599.4709677,30.954584,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 9,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(12, 4, batch_first=True)
   (_fc): Linear(in_features=4, out_features=2, bias=True)
-)",6,4,1,0.1,0,0.01,0.99,0.294764286,0.705235714,3.922495072,1.924764286,538934,301066,25,507.35,32.616342,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",6,4,1,0.1,0,0.01,0.99,0.294764286,0.705235714,3.922495072,1.924764286,538934,301066,25,507.35,32.616342,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 10,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(12, 32, batch_first=True)
   (_fc): Linear(in_features=32, out_features=2, bias=True)
-)",6,32,1,0.1,0,0.01,0.99,0.442267857,0.557732143,2.768404372,1.969914286,551576,288424,25,570.4467742,30.440797,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",6,32,1,0.1,0,0.01,0.99,0.442267857,0.557732143,2.768404372,1.969914286,551576,288424,25,570.4467742,30.440797,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 11,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(12, 64, batch_first=True)
   (_fc): Linear(in_features=64, out_features=2, bias=True)
-)",6,64,1,0.1,0,0.01,0.99,0.487003571,0.512996429,2.859109883,1.975510714,553143,286857,25,469.0741935,32.818346,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",6,64,1,0.1,0,0.01,0.99,0.487003571,0.512996429,2.859109883,1.975510714,553143,286857,25,469.0741935,32.818346,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 12,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(16, 4, batch_first=True)
   (_fc): Linear(in_features=4, out_features=2, bias=True)
-)",8,4,1,0.1,0,0.01,0.99,0.310592857,0.689407143,4.299953757,1.995114286,558632,281368,25,649.8806452,32.598158,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",8,4,1,0.1,0,0.01,0.99,0.310592857,0.689407143,4.299953757,1.995114286,558632,281368,25,649.8806452,32.598158,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 13,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(16, 32, batch_first=True)
   (_fc): Linear(in_features=32, out_features=2, bias=True)
-)",8,32,1,0.1,0,0.01,0.99,0.391942857,0.608057143,2.833786297,1.945421429,544718,295282,26,532.7725806,46.645109,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",8,32,1,0.1,0,0.01,0.99,0.391942857,0.608057143,2.833786297,1.945421429,544718,295282,26,532.7725806,46.645109,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 14,RNN,"RNN(
   (_flatten): Flatten(start_dim=1, end_dim=-1)
   (_rnn): RNN(16, 64, batch_first=True)
   (_fc): Linear(in_features=64, out_features=2, bias=True)
-)",8,64,1,0.1,0,0.01,0.99,0.465007143,0.534992857,2.981012504,1.968478571,551174,288826,25,568.2080645,27.201835,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",8,64,1,0.1,0,0.01,0.99,0.465007143,0.534992857,2.981012504,1.968478571,551174,288826,25,568.2080645,27.201835,"TitForTat,Nydegger,Downing,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"

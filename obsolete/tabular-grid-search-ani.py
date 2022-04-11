@@ -22,13 +22,13 @@ from tournament.agents.axelrod_first import (
 from tournament.agents.axelrod_second import (
     Champion,
     Borufsen,
-    SecondByGraaskampKatzen,
+    GraaskampAndKatzen,
     Leyvraz,
     SecondByBlackK83R,
-    SecondByHarrington,
-    SecondByTidemanAndChieruzzi,
-    SecondByWeiner,
-    SecondByWhiteK72R
+    Harrington,
+    TidemanAndChieruzzi2,
+    Weiner,
+    White
     )
 from tournament.gridsearch import evaluate
 
@@ -53,7 +53,7 @@ def main():
     # no tft: 25.3~
     # no tft & tidemanAndChieruzzi: 25.3
     # add grofman no downing: 23.4~
-    
+
     all_agents = [
         TitForTat
         Nydegger,
@@ -67,13 +67,13 @@ def main():
         #Tullock,
         Champion,
         Borufsen,
-        SecondByGraaskampKatzen,
+        GraaskampAndKatzen,
         #Leyvraz,
         #SecondByBlackK83R,
-        #SecondByHarrington,
-        #SecondByTidemanAndChieruzzi,
-        #SecondByWeiner,
-        #SecondByWhiteK72R
+        #Harrington,
+        #TidemanAndChieruzzi2,
+        #Weiner,
+        #White
         ]
     results = []
     limit = 2 ** (len(all_agents) + 1)
@@ -85,7 +85,7 @@ def main():
         for b_idx, val in enumerate(i_bin_19):
             if val == '1':
                 agents.append(all_agents[b_idx])
-        
+
         grid = {
             "lookback": [1, 2],
             "epsilon": [0.01],
@@ -110,7 +110,7 @@ def main():
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
         df.to_csv(f"results/best2-tabular-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv")
-    
+
 if __name__ == "__main__":
     torch.set_num_threads(12)
     main()

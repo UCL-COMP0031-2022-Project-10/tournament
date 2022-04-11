@@ -9,12 +9,12 @@ import pandas as pd
 # TTFT
 # SteinAndRapoport
 # OmegaTFT
-# SecondByWeiner
+# Weiner
 # Borufsen
 from tournament.agents.q_learning.tabular import TabularQLearner
 from tournament.agents.tft import TitForTat, OmegaTFT
 from tournament.agents.axelrod_first import SteinAndRapoport
-from tournament.agents.axelrod_second import SecondByWeiner, Borufsen
+from tournament.agents.axelrod_second import Weiner, Borufsen
 from tournament.gridsearch import train_and_evaluate
 
 
@@ -39,7 +39,7 @@ class Tabular(TabularQLearner):
 
 
 def main():
-    agents = [TitForTat, OmegaTFT, Borufsen, SteinAndRapoport, SecondByWeiner]
+    agents = [TitForTat, OmegaTFT, Borufsen, SteinAndRapoport, Weiner]
 
     grid = {
         "lookback": [1, 2, 4, 8, 10],

@@ -17,11 +17,11 @@ from tournament.agents.axelrod_second import (
     Champion,
     Leyvraz,
     SecondByBlackK83R,
-    SecondByGraaskampKatzen,
-    SecondByHarrington,
-    SecondByTidemanAndChieruzzi,
-    SecondByWeiner,
-    SecondByWhiteK72R,
+    GraaskampAndKatzen,
+    Harrington,
+    TidemanAndChieruzzi2,
+    Weiner,
+    White,
 )
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.pavlov import Pavlov
@@ -60,11 +60,11 @@ AGENTS = [
     Champion,
     Borufsen,
     Leyvraz,
-    SecondByHarrington,
-    SecondByWhiteK72R,
+    Harrington,
+    White,
     SecondByBlackK83R,
-    SecondByTidemanAndChieruzzi,
-    SecondByGraaskampKatzen,
-    SecondByWeiner,
+    TidemanAndChieruzzi2,
+    GraaskampAndKatzen,
+    Weiner,
     Tullock,
 ]

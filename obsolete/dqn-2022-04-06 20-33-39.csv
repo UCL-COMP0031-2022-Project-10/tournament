@@ -4,4 +4,4 @@
   (layer1): Linear(in_features=2, out_features=2, bias=True)
   (layer2): Linear(in_features=2, out_features=2, bias=True)
   (layer3): Linear(in_features=2, out_features=2, bias=True)
-)",1,2,0.05,0.0,0.001,0.95,10,0.9746875,0.0253125,2.442547079120188,2.9736875,47579.0,421.0,24,716.3448387096774,110.81205599999998,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen,Grofman,Leyvraz"
+)",1,2,0.05,0.0,0.001,0.95,10,0.9746875,0.0253125,2.442547079120188,2.9736875,47579.0,421.0,24,716.3448387096774,110.81205599999998,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen,Grofman,Leyvraz"

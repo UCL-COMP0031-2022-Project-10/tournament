@@ -19,12 +19,15 @@ class TitForTat(Agent):
 
 
 class OmegaTFT(Agent):
-    """OmegaTFT modifies Tit For Tat in two ways:
-    - checks for deadlock loops of alternating rounds of (C, D) and (D, C),
-    and attempting to break them
-    - uses a more sophisticated retaliation mechanism that is noise tolerant
-    Names:
-    - OmegaTFT: [Slany2007]_
+    """
+    This class implements OmegaTitForTat.
+
+    OmegaTFT modifies TitForTat by doing the following:
+    - checking for deadlock loops of alternating rounds of (C, D) and (D, C),
+    and then attempting to break them;
+    - using a more sophisticated retaliation mechanism that is noise tolerant.
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/titfortat.py#L317
     """
 
     def __init__(self, deadlock_threshold: int = 3, randomness_threshold: int = 8):

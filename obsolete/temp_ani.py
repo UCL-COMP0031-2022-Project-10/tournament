@@ -13,7 +13,7 @@ from tournament.agents.tft import (
     TTFT,
     GenerousTFT,
     GradualTFT,
-    )
+)
 from tournament.agents.axelrod_first import (
     Davis,
     Feld,
@@ -25,8 +25,8 @@ from tournament.agents.axelrod_first import (
     Nydegger,
     TidemanAndChieruzzi,
     Grofman,
-    Shubik
-    )
+    Shubik,
+)
 from tournament.agents.random import RandomAgent
 from tournament.agents.pavlov import Pavlov
 from tournament.agents.axelrod_second import (
@@ -34,21 +34,25 @@ from tournament.agents.axelrod_second import (
     Champion,
     Leyvraz,
     SecondByBlackK83R,
-    SecondByGraaskampKatzen,
-    SecondByHarrington,
-    SecondByTidemanAndChieruzzi,
-    SecondByWeiner,
-    SecondByWhiteK72R,
-    )
+    GraaskampAndKatzen,
+    Harrington,
+    TidemanAndChieruzzi2,
+    Weiner,
+    White,
+)
 from tournament.agents.constant import AllC, AllD
 from tournament.gridsearch import evaluate
 
-class TabularLearner(TabularQLearner):
 
+class TabularLearner(TabularQLearner):
     def __init__(
-        self, lookback: int, epsilon: float, epsilon_decay: float,
-        discount_rate: float, learning_rate: float
-        ):
+        self,
+        lookback: int,
+        epsilon: float,
+        epsilon_decay: float,
+        discount_rate: float,
+        learning_rate: float,
+    ):
 
         super().__init__()
         self._lookback = lookback
@@ -56,6 +60,7 @@ class TabularLearner(TabularQLearner):
         self._learning_rate = learning_rate
         self._epsilon_decay = epsilon_decay
         self._epsilon = epsilon
+
 
 def main():
     # Set: TFT, Nydegger, Downing, TNC, Champion, SGK, Borufsen = 25
@@ -65,9 +70,9 @@ def main():
     # Nydegger, Downing, TNC, Champion, SGK, Borufsen = 25.3
     # Nydegger, Downing, Champion, SGK, Borufsen = 25.3
     # TFT, Nydegger, TNC, Champion, SGK, Borufsen, Grofman = 23.4
-    # TFT, TNC, Champion, Borufsen, SGK, Grofman, eps=0.01,lr=0.01, = 
-    
-    '''
+    # TFT, TNC, Champion, Borufsen, SGK, Grofman, eps=0.01,lr=0.01, =
+
+    """
     New testing:
     Standard set:
     epsilon = 0.01, lr = 0.1, lb = 1
@@ -81,47 +86,47 @@ def main():
     r7: {TFT, TNC, CHA, BOR, SGK, GRO}. Avg rank = 22.7
     r8: {TFT, TNC, CHA, BOR, GRO}. Avg rank = 23.6
     r9: add leyvraz
-    '''
-    
+    """
+
     agents = [
-        #AllC,
-        #AllD,
+        # AllC,
+        # AllD,
         TitForTat,
-        #RandomAgent,
-        #Davis,
+        # RandomAgent,
+        # Davis,
         Shubik,
-        #SteinAndRapoport,
-        #Grudger,
+        # SteinAndRapoport,
+        # Grudger,
         Nydegger,
         Grofman,
-        #Downing,
-        #Feld,
-        #Joss,
+        # Downing,
+        # Feld,
+        # Joss,
         Pavlov,
-        #OmegaTFT,
-        #TFTT,
-        #TTFT,
-        #GradualTFT,
-        #GenerousTFT,
+        # OmegaTFT,
+        # TFTT,
+        # TTFT,
+        # GradualTFT,
+        # GenerousTFT,
         TidemanAndChieruzzi,
         Champion,
         Borufsen,
-        #Leyvraz,
-        #SecondByHarrington,
-        #SecondByWhiteK72R,
-        #SecondByBlackK83R,
-        #SecondByTidemanAndChieruzzi,
-        SecondByGraaskampKatzen,
-        #SecondByWeiner,
-        #Tullock,
-        ]
+        # Leyvraz,
+        # Harrington,
+        # White,
+        # SecondByBlackK83R,
+        # TidemanAndChieruzzi2,
+        GraaskampAndKatzen,
+        # Weiner,
+        # Tullock,
+    ]
     grid = {
         "lookback": [1],
         "epsilon": [0.01],
         "epsilon_decay": [0],
         "learning_rate": [0.1],
-        "discount_rate": [0.99 for _ in range(150)]
-        }
+        "discount_rate": [0.99 for _ in range(150)],
+    }
 
     results = []
     try:
@@ -131,20 +136,24 @@ def main():
             print(
                 f"[{datetime.now().strftime('%y-%m-%d %H-%M-%S')}]",
                 *hyperparameters,
-                sep="\t"
-                )
+                sep="\t",
+            )
             results.append(
-                evaluate(agents, TabularLearner, **dict(zip(grid.keys(), hyperparameters)))
+                evaluate(
+                    agents, TabularLearner, **dict(zip(grid.keys(), hyperparameters))
                 )
+            )
     except:
         print("Quitting evaluation early.")
 
     if results:
         df = pd.DataFrame(results)
         df["agents"] = ",".join([a.__name__ for a in agents])
-        df.to_csv(f"results/bestpool-tabular-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv")
-            
-    
+        df.to_csv(
+            f"results/bestpool-tabular-{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv"
+        )
+
+
 if __name__ == "__main__":
     torch.set_num_threads(12)
     main()

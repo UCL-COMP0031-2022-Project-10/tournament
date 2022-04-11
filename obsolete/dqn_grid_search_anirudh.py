@@ -11,14 +11,14 @@ from tournament.agents.axelrod_first import (
     Downing,
     Nydegger,
     TidemanAndChieruzzi,
-    Grofman
-    )
+    Grofman,
+)
 from tournament.agents.axelrod_second import (
     Champion,
     Borufsen,
-    SecondByGraaskampKatzen,
-    Leyvraz
-    )
+    GraaskampAndKatzen,
+    Leyvraz,
+)
 from tournament.gridsearch import train_and_evaluate
 
 
@@ -66,9 +66,9 @@ def main():
         TidemanAndChieruzzi,
         Champion,
         Borufsen,
-        SecondByGraaskampKatzen,
+        GraaskampAndKatzen,
         Grofman,
-        Leyvraz
+        Leyvraz,
     ]
 
     grid = {
@@ -124,6 +124,7 @@ def main():
         )
         with open(f"models/{d} ({best_score}).txt", "w") as f:
             f.write(best_agent[0])
+
 
 if __name__ == "__main__":
     torch.set_num_threads(12)

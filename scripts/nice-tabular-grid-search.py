@@ -18,7 +18,7 @@ from tournament.agents.axelrod_first import (
     TidemanAndChieruzzi,
     Tullock,
 )
-from tournament.agents.axelrod_second import Borufsen, Champion, SecondByGraaskampKatzen
+from tournament.agents.axelrod_second import Borufsen, Champion, GraaskampAndKatzen
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.q_learning.tabular import NiceTabularQLearner
 from tournament.agents.tft import OmegaTFT, TitForTat

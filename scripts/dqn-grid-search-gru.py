@@ -6,7 +6,7 @@ import torch
 import torch.nn as nn
 
 from tournament.agents.axelrod_first import Downing, Nydegger, TidemanAndChieruzzi
-from tournament.agents.axelrod_second import Borufsen, Champion, SecondByGraaskampKatzen
+from tournament.agents.axelrod_second import Borufsen, Champion, GraaskampAndKatzen
 from tournament.agents.constant import AllC, AllD
 from tournament.agents.q_learning.dqn import DeepQLearner
 from tournament.agents.tft import OmegaTFT, TitForTat
@@ -53,7 +53,7 @@ def main():
         TidemanAndChieruzzi,
         Champion,
         Borufsen,
-        SecondByGraaskampKatzen,
+        GraaskampAndKatzen,
     ]
 
     grid = {

@@ -8,9 +8,9 @@ import torch.nn as nn
 from tournament.agents.q_learning.dqn import DeepQLearner
 from tournament.agents.tft import OmegaTFT, TTFT, TitForTat
 from tournament.agents.axelrod_first import SteinAndRapoport
-from tournament.agents.axelrod_second import SecondByWeiner, Borufsen
+from tournament.agents.axelrod_second import Weiner, Borufsen
 
-# rule-based agents to include 
+# rule-based agents to include
 # TFT
 
 
@@ -55,17 +55,15 @@ class DQN(DeepQLearner):
 
 
 def main():
-    agents = [
-        TitForTat
-    ]
+    agents = [TitForTat]
 
     grid = {
-        "lookback": [1, 2, 4, 8, 10], # [1, 2, 4, 6, 8, 10]
-        "n1": [4, 8, 16, 32, 64, 128], # [4, 8, 12, 16, 24, 32, 64, 96, 128],
-        "epsilon": [0.05, 0.1, 0.2], # [0.05, 0.1, 0.2]
+        "lookback": [1, 2, 4, 8, 10],  # [1, 2, 4, 6, 8, 10]
+        "n1": [4, 8, 16, 32, 64, 128],  # [4, 8, 12, 16, 24, 32, 64, 96, 128],
+        "epsilon": [0.05, 0.1, 0.2],  # [0.05, 0.1, 0.2]
         "epsilon_decay": [0.0],
-        "learning_rate": [0.001, 0.01], # [0.001, 0.01], 
-        "discount_rate": [0.95], # [0.99, 0.95], 
+        "learning_rate": [0.001, 0.01],  # [0.001, 0.01],
+        "discount_rate": [0.95],  # [0.99, 0.95],
     }
 
     results = []

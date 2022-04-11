@@ -4,22 +4,22 @@
   (layer1): Linear(in_features=4, out_features=4, bias=True)
   (layer2): Linear(in_features=4, out_features=4, bias=True)
   (layer3): Linear(in_features=4, out_features=2, bias=True)
-)",2,4,0.1,0.0,0.01,0.99,500,0.23625666666666667,0.7637433333333333,0.7758555472793255,1.92141,1152846.0,647154.0,24,719.583870967742,131.55438799999996,"TitForTat,Champion,Borufsen,SecondByCave,SecondByWmAdams,SecondByGraaskampKatzen"
+)",2,4,0.1,0.0,0.01,0.99,500,0.23625666666666667,0.7637433333333333,0.7758555472793255,1.92141,1152846.0,647154.0,24,719.583870967742,131.55438799999996,"TitForTat,Champion,Borufsen,Cave,Adams,GraaskampAndKatzen"
 1,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=4, out_features=4, bias=True)
   (layer2): Linear(in_features=4, out_features=4, bias=True)
   (layer3): Linear(in_features=4, out_features=2, bias=True)
-)",2,4,0.2,0.0,0.01,0.99,500,0.9000333333333334,0.09996666666666666,2.284309407242932,2.71376,1628256.0,171744.0,23,713.0903225806452,139.691995,"TitForTat,Champion,Borufsen,SecondByCave,SecondByWmAdams,SecondByGraaskampKatzen"
+)",2,4,0.2,0.0,0.01,0.99,500,0.9000333333333334,0.09996666666666666,2.284309407242932,2.71376,1628256.0,171744.0,23,713.0903225806452,139.691995,"TitForTat,Champion,Borufsen,Cave,Adams,GraaskampAndKatzen"
 2,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=4, out_features=8, bias=True)
   (layer2): Linear(in_features=8, out_features=8, bias=True)
   (layer3): Linear(in_features=8, out_features=2, bias=True)
-)",2,8,0.1,0.0,0.01,0.99,500,0.9498533333333333,0.050146666666666666,2.394022595339219,2.8560416666666666,1713625.0,86375.0,25,710.5035483870968,130.11977599999997,"TitForTat,Champion,Borufsen,SecondByCave,SecondByWmAdams,SecondByGraaskampKatzen"
+)",2,8,0.1,0.0,0.01,0.99,500,0.9498533333333333,0.050146666666666666,2.394022595339219,2.8560416666666666,1713625.0,86375.0,25,710.5035483870968,130.11977599999997,"TitForTat,Champion,Borufsen,Cave,Adams,GraaskampAndKatzen"
 3,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=4, out_features=8, bias=True)
   (layer2): Linear(in_features=8, out_features=8, bias=True)
   (layer3): Linear(in_features=8, out_features=2, bias=True)
-)",2,8,0.2,0.0,0.01,0.99,500,0.28457666666666664,0.7154233333333333,0.907299782750082,1.9849916666666667,1190995.0,609005.0,28,444.60225806451615,165.59607999999997,"TitForTat,Champion,Borufsen,SecondByCave,SecondByWmAdams,SecondByGraaskampKatzen"
+)",2,8,0.2,0.0,0.01,0.99,500,0.28457666666666664,0.7154233333333333,0.907299782750082,1.9849916666666667,1190995.0,609005.0,28,444.60225806451615,165.59607999999997,"TitForTat,Champion,Borufsen,Cave,Adams,GraaskampAndKatzen"

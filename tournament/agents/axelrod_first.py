@@ -9,38 +9,22 @@ from tournament.action import Action
 from tournament.agent import Agent
 from tournament.match import PAYOFF_MATRIX
 
-C, D = Action.COOPERATE, Action.DEFECT
-
 
 class Davis(Agent):
     """
-    Submitted to Axelrod's first tournament by Morton Davis.
+    This class implements the agent submitted by Morton Davis to Axelrod's first tournament.
 
-    The description written in [Axelrod1980]_ is:
-
+    It is described by Axelrod as follows:
     > "A player starts by cooperating for 10 rounds then plays Grudger,
     > defecting if at any point the opponent has defected."
 
-    This strategy came 8th in Axelrod's original tournament.
-
-    Names:
-
-    - Davis: [Axelrod1980]_
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_first.py#L28
     """
 
-    def __init__(self, rounds_to_cooperate: int = 10):
-        """
-        rounds_to_cooperate: The number of rounds to play C.
-        """
-        super().__init__()
-        self._rounds_to_cooperate = rounds_to_cooperate
-
     def play_move(self, history: List[Action], opp_history: List[Action]):
-        """
-        Begins by playing C, then plays D for the remaining rounds if the opponent ever plays D.
-        """
-        if len(history) < self._rounds_to_cooperate:
+        if len(history) < 10:
             return Action.COOPERATE
+
         if opp_history and Action.DEFECT in opp_history:
             return Action.DEFECT
 
@@ -49,10 +33,9 @@ class Davis(Agent):
 
 class Graaskamp(Agent):
     """
-    Submitted to Axelrod's first tournament by James Graaskamp.
+    This class implements the agent submitted by James Graaskamp to Axelrod's first tournament.
 
-    The description written in [Axelrod1980]_ is:
-
+    It is described by Axelrod as follows:
     > This rule plays tit-for-tat for 50 moves, defects on move 51, and then
     > plays 5 more moves of tit-for-tat. A check is then made to see if the player
     > seems to be RANDOM, in which case it defects from then on. A check is also
@@ -60,32 +43,9 @@ class Graaskamp(Agent):
     > preliminary tournament), and its own twin, in which case it plays tit-for-tat
     > Otherwise, it randomly defects every 5 to 15 moves, hoping that enough
     > trust has been built up so that the other player will not notice these
-    > defections.:
+    > defections.
 
-    This is implemented as:
-
-    1. Plays Tit For Tat for the first 50 rounds;
-    2. Defects on round 51;
-    3. Plays 5 further rounds of Tit For Tat;
-    4. A check is then made to see if the opponent is playing randomly in which
-       case it defects for the rest of the game. This is implemented with a chi
-       squared test.
-    5. The strategy also checks to see if the opponent is playing Tit For Tat or
-       a clone of itself. If
-       so it plays Tit For Tat. If not it cooperates and randomly defects every 5
-       to 15 moves.
-
-    Note that there is no information about 'Analogy' available thus Step 5 is
-    a "best possible" interpretation of the description in the paper.
-    Furthermore, the test for the clone is implemented as checking that both
-    players have played the same moves for the entire game. This is unlikely to
-    be the original approach but no further details are available.
-
-    This strategy came 9th in Axelrod’s original tournament.
-
-    Names:
-
-    - Graaskamp: [Axelrod1980]_
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_first.py#L656
     """
 
     def __init__(self, alpha: float = 0.05):
@@ -160,32 +120,17 @@ class Graaskamp(Agent):
 
 class Shubik(Agent):
     """
-    Submitted to Axelrod's first tournament by Martin Shubik.
-    The description written in [Axelrod1980]_ is:
+    This class implements the agent submitted by Martin Shubik to Axelrod's first tournament.
+
+    It is described by Axelrod as follows:
     > This rule cooperates until the other defects, and then defects once. If
     > the other defects again after the rule's cooperation is resumed, the rule
     > defects twice. In general, the length of retaliation is increased by one for
     > each departure from mutual cooperation. This rule is described with its
     > strategic implications in Shubik (1970). Further treatment of its is given
     > in Taylor (1976).
-    There is some room for interpretation as to how the strategy reacts to a
-    defection on the turn where it starts to cooperate once more. In Shubik
-    (1970) the strategy is described as:
-    > "I will play my move 1 to begin with and will continue to do so, so long
-    > as my information shows that the other player has chosen his move 1. If my
-    > information tells me he has used move 2, then I will use move 2 for the
-    > immediate k subsequent periods, after which I will resume using move 1. If
-    > he uses his move 2 again after I have resumed using move 1, then I will
-    > switch to move 2 for the k + 1 immediately subsequent periods . . . and so
-    > on, increasing my retaliation by an extra period for each departure from the
-    > (1, 1) steady state."
-    This is interpreted as:
-    The player cooperates, if when it is cooperating, the opponent defects it
-    defects for k rounds. After k rounds it starts cooperating again and
-    increments the value of k if the opponent defects again.
-    This strategy came 5th in Axelrod's original tournament.
-    Names:
-    - Shubik: [Axelrod1980]_
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_first.py#L656
     """
 
     def __init__(self):
@@ -225,31 +170,22 @@ class Shubik(Agent):
 class SteinAndRapoport(Agent):
     """
     Submitted to Axelrod's first tournament by William Stein and Amnon Rapoport.
-    The description written in [Axelrod1980]_ is:
+
+    It is described by Axelrod as follows:
     > This rule plays tit-for-tat except that it cooperates on the first four
     > moves, it defects on the last two moves, and every fifteen moves it checks
     > to see if the opponent seems to be playing randomly. This check uses a
     > chi-squared test of the other's transition probabilities and also checks for
     > alternating moves of CD and DC.
-    This is implemented as follows:
-    1. It cooperates for the first 4 moves.
-    2. It defects on the last 2 moves.
-    3. Every 15 moves it makes use of a `chi-squared
-       test <http://en.wikipedia.org/wiki/Chi-squared_test>`_ to check if the
-       opponent is playing randomly. If so it defects.
-    This strategy came 6th in Axelrod's original tournament.
-    Names:
-    - SteinAndRapoport: [Axelrod1980]_
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_first.py#L832
+
     """
 
-    def __init__(self, alpha: float = 0.05):
-        """
-        alpha: float
-            The significant level of p-value from chi-squared test with
-            alpha == 0.05 by default.
-        """
+    def __init__(self):
         super().__init__()
-        self.alpha = alpha
+
+        self.alpha = 0.05
         self.opponent_is_random = False
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
@@ -298,10 +234,9 @@ class Grudger(Agent):
 
 class TidemanAndChieruzzi(Agent):
     """
-    Submitted to Axelrod's first tournament by Nicolas Tideman and Paula
-    Chieruzzi.
+    This class implements the agent submitted by Nicolas Tideman and Paula Chieruzzi to Axelrod's first tournament.
 
-    The description written in [Axelrod1980]_ is:
+    It is described by Axelrod as follows:
     > "This rule begins with cooperation and tit-for-tat. However, when the
     > other player finishes his second run of defections, an extra punishment is
     > instituted, and the number of punishing defections is increased by one with
@@ -312,6 +247,8 @@ class TidemanAndChieruzzi(Agent):
     > from a 50-50 random generator by at least 3.0 standard deviations. A fresh
     > start involves two cooperations and then play as if the game had just
     > started. The program defects automatically on the last two moves."
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_first.py#L906
     """
 
     def __init__(self):
@@ -326,7 +263,7 @@ class TidemanAndChieruzzi(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         self.fresh_start_count += 1
         if not history:
-            return C
+            return Action.COOPERATE
 
         self.opp_D_count += opp_history[-1].value - 1  # C = 1, D = 2
         last_round = PAYOFF_MATRIX[(history[-1], opp_history[-1])]
@@ -335,13 +272,13 @@ class TidemanAndChieruzzi(Agent):
 
         if self.retaliation_remaining:
             self.retaliation_remaining -= 1
-            return D
+            return Action.DEFECT
 
         # if the other player has just started a run of defections
-        if opp_history[-1] == D:
+        if opp_history[-1] == Action.DEFECT:
             self.retaliation_remaining = self.retaliation_length
             self.retaliation_length += 1
-            return D
+            return Action.DEFECT
 
         # if the other player is 10 or more points behind
         # if it has been at least 20 moves since a fresh start
@@ -357,14 +294,14 @@ class TidemanAndChieruzzi(Agent):
             self.fresh_start = False
             self.fresh_start_count = 0
 
-        return C
+        return Action.COOPERATE
 
 
 class Nydegger(Agent):
     """
-    Submitted to Axelrod's first tournament by Rudy Nydegger.
+    This class implements the agent submitted by Rudy Nydegger to Axelrod's first tournament.
 
-    The description written in [Axelrod1980]_ is:
+    It is described by Axelrod as follows:
     > "The program begins with tit-for-tat for the first three moves, except
     > that if it was the only one to cooperate on the first move and the only one
     > to defect on the second move, it defects on the third move. After the third
@@ -378,6 +315,8 @@ class Nydegger(Agent):
     > designed for use in laboratory experiments as a stooge which had a memory
     > and appeared to be trustworthy, potentially cooperative, but not gullible
     > (Nydegger, 1978)."
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_first.py#L533
     """
 
     def __init__(self):
@@ -403,18 +342,18 @@ class Nydegger(Agent):
             58,
             61,
         ]
-        self.score_map = {C: 0, D: 1}
+        self.score_map = {Action.COOPERATE: 0, Action.DEFECT: 1}
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         if not history:
-            return C
+            return Action.COOPERATE
 
         if len(history) == 1:
             return opp_history[0]
 
         if len(history) == 2:
-            if opp_history[0] == D and opp_history[1] == C:
-                return D
+            if opp_history[0] == Action.DEFECT and opp_history[1] == Action.COOPERATE:
+                return Action.DEFECT
             return opp_history[1]
 
         A = (
@@ -426,36 +365,32 @@ class Nydegger(Agent):
             + 2 * self.score_map[opp_history[-1]]
         )
         if A in self.A_to_defect:
-            return D
+            return Action.DEFECT
 
-        return C
+        return Action.COOPERATE
 
 
 class Grofman(Agent):
     """
-    Submitted to Axelrod's first tournament by Bernard Grofman.
+    This class implements the agent submitted by Bernard Grofman to Axelrod's first tournament.
 
-    The description written in [Axelrod1980]_ is:
+    It is described by Axelrod as follows:
     > "If the players did different things on the previous move, this rule
     > cooperates with probability 2/7. Otherwise this rule always cooperates."
     """
 
-    def __init__(self):
-        super().__init__()
-
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         if not history:
-            return C
+            return Action.COOPERATE
 
         if history[-1] != opp_history[-1] and numpy.random.random() >= 2 / 7:
-            return D
+            return Action.DEFECT
 
-        return C
+        return Action.COOPERATE
 
 
 class Tullock(Agent):
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-
         if len(history) <= 11:
             # always cooperate on first 11 moves.
             return Action.COOPERATE
@@ -473,7 +408,6 @@ class Tullock(Agent):
 
 
 class Downing(Agent):
-    # fix downing.
     def __init__(self):
         # num of times opp has cooperated after Downing has cooperated.
         self._num_coop_following_coop = 0

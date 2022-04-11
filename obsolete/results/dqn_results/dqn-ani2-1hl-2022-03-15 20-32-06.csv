@@ -4,70 +4,70 @@
   (layer1): Linear(in_features=2, out_features=4, bias=True)
   (layer2): Linear(in_features=4, out_features=4, bias=True)
   (layer3): Linear(in_features=4, out_features=2, bias=True)
-)",1,4,0.2,0.0,0.01,0.95,0.3307333333333333,0.6692666666666667,0.7014675368125223,2.1014958333333333,504359,215641,27,497.3306451612903,23.095370999999997,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,4,0.2,0.0,0.01,0.95,0.3307333333333333,0.6692666666666667,0.7014675368125223,2.1014958333333333,504359,215641,27,497.3306451612903,23.095370999999997,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 1,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=2, out_features=4, bias=True)
   (layer2): Linear(in_features=4, out_features=4, bias=True)
   (layer3): Linear(in_features=4, out_features=2, bias=True)
-)",1,4,0.2,0.0,0.01,0.99,0.7132375,0.2867625,1.8814982803271754,2.331570833333333,559577,160423,25,602.3370967741936,17.590207,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,4,0.2,0.0,0.01,0.99,0.7132375,0.2867625,1.8814982803271754,2.331570833333333,559577,160423,25,602.3370967741936,17.590207,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 2,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=2, out_features=64, bias=True)
   (layer2): Linear(in_features=64, out_features=64, bias=True)
   (layer3): Linear(in_features=64, out_features=2, bias=True)
-)",1,64,0.2,0.0,0.01,0.95,0.8997625,0.1002375,2.302512925100701,2.7349208333333332,656381,63619,24,717.8161290322581,19.771186999999998,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,64,0.2,0.0,0.01,0.95,0.8997625,0.1002375,2.302512925100701,2.7349208333333332,656381,63619,24,717.8161290322581,19.771186999999998,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 3,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=2, out_features=64, bias=True)
   (layer2): Linear(in_features=64, out_features=64, bias=True)
   (layer3): Linear(in_features=64, out_features=2, bias=True)
-)",1,64,0.2,0.0,0.01,0.99,0.9002625,0.0997375,2.3056759124831685,2.738541666666667,657250,62750,25,689.7903225806451,31.21940899999999,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,64,0.2,0.0,0.01,0.99,0.9002625,0.0997375,2.3056759124831685,2.738541666666667,657250,62750,25,689.7903225806451,31.21940899999999,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 4,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=2, out_features=128, bias=True)
   (layer2): Linear(in_features=128, out_features=128, bias=True)
   (layer3): Linear(in_features=128, out_features=2, bias=True)
-)",1,128,0.2,0.0,0.01,0.95,0.8996958333333334,0.10030416666666667,2.303568225927902,2.7361666666666666,656680,63320,25,699.6548387096774,21.017128,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,128,0.2,0.0,0.01,0.95,0.8996958333333334,0.10030416666666667,2.303568225927902,2.7361666666666666,656680,63320,25,699.6548387096774,21.017128,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 5,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=2, out_features=128, bias=True)
   (layer2): Linear(in_features=128, out_features=128, bias=True)
   (layer3): Linear(in_features=128, out_features=2, bias=True)
-)",1,128,0.2,0.0,0.01,0.99,0.9005125,0.0994875,2.2889964190820855,2.7194,652656,67344,24,720.6354838709677,18.925093,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",1,128,0.2,0.0,0.01,0.99,0.9005125,0.0994875,2.2889964190820855,2.7194,652656,67344,24,720.6354838709677,18.925093,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 6,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=8, out_features=4, bias=True)
   (layer2): Linear(in_features=4, out_features=4, bias=True)
   (layer3): Linear(in_features=4, out_features=2, bias=True)
-)",4,4,0.2,0.0,0.01,0.95,0.9010333333333334,0.09896666666666666,2.3026021023621164,2.7353625,656487,63513,21,739.7645161290322,17.182401000000002,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,4,0.2,0.0,0.01,0.95,0.9010333333333334,0.09896666666666666,2.3026021023621164,2.7353625,656487,63513,21,739.7645161290322,17.182401000000002,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 7,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=8, out_features=4, bias=True)
   (layer2): Linear(in_features=4, out_features=4, bias=True)
   (layer3): Linear(in_features=4, out_features=2, bias=True)
-)",4,4,0.2,0.0,0.01,0.99,0.8993333333333333,0.10066666666666667,2.296622651514017,2.72835,654804,65196,25,707.4,17.701421,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,4,0.2,0.0,0.01,0.99,0.8993333333333333,0.10066666666666667,2.296622651514017,2.72835,654804,65196,25,707.4,17.701421,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 8,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=8, out_features=64, bias=True)
   (layer2): Linear(in_features=64, out_features=64, bias=True)
   (layer3): Linear(in_features=64, out_features=2, bias=True)
-)",4,64,0.2,0.0,0.01,0.95,0.8998125,0.1001875,2.2953986757099627,2.7266125,654387,65613,22,731.9048387096774,18.319630000000007,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,64,0.2,0.0,0.01,0.95,0.8998125,0.1001875,2.2953986757099627,2.7266125,654387,65613,22,731.9048387096774,18.319630000000007,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 9,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=8, out_features=64, bias=True)
   (layer2): Linear(in_features=64, out_features=64, bias=True)
   (layer3): Linear(in_features=64, out_features=2, bias=True)
-)",4,64,0.2,0.0,0.01,0.99,0.8999875,0.1000125,2.291878651534828,2.7224333333333335,653384,66616,25,689.741935483871,17.253513,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,64,0.2,0.0,0.01,0.99,0.8999875,0.1000125,2.291878651534828,2.7224333333333335,653384,66616,25,689.741935483871,17.253513,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 10,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=8, out_features=128, bias=True)
   (layer2): Linear(in_features=128, out_features=128, bias=True)
   (layer3): Linear(in_features=128, out_features=2, bias=True)
-)",4,128,0.2,0.0,0.01,0.95,0.9000125,0.0999875,2.298356778103113,2.7301291666666665,655231,64769,25,649.3629032258065,16.744818,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,128,0.2,0.0,0.01,0.95,0.9000125,0.0999875,2.298356778103113,2.7301291666666665,655231,64769,25,649.3629032258065,16.744818,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"
 11,"QNetwork(
   (flatten): Flatten(start_dim=1, end_dim=-1)
   (layer1): Linear(in_features=8, out_features=128, bias=True)
   (layer2): Linear(in_features=128, out_features=128, bias=True)
   (layer3): Linear(in_features=128, out_features=2, bias=True)
-)",4,128,0.2,0.0,0.01,0.99,0.899975,0.100025,2.303378079666073,2.7360375,656649,63351,24,700.8483870967742,34.50275500000001,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,SecondByGraaskampKatzen"
+)",4,128,0.2,0.0,0.01,0.99,0.899975,0.100025,2.303378079666073,2.7360375,656649,63351,24,700.8483870967742,34.50275500000001,"TitForTat,Nydegger,TidemanAndChieruzzi,Champion,Borufsen,GraaskampAndKatzen"

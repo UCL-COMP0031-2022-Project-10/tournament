@@ -7,20 +7,18 @@ from tournament.action import Action
 from tournament.agent import Agent
 from tournament.match import PAYOFF_MATRIX
 
-C, D = Action.COOPERATE, Action.DEFECT
-
 
 class Champion(Agent):
     """
-    Strategy submitted to Axelrod's second tournament by Danny Champion.
-    This player cooperates on the first 10 moves,
-    plays Tit for Tat for the next 15 more moves.
+    This class implements the agent submitted by Danny Champion to Axelrod's second tournament.
+
+    This agent cooperates on the first 10 moves and then plays TitForTat on the next 15 more moves.
     After 25 moves, the program cooperates unless all the following are true:
-    the other player defected on the previous move,
-    the other player cooperated less than 60% and
-    the random number between 0 and 1 is greater that the other player's cooperation rate.
-    Names:
-    - Champion: [Axelrod1980b]_
+    - the other player defected on the previous move,
+    - the other player cooperated less than 60% and
+    - the random number between 0 and 1 is greater that the other player's cooperation rate.
+
+    The implementation of this agent was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L18
     """
 
     def __init__(self) -> None:
@@ -29,15 +27,13 @@ class Champion(Agent):
         self.defections = 0
 
     def play_move(self, history: List[Action], opp_history: List[Action]):
-        """plays a move."""
-
         current_round = len(history)
         if current_round > 0 and opp_history[-1] == Action.DEFECT:
             self.defections += 1
 
         # Cooperate for the first 10 turns
         if current_round < 10:
-            return C
+            return Action.COOPERATE
 
         # TFT next 15 turns
         if current_round < 25:
@@ -46,43 +42,19 @@ class Champion(Agent):
         # Calculate defection rate
         defection_prop = self.defections / len(opp_history)
         # Check if all conditions are met
-        if opp_history[-1] == D:
+        if opp_history[-1] == Action.DEFECT:
             r = RandomState().rand()
             if defection_prop >= max(0.4, r):
-                return D
+                return Action.DEFECT
 
-        return C
+        return Action.COOPERATE
 
 
 class Borufsen(Agent):
     """
-    Strategy submitted to Axelrod's second tournament by Otto Borufsen
-    (K32R), and came in third in that tournament.
-    This player keeps track of the opponent's responses to own behavior:
-    - `cd_count` counts: Opponent cooperates as response to player defecting.
-    - `cc_count` counts: Opponent cooperates as response to player cooperating.
-    The player has a defect mode and a normal mode.
-    In defect mode, the player will always defect.
-    In normal mode, the player obeys the following ranked rules:
-    1. If in the last three turns, both the player/opponent defected, then
-       cooperate for a single turn.
-    2. If in the last three turns, the player/opponent acted differently from
-       each other, and they're alternating, then change next defect to
-       cooperate.  (Doesn't block third rule.)
-    3. Otherwise, do tit-for-tat.
-    Start in normal mode, but every 25 turns starting with the 27th turn,
-    re-evaluate the mode.
-    Enter defect mode if any of the following conditions hold:
-    - Detected random:  Opponent cooperated 7-18 times since last mode
-      evaluation (or start) AND less than 70% of opponent cooperation was in
-      response to player's cooperation, i.e., cc_count / (cc_count+cd_count) < 0.7
-    - Detect defective:  Opponent cooperated fewer than 3 times since last mode
-      evaluation.
-    When switching to defect mode, defect immediately. The first two rules for
-    normal mode require that last three turns were in normal mode. When starting
-    normal mode from defect mode, defect on first move.
-    Names:
-    - Borufsen: [Axelrod1980b]_
+    This class implements the agent submitted by Otto Borufsen to Axelrod's second tournament.
+
+    The implementation of this agent was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L606
     """
 
     def __init__(self):
@@ -99,15 +71,15 @@ class Borufsen(Agent):
         """
 
         # If C, return C
-        if to_return == C:
-            return C
+        if to_return == Action.COOPERATE:
+            return Action.COOPERATE
         # If D, check flip bit.
         # If flip, return C
         if self.flip_next_defect:
             self.flip_next_defect = False
-            return C
+            return Action.COOPERATE
         # If not flip, return D
-        return D
+        return Action.DEFECT
 
     def play_move(self, history: List[Action], opp_history: List[Action]):
         """plays a move."""
@@ -115,12 +87,12 @@ class Borufsen(Agent):
 
         # first time return C
         if turn == 1:
-            return C
+            return Action.COOPERATE
 
         # Update the response history.
         if turn >= 3:
-            if opp_history[-1] == C:
-                if history[-2] == C:
+            if opp_history[-1] == Action.COOPERATE:
+                if history[-2] == Action.COOPERATE:
                     self.cc_counts += 1
                 else:
                     self.cd_counts += 1
@@ -152,16 +124,16 @@ class Borufsen(Agent):
 
             #  When starting normal mode from defect mode, defect on first move.
             if self.mode == "Normal" and coming_from_defect:
-                return D
+                return Action.DEFECT
 
         # Proceed
         if self.mode == "Defect":
-            return D
+            return Action.DEFECT
         else:
             assert self.mode == "Normal"
 
             # update mutual defect streak
-            if history[-1] == D and opp_history[-1] == D:
+            if history[-1] == Action.DEFECT and opp_history[-1] == Action.DEFECT:
                 self.mutual_defect_streak += 1
             else:
                 self.mutual_defect_streak = 0
@@ -170,10 +142,10 @@ class Borufsen(Agent):
             if self.mutual_defect_streak >= 3:
                 self.mutual_defect_streak = 0
                 self.echo_streak = 0  # Reset both streaks.
-                return self.try_return(C)
+                return self.try_return(Action.COOPERATE)
 
             # Look for echoes
-            my_two_back, opp_two_back = C, C
+            my_two_back, opp_two_back = Action.COOPERATE, Action.COOPERATE
             if turn >= 3:
                 my_two_back = history[-2]
                 opp_two_back = opp_history[-2]
@@ -200,8 +172,8 @@ class Borufsen(Agent):
 
 class Leyvraz(Agent):
     """
-    Strategy submitted to Axelrod's second tournament by Fransois Leyvraz
-    (K68R) and came in twelfth in that tournament.
+    This class implements the agent submitted by Francois Leyvraz to Axelrod's second tournament.
+
     The strategy uses the opponent's last three moves to decide on an action
     based on the following ordered rules.
     1. If opponent Defected last two turns, then Defect with prob 75%.
@@ -209,26 +181,26 @@ class Leyvraz(Agent):
     3. If opponent Defected two turns ago, then Defect.
     4. If opponent Defected last turn, then Defect with prob 50%.
     5. Otherwise (all Cooperations), then Cooperate.
-    Names:
-    - Leyvraz: [Axelrod1980b]_
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L1534
     """
 
     def __init__(self):
         super().__init__()
         self.prob_coop = {
             # Rule 1
-            (C, D, D): 0.25,
-            (D, D, D): 0.25,
+            (Action.COOPERATE, Action.DEFECT, Action.DEFECT): 0.25,
+            (Action.DEFECT, Action.DEFECT, Action.DEFECT): 0.25,
             # Rule 2
-            (D, C, C): 1.0,
-            (D, C, D): 1.0,
-            (D, D, C): 1.0,
+            (Action.DEFECT, Action.COOPERATE, Action.COOPERATE): 1.0,
+            (Action.DEFECT, Action.COOPERATE, Action.DEFECT): 1.0,
+            (Action.DEFECT, Action.DEFECT, Action.COOPERATE): 1.0,
             # Rule 3
-            (C, D, C): 0.0,
+            (Action.COOPERATE, Action.DEFECT, Action.COOPERATE): 0.0,
             # Rule 4
-            (C, C, D): 0.5,
+            (Action.COOPERATE, Action.COOPERATE, Action.DEFECT): 0.5,
             # Rule 5
-            (C, C, C): 1.0,
+            (Action.COOPERATE, Action.COOPERATE, Action.COOPERATE): 1.0,
         }
 
     def random_choice(self, p: float = 0.5):
@@ -236,18 +208,22 @@ class Leyvraz(Agent):
         Return action according to cooperation probability p.
         """
         if p == 0:
-            return D
+            return Action.DEFECT
 
         if p == 1:
-            return C
+            return Action.COOPERATE
 
         r = RandomState().rand()
         if r < p:
-            return C
-        return D
+            return Action.COOPERATE
+        return Action.DEFECT
 
     def play_move(self, history: List[Action], opp_history: List[Action]):
-        recent_history = [C, C, C]  # Default to C.
+        recent_history = [
+            Action.COOPERATE,
+            Action.COOPERATE,
+            Action.COOPERATE,
+        ]  # Default to C.
         for go_back in range(1, 4):
             if len(opp_history) >= go_back:
                 recent_history[-go_back] = opp_history[-go_back]
@@ -257,93 +233,12 @@ class Leyvraz(Agent):
         )
 
 
-class SecondByHarrington(Agent):
+class Harrington(Agent):
     """
-    Strategy submitted to Axelrod's second tournament by Paul Harrington (K75R)
-    and came in eighth in that tournament.
+    This class implements the strategy submitted by Paul Harrington to Axelrod's second tournament.
 
-    This strategy has three modes:  Normal, Fair-weather, and Defect.  These
-    mode names were not present in Harrington's submission.
+    This agent implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L1027
 
-    In Normal and Fair-weather modes, the strategy begins by:
-    - Update history
-    - Try to detect random opponent if turn is multiple of 15 and >=30.
-    - Check if `burned` flag should be raised.
-    - Check for Fair-weather opponent if turn is 38.
-
-    Updating history means to increment the correct cell of the `move_history`.
-    `move_history` is a matrix where the columns are the opponent's previous
-    move and the rows are indexed by the combo of this player's and the
-    opponent's moves two turns ago.  [The upper-left cell must be all
-    Cooperations, but otherwise order doesn't matter.]  After we enter Defect
-    mode, `move_history` won't be used again.
-
-    If the turn is a multiple of 15 and >=30, then attempt to detect random.
-    If random is detected, enter Defect mode and defect immediately.  If the
-    player was previously in Defect mode, then do not re-enter.  The random
-    detection logic is a modified Pearson's Chi Squared test, with some
-    additional checks.  [More details in `detect_random` docstrings.]
-
-    Some of this player's moves are marked as "generous."  If this player made
-    a generous move two turns ago and the opponent replied with a Defect, then
-    raise the `burned` flag.  This will stop certain generous moves later.
-
-    The player mostly plays Tit-for-Tat for the first 36 moves, then defects on
-    the 37th move.  If the opponent cooperates on the first 36 moves, and
-    defects on the 37th move also, then enter Fair-weather mode and cooperate
-    this turn.  Entering Fair-weather mode is extremely rare, since this can
-    only happen if the opponent cooperates for the first 36 then defects
-    unprovoked on the 37th.  (That is, this player's first 36 moves are also
-    Cooperations, so there's nothing really to trigger an opponent Defection.)
-
-    Next in Normal Mode:
-    1. Check for defect and parity streaks.
-    2. Check if cooperations are scheduled.
-    3. Otherwise,
-    - If turn < 37, Tit-for-Tat.
-    - If turn = 37, defect, mark this move as generous, and schedule two
-      more cooperations**.
-    - If turn > 37, then if `burned` flag is raised, then Tit-for-Tat.
-      Otherwise, Tit-for-Tat with probability 1 - `prob`.  And with
-      probability `prob`, defect, schedule two cooperations, mark this move
-      as generous, and increase `prob` by 5%.
-
-    ** Scheduling two cooperations means to set `more_coop` flag to two.  If in
-    Normal mode and no streaks are detected, then the player will cooperate and
-    lower this flag, until hitting zero.  It's possible that the flag can be
-    overwritten.  Notable on the 37th turn defect, this is set to two, but the
-    38th turn Fair-weather check will set this.
-
-    If the opponent's last twenty moves were defections, then defect this turn.
-    Then check for a parity streak, by flipping the parity bit (there are two
-    streaks that get tracked which are something like odd and even turns, but
-    this flip bit logic doesn't get run every turn), then incrementing the
-    parity streak that we're pointing to.  If the parity streak that we're
-    pointing to is then greater than `parity_limit` then reset the streak and
-    cooperate immediately.  `parity_limit` is initially set to five, but after
-    it has been hit eight times, it decreases to three.  The parity streak that
-    we're pointing to also gets incremented if in normal mode, and we defect but
-    not on turn 38, unless we are defecting as the result of a defect streak.
-    Note that the parity streaks resets but the defect streak doesn't.
-
-    If `more_coop` >= 1, then we cooperate and lower that flag here, in Normal
-    mode after checking streaks.  Still lower this flag if cooperating as the
-    result of a parity streak or in Fair-weather mode.
-
-    Then use the logic based on turn from above.
-
-    In Fair-Weather mode after running the code from above, check if opponent
-    defected last turn.  If so, exit Fair-Weather mode, and proceed THIS TURN
-    with Normal mode.  Otherwise, cooperate.
-
-    In Defect mode, update the `exit_defect_meter` (originally zero) by
-    incrementing if opponent defected last turn and decreasing by three
-    otherwise.  If `exit_defect_meter` is then 11, then set mode to Normal (for
-    future turns), cooperate and schedule two more cooperations.  [Note that
-    this move is not marked generous.]
-
-    Names:
-    - Harrington: [Axelrod1980b]_
     """
 
     def __init__(self):
@@ -380,13 +275,13 @@ class SecondByHarrington(Agent):
         This will return to_return, with some end-of-turn logic.
         """
 
-        if lower_flags and to_return == C:
+        if lower_flags and to_return == Action.COOPERATE:
             # In most cases when Cooperating, we want to reduce the number that
             # are scheduled.
             self.more_coop -= 1
             self.last_generous_n_turns_ago += 1
 
-        if inc_parity and to_return == D:
+        if inc_parity and to_return == Action.DEFECT:
             # In some cases we increment the `parity_streak` that we're on when
             # we return a Defection.  In detect_parity_streak, `parity_streak`
             # counts opponent's Defections.
@@ -453,7 +348,7 @@ class SecondByHarrington(Agent):
         Return true if and only if the opponent's last twenty moves are defects.
         """
 
-        if last_move == D:
+        if last_move == Action.DEFECT:
             self.defect_streak += 1
         else:
             self.defect_streak = 0
@@ -472,7 +367,7 @@ class SecondByHarrington(Agent):
         """
 
         self.parity_bit = 1 - self.parity_bit  # Flip bit
-        if last_move == D:
+        if last_move == Action.DEFECT:
             self.parity_streak[self.parity_bit] += 1
         else:
             self.parity_streak[self.parity_bit] = 0
@@ -484,13 +379,13 @@ class SecondByHarrington(Agent):
         turn = len(history) + 1
 
         if turn == 1:
-            return C
+            return Action.COOPERATE
 
         self.opp_D_count += opp_history[-1].value - 1  # C = 1, D = 2
 
         if self.mode == "Defect":
             # There's a chance to exit Defect mode.
-            if opp_history[-1] == D:
+            if opp_history[-1] == Action.DEFECT:
                 self.exit_defect_meter += 1
             else:
                 self.exit_defect_meter -= 3
@@ -499,8 +394,8 @@ class SecondByHarrington(Agent):
                 self.mode = "Normal"
                 self.was_defective = True
                 self.more_coop = 2
-                return self.try_return(to_return=C, lower_flags=False)
-            return self.try_return(D)
+                return self.try_return(to_return=Action.COOPERATE, lower_flags=False)
+            return self.try_return(Action.DEFECT)
 
         # If not Defect mode, proceed to update history and check for random,
         # check if burned, and check if opponent's fair-weather.
@@ -508,15 +403,15 @@ class SecondByHarrington(Agent):
         # If we haven't yet entered Defect mode
         if not self.was_defective:
             if turn > 2:
-                if opp_history[-1] == D:
+                if opp_history[-1] == Action.DEFECT:
                     self.recorded_defects += 1
 
                 # Column decided by opponent's last turn
-                history_col = 1 if opp_history[-1] == D else 0
+                history_col = 1 if opp_history[-1] == Action.DEFECT else 0
                 # Row is decided by opponent's move two turns ago and our move
                 # two turns ago.
-                history_row = 1 if opp_history[-2] == D else 0
-                if history[-2] == D:
+                history_row = 1 if opp_history[-2] == Action.DEFECT else 0
+                if history[-2] == Action.DEFECT:
                     history_row += 2
                 self.move_history[history_row, history_col] += 1
 
@@ -525,32 +420,32 @@ class SecondByHarrington(Agent):
                 if self.detect_random(turn):
                     self.mode = "Defect"
                     return self.try_return(
-                        D, lower_flags=False
+                        Action.DEFECT, lower_flags=False
                     )  # Lower_flags not used here.
 
         # If generous 2 turns ago and opponent defected last turn
-        if self.last_generous_n_turns_ago == 2 and opp_history[-1] == D:
+        if self.last_generous_n_turns_ago == 2 and opp_history[-1] == Action.DEFECT:
             self.burned = True
 
         # Only enter Fair-weather mode if the opponent Cooperated the first 37
         # turns then Defected on the 38th.
-        if turn == 38 and opp_history[-1] == D and self.opp_D_count == 36:
+        if turn == 38 and opp_history[-1] == Action.DEFECT and self.opp_D_count == 36:
             self.mode = "Fair-weather"
-            return self.try_return(to_return=C, lower_flags=False)
+            return self.try_return(to_return=Action.COOPERATE, lower_flags=False)
 
         if self.mode == "Fair-weather":
-            if opp_history[-1] == D:
+            if opp_history[-1] == Action.DEFECT:
                 self.mode = "Normal"  # Post-Defect is not possible
                 # Proceed with Normal mode this turn.
             else:
                 # Never defect against a fair-weather opponent
-                return self.try_return(C)
+                return self.try_return(Action.COOPERATE)
 
         # Continue with Normal mode
 
         # Check for streaks
         if self.detect_streak(opp_history[-1]):
-            return self.try_return(D, inc_parity=True)
+            return self.try_return(Action.DEFECT, inc_parity=True)
 
         if self.detect_parity_streak(opp_history[-1]):
             self.parity_streak[
@@ -560,33 +455,39 @@ class SecondByHarrington(Agent):
             if self.parity_hits >= 8:  # After 8 times, lower the limit.
                 self.parity_limit = 3
             return self.try_return(
-                C, inc_parity=True
+                Action.COOPERATE, inc_parity=True
             )  # Inc parity won't get used here.
 
         # If we have Cooperations scheduled, then Cooperate here.
         if self.more_coop >= 1:
-            return self.try_return(C, lower_flags=True, inc_parity=True)
+            return self.try_return(Action.COOPERATE, lower_flags=True, inc_parity=True)
 
         if turn < 37:
-            # Tit-for-Tat
+            # TitForTat
             return self.try_return(opp_history[-1], inc_parity=True)
 
         if turn == 37:
             # Defect once on turn 37 (if no streaks)
             self.more_coop, self.last_generous_n_turns_ago = 2, 1
-            return self.try_return(D, lower_flags=False)
+            return self.try_return(Action.DEFECT, lower_flags=False)
 
         if self.burned or np.random.random() > self.prob:
-            # Tit-for-Tat with probability 1-`prob`
+            # TitForTat with probability 1-`prob`
             return self.try_return(opp_history[-1], inc_parity=True)
 
         # Otherwise Defect, Cooperate, Cooperate, and increase `prob`
         self.prob += 0.05
         self.more_coop, self.last_generous_n_turns_ago = 2, 1
-        return self.try_return(D, lower_flags=False)
+        return self.try_return(Action.DEFECT, lower_flags=False)
 
 
-class SecondByWhiteK72R(Agent):
+class White(Agent):
+    """
+    This class implements the agent submitted by Edward White to Axelrod's second tournament.
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L1589
+    """
+
     # Cooperate for 10 times firstly
     # Cooperate if opponent Cooperates.
     # Otherwise, defect if and only if:
@@ -605,54 +506,43 @@ class SecondByWhiteK72R(Agent):
 
         if turn <= 10 or opp_history[-1] == Action.COOPERATE:
             return Action.COOPERATE
+
         if np.floor(np.log(turn)) * self.defections >= turn:
             return Action.DEFECT
+
         return Action.COOPERATE
 
 
 class SecondByBlackK83R(Agent):
-    # Cooperate for 5 times firstly
-    # Then it calculates the number of opponent defects 'number_defects'
-    # in the last five moves and Cooperates with probability 'prob_coop', where:
-    # prob_coop[number_defects] = 1 - (number_defects^ 2 - 1) / 25
+    """
+    This class implements the agent submitted by Paul Black to Axelrod's second tournament.
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L1625
+    """
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         if len(opp_history) < 5:
             return Action.COOPERATE
-        opp_defection_count_l5 = 0
+
+        opp_defection_count = 0
         for i in range(5):
-            opp_defection_count_l5 += 1 if (opp_history[-5:][i] == Action.DEFECT) else 0
+            if opp_history[-5:][i] == Action.DEFECT:
+                opp_defection_count += 1
+
         prob_coop = {0: 1.0, 1: 1.0, 2: 0.88, 3: 0.68, 4: 0.4, 5: 0.04}
-        if random.random() <= prob_coop[opp_defection_count_l5]:
-            return Action.COOPERATE
-        else:
-            return Action.DEFECT
+
+        return (
+            Action.COOPERATE
+            if random.random() <= prob_coop[opp_defection_count]
+            else Action.DEFECT
+        )
 
 
-class SecondByTidemanAndChieruzzi(Agent):
+class TidemanAndChieruzzi2(Agent):
     """
-    Strategy submitted to Axelrod's second tournament by T. Nicolaus Tideman
-    and Paula Chieruzzi (K84R) and came in ninth in that tournament.
+    This class implements the agent submitted by Tideman and Chieruzzi to Axelrod's second tournament.
 
-    This strategy Cooperates if this player's score exceeds the opponent's
-    score by at least `score_to_beat`.  `score_to_beat` starts at zero and
-    increases by `score_to_beat_inc` every time the opponent's last two moves
-    are a Cooperation and Defection in that order.  `score_to_beat_inc` itself
-    increase by 5 every time the opponent's last two moves are a Cooperation
-    and Defection in that order.
-
-    Additionally, the strategy executes a "fresh start" if the following hold:
-    - The strategy would Defect by score (difference less than `score_to_beat`)
-    - The opponent did not Cooperate and Defect (in order) in the last two
-      turns.
-    - It's been at least 10 turns since the last fresh start.  Or since the
-      match started if there hasn't been a fresh start yet.
-
-    A "fresh start" entails two Cooperations and resetting scores,
-    `scores_to_beat` and `scores_to_beat_inc`.
-
-    Names:
-    - TidemanAndChieruzzi: [Axelrod1980b]_
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L1385
     """
 
     def __init__(self):
@@ -675,7 +565,7 @@ class SecondByTidemanAndChieruzzi(Agent):
         current_round = len(history) + 1
 
         if current_round == 1:
-            return C
+            return Action.COOPERATE
 
         self.opp_D_count += opp_history[-1].value - 1  # C = 1, D = 2
         # Calculate the scores.
@@ -688,22 +578,25 @@ class SecondByTidemanAndChieruzzi(Agent):
             self._fresh_start()
             self.last_fresh_start = current_round
             self.fresh_start = False
-            return C  # Second cooperation
+            return Action.COOPERATE  # Second cooperation
 
         opponent_CDd = False
 
-        opponent_two_turns_ago = C  # Default value for second turn.
+        opponent_two_turns_ago = Action.COOPERATE  # Default value for second turn.
         if len(opp_history) >= 2:
             opponent_two_turns_ago = opp_history[-2]
         # If opponent's last two turns are C and D in that order.
-        if opponent_two_turns_ago == C and opp_history[-1] == D:
+        if (
+            opponent_two_turns_ago == Action.COOPERATE
+            and opp_history[-1] == Action.DEFECT
+        ):
             opponent_CDd = True
             self.score_to_beat += self.score_to_beat_inc
             self.score_to_beat_inc += 5
 
         # Cooperate if we're beating opponent by at least `score_to_beat`
         if self.score_diff >= self.score_to_beat:
-            return C
+            return Action.COOPERATE
 
         # Wait at least ten turns for another fresh start.
         if (not opponent_CDd) and current_round - self.last_fresh_start >= 10:
@@ -716,20 +609,19 @@ class SecondByTidemanAndChieruzzi(Agent):
             if self.opp_D_count <= lower or self.opp_D_count >= upper:
                 # Opponent deserves a fresh start
                 self.fresh_start = True
-                return C  # First cooperation
+                return Action.COOPERATE  # First cooperation
 
-        return D
+        return Action.DEFECT
 
 
-class SecondByWmAdams(Agent):
+class Adams(Agent):
+    """
+    This class implements the agent submitted by William Adams to Axelrod's second tournament.
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L819
+    """
+
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-
-        """
-        Count # of defects, label it c_defect
-        if c_defect equals 4, 7, or 9 => defect.
-        if c_defect > 9 => defect after opponent defection with prob 0.5 ^(c_defect - 1). Otherwise, cooperate.
-        """
-
         if not history:
             return Action.COOPERATE
 
@@ -745,19 +637,22 @@ class SecondByWmAdams(Agent):
         return Action.COOPERATE
 
 
-class SecondByCave(Agent):
+class Cave(Agent):
+    """
+    This class implements the agent submitted by Rob Cave to Axelrod's second tournament.
+
+    First, check if opponent is overly defective and defect if found, i.e. if they meet any of the following conditions:
+    - turn > 39 and % defects > 0.39
+    - turn > 29 and % defects > 0.65
+    - turn > 19 and % defects > 0.79
+
+    Else, cooperate if they cooperated last turn. If the opponent defected, then either defect if opp has defected > 18 times or 50/50 chance.
+    Note: cooperate on first move.
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L762
+    """
+
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
-
-        """
-        First, check if opponent is overly defective and defect if found. I.e., if they meet any of the following conditions:
-        - turn > 39 and % defects > 0.39
-        - turn > 29 and % defects > 0.65
-        - turn > 19 and % defects > 0.79
-
-        Else, cooperate if they cooperated last turn. If enemy defected, then either defect if opp has defected > 18 times or 50/50 chance.
-        Note, cooperate on first move.
-        """
-
         if not history:
             return Action.COOPERATE
 
@@ -779,21 +674,20 @@ class SecondByCave(Agent):
         return Action.COOPERATE
 
 
-class SecondByGraaskampKatzen(Agent):
+class GraaskampAndKatzen(Agent):
     """
-    Strategy submitted to Axelrod's second tournament by Jim Graaskamp and Ken
-    Katzen (K60R), and came in sixth in that tournament.
-    Play Tit-for-Tat at first, and track own score.  At select checkpoints,
-    check for a high score.  Switch to Default Mode if:
+    This class implements the agent submitted by Jim Graaskamp and Ken Katzen to Axelrod's second tournament.
+
+    Play TitForTat at first and track its own score.  At select checkpoints,
+    check for a high score.  Defect forever if:
     - On move 11, score < 23
     - On move 21, score < 53
     - On move 31, score < 83
     - On move 41, score < 113
     - On move 51, score < 143
     - On move 101, score < 293
-    Once in Defect Mode, defect forever.
-    Names:
-    - GraaskampKatzen: [Axelrod1980b]_
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L859
     """
 
     def __init__(self):
@@ -845,30 +739,11 @@ class SecondByGraaskampKatzen(Agent):
         return opp_history[-1]
 
 
-class SecondByWeiner(Agent):
+class Weiner(Agent):
     """
-    Strategy submitted to Axelrod's second tournament by Herb Weiner (K41R),
-    and came in seventh in that tournament.
-    Play Tit-for-Tat with a chance for forgiveness and a defective override.
-    The chance for forgiveness happens only if `forgive_flag` is raised
-    (flag discussed below).  If raised and `turn` is greater than `grudge`,
-    then override Tit-for-Tat with Cooperation.  `grudge` is a variable that
-    starts at 0 and increments 20 with each forgiven Defect (a Defect that is
-    overriden through the forgiveness logic).  `forgive_flag` is lower whether
-    logic is overriden or not.
-    The variable `defect_padding` increments with each opponent Defect, but
-    resets to zero with each opponent Cooperate (or `forgive_flag` lowering) so
-    that it roughly counts Defects between Cooperates.  Whenever the opponent
-    Cooperates, if `defect_padding` (before reseting) is odd, then we raise
-    `forgive_flag` for next turn.
-    Finally a defective override is assessed after forgiveness.  If five or
-    more of the opponent's last twelve actions are Defects, then Defect.  This
-    will overrule a forgiveness, but doesn't undo the lowering of
-    `forgiveness_flag`.  Note that "last twelve actions" doesn't count the most
-    recent action.  Actually the original code updates history after checking
-    for defect override.
-    Names:
-    - Weiner: [Axelrod1980b]_
+    This class implements the agent submitted by Herb Weiner to Axelrod's second tournament.
+
+    This implementation was adapted from the Axelrod library: https://github.com/Axelrod-Python/Axelrod/blob/00e18323c1b1af74df873773e44f31e1b9a299c6/axelrod/strategies/axelrod_second.py#L932
     """
 
     def __init__(self):
@@ -885,33 +760,33 @@ class SecondByWeiner(Agent):
         """
 
         if np.sum(self.last_twelve) >= 5:
-            return D
+            return Action.DEFECT
         return to_return
 
     def play_move(self, history: List[Action], opp_history: List[Action]) -> Action:
         """Actual strategy definition that determines player's action."""
         if len(opp_history) == 0:
-            return C
+            return Action.COOPERATE
 
         # Update history, lag 1.
         if len(opp_history) >= 2:
             self.last_twelve[self.lt_index] = 0
-            if opp_history[-2] == D:
+            if opp_history[-2] == Action.DEFECT:
                 self.last_twelve[self.lt_index] = 1
             self.lt_index = (self.lt_index + 1) % 12
 
         if self.forgive_flag:
             self.forgive_flag = False
             self.defect_padding = 0
-            if self.grudge < len(history) + 1 and opp_history[-1] == D:
+            if self.grudge < len(history) + 1 and opp_history[-1] == Action.DEFECT:
                 # Then override
                 self.grudge += 20
-                return self.try_return(C)
+                return self.try_return(Action.COOPERATE)
             else:
                 return self.try_return(opp_history[-1])
         else:
             # See if forgive_flag should be raised
-            if opp_history[-1] == D:
+            if opp_history[-1] == Action.DEFECT:
                 self.defect_padding += 1
             else:
                 if self.defect_padding % 2 == 1:
