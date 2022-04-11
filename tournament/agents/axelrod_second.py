@@ -513,7 +513,7 @@ class White(Agent):
         return Action.COOPERATE
 
 
-class SecondByBlackK83R(Agent):
+class Black(Agent):
     """
     This class implements the agent submitted by Paul Black to Axelrod's second tournament.
 

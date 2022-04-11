@@ -22,7 +22,7 @@ from tournament.agents.axelrod_second import (
     Borufsen,
     Champion,
     Leyvraz,
-    SecondByBlackK83R,
+    Black,
     GraaskampAndKatzen,
     Harrington,
     TidemanAndChieruzzi2,
