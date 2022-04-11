@@ -9,14 +9,20 @@ from tournament.agent import TrainableAgent
 
 torch.manual_seed(42)
 
+
 class RNN(nn.Module):
     def __init__(self, lookback):
         super().__init__()
         self._flatten = nn.Flatten()
         self._num_layers = 1
         self._input_size = 2 * lookback
-        self._hidden_sz = 32         # hyperparameter we can tune.
-        self._rnn = nn.RNN(input_size=self._input_size, hidden_size=self._hidden_sz, num_layers=self._num_layers, batch_first=True)
+        self._hidden_sz = 32  # hyperparameter we can tune.
+        self._rnn = nn.RNN(
+            input_size=self._input_size,
+            hidden_size=self._hidden_sz,
+            num_layers=self._num_layers,
+            batch_first=True,
+        )
         self._fc = nn.Linear(self._hidden_sz, 2)
 
     def forward(self, x):
@@ -31,6 +37,7 @@ class RNN(nn.Module):
 
     def init_hidden(self):
         return torch.zeros(self._num_layers, 1, self._hidden_sz)
+
 
 class RNNQLearner(TrainableAgent):
     lookback = 3
@@ -138,7 +145,7 @@ class RNNQLearner(TrainableAgent):
         move = moves[0].value
         state = self._state
         self._state = torch.cat((state[1:], torch.tensor([[move, moves[1].value]])))
-        
+
         prediction = self._values[0, move]
         target = (
             rewards[0] + self._discount_rate * self._q_network(self._state)[0].max()
